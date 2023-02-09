@@ -7,8 +7,6 @@ import { useRouter } from "next/router";
 
 import NavBar from "features/navigation/NavBar";
 
-import { sessionExpiredNotification } from "components/notifications/errors";
-
 import { AppShell } from "@mantine/core";
 
 const Dashboard = () => {
@@ -16,23 +14,22 @@ const Dashboard = () => {
     const user = useAppSelector((state) => state.user.auth);
 
     useEffect(() => {
-        if (user.refreshToken === undefined) {
+        if (user.accessToken === undefined) {
             router.push('/login')
-            sessionExpiredNotification();
         }
-    }, [])
+    }, [user])
 
-    return (
+    return user.accessToken ? (
         <>
             <Head><title>WAP | Dashboard</title></Head>
             <AppShell
                 padding="md"
                 navbar={<NavBar page={"Dashboard"} />}
             >
-                <h1>{user.refreshToken}</h1>
+                <h1>{user.accessToken}</h1>
             </AppShell>
         </>
-    );
+    ) : <></>;
 }
 
 export default Dashboard;

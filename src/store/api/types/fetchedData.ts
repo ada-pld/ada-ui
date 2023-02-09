@@ -3,3 +3,10 @@ export interface User {
     accessToken: string,
     refreshToken: string, 
 }
+
+export interface UsersList {
+    id: string,
+    firstname: string,
+    lastname: string,
+    email: string,
+}

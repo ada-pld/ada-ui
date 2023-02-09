@@ -11,3 +11,12 @@ export const sessionExpiredNotification = () => {
         icon: <BiErrorCircle size={23} />,
     });
 };
+
+export const unauthorizedNotification = () => {
+    showNotification({
+        title: "Unhautorized",
+        message: "You cannot access to this ressource with your actual permissions",
+        color: "red",
+        icon: <BiErrorCircle size={23} />,
+    });
+};

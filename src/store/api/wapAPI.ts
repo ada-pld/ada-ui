@@ -17,6 +17,5 @@ export const wapAPI = createApi({
             return headers
         },
     }),
-    
     endpoints: () => ({})
 })
