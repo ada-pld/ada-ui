@@ -27,7 +27,7 @@ const LoginFields: React.FC = () => {
             dispatch(
                 login({
                     isLoggedIn: true,
-                    user: {
+                    auth: {
                         accessToken: result.data.accessToken,
                         userId: result.data.userId,
                         refreshToken: result.data.refreshToken,

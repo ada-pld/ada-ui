@@ -1,6 +1,6 @@
 export interface UserState {
     isLoggedIn: boolean;
-    user: {
+    auth: {
         userId?: string;
         accessToken?: string;
         refreshToken?: string;

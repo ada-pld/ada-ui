@@ -4,11 +4,11 @@ import { persistStore, persistReducer } from 'redux-persist';
 import userReducer from './reducers/user/userSlice'
 import { wapAPI } from './api/wapAPI'
 
-import storage from 'redux-persist/lib/storage';
+import storage from './utils/storage';
 
 const persistConfig = {
-  key: 'root',
-  storage,
+    key: 'root',
+    storage,
 };
 
 const persistedUserReducer = persistReducer(persistConfig, userReducer);
@@ -23,5 +23,8 @@ export const store = configureStore({
         serializableCheck: false
     }).concat(wapAPI.middleware),
 })
+
+export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>
 
 export const persistor = persistStore(store);

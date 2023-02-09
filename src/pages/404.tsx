@@ -1,0 +1,34 @@
+import { Title, Text, Button, Container, Group, Center } from '@mantine/core';
+
+import { notFoundStyle } from 'styles/404/NotFoundStyle';
+
+import Head from 'next/head';
+
+import Link from 'next/link';
+
+const NotFound = () => {
+    const { classes } = notFoundStyle();
+
+    return (
+        <>
+            <Head><title>WAP | Not found</title></Head>
+            <Center style={{height: "100%", width: "100%"}}>
+                <Container className={classes.root}>
+                    <div className={classes.label}>404</div>
+                    <Title className={classes.title}>Are you lost ?</Title>
+                    <Text color="dimmed" size="lg" align="center" className={classes.description}>
+                        Well chosen undead, you seem lost. What did you try to find ? <br />
+                        Go back to the nearest bonfire! Your quest isn't finished.
+                    </Text>
+                    <Group position="center">
+                        <Button variant="subtle" size="md" component={Link} href="/login">
+                            Go back to Firelink Shrine
+                        </Button>
+                    </Group>
+                </Container>
+            </Center>
+        </>
+    );
+}
+
+export default NotFound;

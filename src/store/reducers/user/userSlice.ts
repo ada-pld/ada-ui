@@ -4,7 +4,7 @@ import { UserState } from "./types/userTypes";
 
 const initialState: UserState = {
     isLoggedIn: false,
-    user: {
+    auth: {
         userId: undefined,
         accessToken: undefined,
         refreshToken: undefined,
@@ -17,13 +17,13 @@ export const userSlice = createSlice({
     reducers: {
         login: (state, action: PayloadAction<UserState>) => {
             state.isLoggedIn = true;
-            state.user = action.payload.user;
+            state.auth = action.payload.auth;
         },
         logout: (state) => {
             state.isLoggedIn = false;
-            state.user.userId = undefined;
-            state.user.accessToken = undefined;
-            state.user.refreshToken = undefined;
+            state.auth.userId = undefined;
+            state.auth.accessToken = undefined;
+            state.auth.refreshToken = undefined;
         },
     },
 })

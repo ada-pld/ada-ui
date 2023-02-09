@@ -1,38 +1,39 @@
 import { useEffect } from "react";
 
-import { useAppSelector } from "store/hooks/hooks";
-
-import Head from "next/head";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 import NavBar from "features/navigation/NavBar";
+import { AppShell } from "@mantine/core";
 
 import { sessionExpiredNotification } from "components/notifications/errors";
 
-import { AppShell } from "@mantine/core";
+import { useListUsersQuery } from "store/api/usersAPI";
 
 const Dashboard = () => {
+    const { data, error } = useListUsersQuery();
     const router = useRouter();
-    const user = useAppSelector((state) => state.user.auth);
 
     useEffect(() => {
-        if (user.refreshToken === undefined) {
+        if (data) {
             router.push('/login')
             sessionExpiredNotification();
         }
-    }, [])
+        else
+            console.log(data)
+    }, [data])
 
-    return (
+    return data ? (
         <>
-            <Head><title>WAP | Dashboard</title></Head>
+            <Head><title>WAP | Users</title></Head>
             <AppShell
                 padding="md"
-                navbar={<NavBar page={"Dashboard"} />}
+                navbar={<NavBar page={"Users"} />}
             >
-                <h1>{user.refreshToken}</h1>
+                <h1>Users</h1>
             </AppShell>
         </>
-    );
+    ): <></>;
 }
 
 export default Dashboard;
