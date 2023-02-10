@@ -12,6 +12,7 @@ import { useAppDispatch } from "store/hooks/hooks";
 import { useRouter } from 'next/router'
 
 import { login } from "store/reducers/user/userSlice";
+import { wapAPI } from "store/api/wapAPI";
 
 const LoginFields: React.FC = () => {
     const [loginQuery, result] = useUserLoginMutation();
@@ -24,6 +25,7 @@ const LoginFields: React.FC = () => {
         if (result.isError) {
             form.setErrors({email: true, password: "Invalid credentials"})
         } else if (result.data) {
+            dispatch(wapAPI.util.resetApiState());
             dispatch(
                 login({
                     isLoggedIn: true,

@@ -10,7 +10,7 @@ const LoginForm = () => {
                 <Title align="center" sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}`, fontWeight: 700 })}>
                     Welcome back on WAP
                 </Title>
-                <ColorScheme style={{marginTop: 30}} />
+                <ColorScheme position={"center"} style={{marginTop: 30}} />
                 <Paper withBorder shadow="md" p={30} mt={30} radius="md">
                     <Text align='center' size={"lg"} style={{fontWeight: "bold"}}>Login</Text>
                     <LoginFields />

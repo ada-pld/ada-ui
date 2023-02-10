@@ -7,7 +7,6 @@ export const checkError = (error: any, router: NextRouter) => {
         router.replace("/login")
         sessionExpiredNotification();
     } else if (error.status === 403) {
-        console.log(error)
         router.replace("/403")
     }
 }

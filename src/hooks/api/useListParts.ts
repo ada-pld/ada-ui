@@ -1,13 +1,13 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-import { useListUsersQuery } from "store/api/usersAPI";
+import { useListPartsQuery } from "store/api/partsAPI";
 
 import { QueryResult } from "types/query";
 import { checkError } from "./utils/checkError";
 
-export const useListUsers = () => {
-    const { data, error } = useListUsersQuery<QueryResult>();
+export const useListParts = () => {
+    const { data, error } = useListPartsQuery<QueryResult>();
     const router = useRouter();
 
     useEffect(() => {

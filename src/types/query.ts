@@ -6,4 +6,5 @@ export interface QueryResult {
         status: number;
         data: any;
     };
+    success: any;
 }

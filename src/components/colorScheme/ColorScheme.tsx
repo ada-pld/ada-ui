@@ -4,13 +4,14 @@ import { BiMoon, BiSun } from "react-icons/bi";
 
 interface Props {
     style?: React.CSSProperties;
+    position: "left" | "center" | "right";
 }
 
-const ColorScheme: React.FC<Props> = ({style}) => {
+const ColorScheme: React.FC<Props> = ({position, style}) => {
     const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
     return (
-        <Group position="center" my="xl" style={{...style}}>
+        <Group position={position} style={{...style}}>
             <SegmentedControl
                 value={colorScheme}
                 onChange={(value: 'light' | 'dark') => toggleColorScheme(value)}

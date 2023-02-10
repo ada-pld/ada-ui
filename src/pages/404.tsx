@@ -1,6 +1,6 @@
 import { Title, Text, Button, Container, Group, Center } from '@mantine/core';
 
-import { notFoundStyle } from 'styles/404/NotFoundStyle';
+import { notFoundStyle } from 'styles/error/NotFoundStyle';
 
 import Head from 'next/head';
 

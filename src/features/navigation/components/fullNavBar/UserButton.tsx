@@ -1,14 +1,14 @@
 import { Group, Text } from '@mantine/core';
 
-import style from "../styles/userButton.module.css";
+import style from "../../styles/userButton.module.css";
 
 import LittleColorScheme from 'components/littleColorScheme/LittleColorScheme';
 
 interface Props {
-    image?: string;
     name: string;
     email: string;
 }
+
 const UserButton: React.FC<Props> = ({ name, email }) => {
     return (
         <>
