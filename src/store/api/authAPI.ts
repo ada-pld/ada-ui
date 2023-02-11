@@ -16,6 +16,7 @@ const authApi = wapAPI.injectEndpoints({
             }),
         }),
     }),
+    overrideExisting: true,
 });
   
 export const { useUserLoginMutation } = authApi;

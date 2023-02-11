@@ -4,7 +4,7 @@ import { Divider } from "@mantine/core";
 
 import { useStyles } from "../../styles/fullNavBarStyle";
 
-import { userTabs, adminTabs } from "features/navigation/utils/links";
+import { userTabs, adminTabs } from "features/global/navigation/utils/links";
 
 interface Props {
     active: string;

@@ -3,8 +3,17 @@ import { useEffect } from "react";
 
 import { useListUsersQuery } from "store/api/usersAPI";
 
-import { QueryResult } from "types/query";
+import { UsersList } from "store/api/types/fetchedData";
 import { checkError } from "./utils/checkError";
+
+export interface QueryResult {
+    data: UsersList[];
+    error?: {
+        status: number;
+        data: any;
+    };
+    success: any;
+}
 
 export const useListUsers = () => {
     const { data, error } = useListUsersQuery<QueryResult>();

@@ -1,3 +1,5 @@
+import { Cards } from "types/apiTypes";
+
 export interface User {
     userId: string;
     accessToken: string;
@@ -15,4 +17,5 @@ export interface UsersList {
 export interface PartsList {
     id: string;
     name: string;
+    cards: Cards[];
 }

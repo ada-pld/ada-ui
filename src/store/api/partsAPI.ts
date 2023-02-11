@@ -6,11 +6,12 @@ const partsApi = wapAPI.injectEndpoints({
     endpoints: (build) => ({
         listParts: build.query<PartsList[], void>({
             query: () => ({
-                url: "parts/list",
+                url: "part/list",
                 method: 'GET',
             }),
         }),
     }),
+    overrideExisting: true,
 });
   
 export const { useListPartsQuery } = partsApi;

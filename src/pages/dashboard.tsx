@@ -5,7 +5,7 @@ import { useAppSelector } from "store/hooks/hooks";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import NavBar from "features/navigation/NavBar";
+import NavBar from "features/global/navigation/NavBar";
 
 import { AppShell } from "@mantine/core";
 

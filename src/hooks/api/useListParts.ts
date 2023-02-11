@@ -3,8 +3,17 @@ import { useEffect } from "react";
 
 import { useListPartsQuery } from "store/api/partsAPI";
 
-import { QueryResult } from "types/query";
+import { PartsList } from "store/api/types/fetchedData";
 import { checkError } from "./utils/checkError";
+
+export interface QueryResult {
+    data: PartsList[];
+    error?: {
+        status: number;
+        data: any;
+    };
+    success: any;
+}
 
 export const useListParts = () => {
     const { data, error } = useListPartsQuery<QueryResult>();
