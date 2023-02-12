@@ -1,4 +1,4 @@
-import { sessionExpiredNotification, unauthorizedNotification } from "components/notifications/errors"
+import { sessionExpiredNotification } from "components/notifications/errors"
 
 import { NextRouter } from "next/router"
 

@@ -48,3 +48,12 @@ export const emailErrorNotification = () => {
         icon: <AiOutlineExclamation size={24} />,
     });
 };
+
+export const partErrorNotification = () => {
+    showNotification({
+        title: "Unable to create part",
+        message: "Part name already in use",
+        color: "red",
+        icon: <AiOutlineExclamation size={24} />,
+    });
+};

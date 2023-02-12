@@ -8,9 +8,10 @@ import { useState } from 'react';
 
 interface Props {
     users: UsersList[];
+    refetch: any;
 }
 
-const UsersTable: React.FC<Props> = ({ users }) => {
+const UsersTable: React.FC<Props> = ({ users, refetch }) => {
     const [opened, setOpened] = useState(false);
     const [selectedUser, setSelectedUser] = useState<UsersList | null>(null);
 
@@ -35,7 +36,7 @@ const UsersTable: React.FC<Props> = ({ users }) => {
     
     return (
         <>
-            {selectedUser && <EditUser user={selectedUser} setSelectedUser={setSelectedUser} opened={opened} setOpened={setOpened} />}
+            {selectedUser && <EditUser user={selectedUser} setSelectedUser={setSelectedUser} opened={opened} setOpened={setOpened} refetch={refetch} />}
             <Table striped highlightOnHover withBorder withColumnBorders verticalSpacing="xs">
                 <thead>
                     <tr>

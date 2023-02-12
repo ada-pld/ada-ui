@@ -13,13 +13,13 @@ import AddUser from "features/home/listUsers/addUser/AddUser";
 import { AiOutlineUserAdd } from "react-icons/ai";
 
 const Users = () => {
-    const { data } = useListUsers();
+    const { data, refetch } = useListUsers();
     const [opened, setOpened] = useState(false);
 
     return (
         <>
             <Head><title>WAP | Users</title></Head>
-            <AddUser opened={opened} setOpened={setOpened} />
+            <AddUser opened={opened} setOpened={setOpened} refetch={refetch} />
             <AppShell
                 padding="md"
                 navbar={<NavBar page={"Users"} />}
@@ -27,9 +27,9 @@ const Users = () => {
                 { data &&
                     <Group>
                         <h1 style={{paddingBottom: 20}}>Users</h1>
-                        <UsersTable users={data} />
+                        <UsersTable users={data} refetch={refetch} />
                         <Group position="center" style={{width: "100%", minWidth: 400}}>
-                            <Button w={"30%"} mt={40} miw={250} leftIcon={<AiOutlineUserAdd size={20} />} variant="outline" onClick={() => setOpened(true)}>
+                            <Button w={"30%"} mt={20} miw={250} leftIcon={<AiOutlineUserAdd size={20} />} variant="outline" onClick={() => setOpened(true)}>
                                 Add a user
                             </Button>
                         </Group>

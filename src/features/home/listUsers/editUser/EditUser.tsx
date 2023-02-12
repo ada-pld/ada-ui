@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-import { Modal, useMantineTheme, TextInput, Container, NativeSelect, PasswordInput, Button, Group } from "@mantine/core";
+import { Modal, useMantineTheme, TextInput, Container, NativeSelect, PasswordInput, Button, Group, Switch } from "@mantine/core";
 
 import { editUserForm } from "./utils/editUserForm";
 
@@ -18,13 +18,17 @@ interface Props {
     setOpened: React.Dispatch<React.SetStateAction<boolean>>;
     user: UsersList | null;
     setSelectedUser: React.Dispatch<React.SetStateAction<UsersList | null>>;
+    refetch: any;
 }
 
-const EditUser: React.FC<Props> = ({opened, setOpened, user, setSelectedUser}) => {
+const EditUser: React.FC<Props> = ({opened, setOpened, user, setSelectedUser, refetch}) => {
+    const [editPassword, setEditPassword] = useState<boolean>(false);
+
     const [editUser, editResult] = useEditUserMutation<any>();
     const [forgotPassword, forgotResult] = useForgotPasswordMutation<any>();
+
     const roleFirstUpper = user!.role[0].toUpperCase() + user!.role.slice(1).toLowerCase();
-    const form = editUserForm({firstname: user!.firstname, lastname: user!.lastname, email: user!.email, role: roleFirstUpper});
+    const form = editUserForm({firstname: user!.firstname, lastname: user!.lastname, email: user!.email, role: roleFirstUpper, editPassword: editPassword});
     
     const theme = useMantineTheme();
 
@@ -38,6 +42,7 @@ const EditUser: React.FC<Props> = ({opened, setOpened, user, setSelectedUser}) =
         } else if (editResult.isSuccess) {
             userModifiedNotification();
             setSelectedUser(null);
+            refetch();
         }
     }, [editResult])
 
@@ -72,7 +77,8 @@ const EditUser: React.FC<Props> = ({opened, setOpened, user, setSelectedUser}) =
                         <TextInput required label="Last name" mt={20} {...form.getInputProps('lastname', { type: 'input' })} />
                     </Group>
                     <TextInput required label="Email" mt={20} {...form.getInputProps('email', { type: 'input' })} />
-                    <PasswordInput required label="Password" mt={20} {...form.getInputProps('password', { type: 'input' })} />
+                    <PasswordInput disabled={!editPassword} label="Password" mt={20} {...form.getInputProps('password', { type: 'input' })} />
+                    <Switch mt={10} label="Edit user password" size="xs" color="violet" checked={editPassword} onChange={(event) => {setEditPassword(event.currentTarget.checked); form.values.password = ""}} />
                     <NativeSelect
                         data={['User', 'Maintener', 'Editor', 'Admin']}
                         label="Role"
@@ -82,7 +88,7 @@ const EditUser: React.FC<Props> = ({opened, setOpened, user, setSelectedUser}) =
                         {...form.getInputProps('role', { type: 'input' })}
                     />
                     <Group position="center" mt={30} grow>
-                        <Button color={"green"} leftIcon={<IoSaveOutline size={20} />} miw={240} variant="outline" type="submit">
+                        <Button color={"violet"} leftIcon={<IoSaveOutline size={20} />} miw={240} variant="outline" type="submit">
                             Save
                         </Button>
                         <Button color={"red"} leftIcon={<CiWarning size={24} />} miw={240} variant="outline" onClick={() => forgotPassword(user!.email)}>

@@ -3,20 +3,10 @@ import { useEffect } from "react";
 
 import { useListPartsQuery } from "store/api/partsAPI";
 
-import { PartsList } from "store/api/types/fetchedData";
 import { checkError } from "./utils/checkError";
 
-export interface QueryResult {
-    data: PartsList[];
-    error?: {
-        status: number;
-        data: any;
-    };
-    success: any;
-}
-
 export const useListParts = () => {
-    const { data, error } = useListPartsQuery<QueryResult>();
+    const { data, error, refetch } = useListPartsQuery();
     const router = useRouter();
 
     useEffect(() => {
@@ -24,5 +14,5 @@ export const useListParts = () => {
             checkError(error, router);
     }, [data, error])
 
-    return { data, error };
+    return { data, error, refetch };
 };

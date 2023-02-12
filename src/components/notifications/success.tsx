@@ -30,3 +30,12 @@ export const forgotPasswordNotification = () => {
         icon: <BsCheck2 size={18} />,
     });
 };
+
+export const partCreatedNotification = () => {
+    showNotification({
+        title: "Part created",
+        message: "A new part has been added to WAP",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};

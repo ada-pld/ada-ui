@@ -6,7 +6,6 @@ export const useStyles = createStyles((theme, _params, getRef) => {
     return {
         navbar: {
             backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
-            height: "100%"
         },
 
         title: {

@@ -10,8 +10,17 @@ const partsApi = wapAPI.injectEndpoints({
                 method: 'GET',
             }),
         }),
+        createPart: build.mutation<void, string>({
+            query: (name) => ({
+                url: "part/create",
+                method: 'POST',
+                body: {
+                    name: name
+                }
+            }),
+        }),
     }),
     overrideExisting: true,
 });
   
-export const { useListPartsQuery } = partsApi;
+export const { useListPartsQuery, useCreatePartMutation } = partsApi;

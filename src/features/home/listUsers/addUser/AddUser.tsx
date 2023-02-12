@@ -14,9 +14,10 @@ import { userCreatedNotification } from "components/notifications/success";
 interface Props {
     opened: boolean;
     setOpened: React.Dispatch<React.SetStateAction<boolean>>;
+    refetch: any;
 }
 
-const AddUser: React.FC<Props> = ({opened, setOpened}) => {
+const AddUser: React.FC<Props> = ({opened, setOpened, refetch}) => {
     const [createUser, result] = useCreateUserMutation<any>();
     const theme = useMantineTheme();
     const form = addUserForm();
@@ -29,6 +30,7 @@ const AddUser: React.FC<Props> = ({opened, setOpened}) => {
         } else if (result.isSuccess) {
             userCreatedNotification();
             setOpened(false);
+            refetch();
         }
     }, [result])
 
@@ -61,7 +63,7 @@ const AddUser: React.FC<Props> = ({opened, setOpened}) => {
                     />
                     <Group position="center" mt={30}>
                         <Text size={14} fs="italic" mt={5}>A mail will be sent to the user with his credentials</Text>
-                        <Button fullWidth maw={400} color={"green"} leftIcon={<AiOutlineUserAdd size={20} />} variant="outline" type="submit">
+                        <Button fullWidth maw={400} color={"violet"} leftIcon={<AiOutlineUserAdd size={20} />} variant="outline" type="submit">
                             Add user
                         </Button>
                     </Group>

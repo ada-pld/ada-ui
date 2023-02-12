@@ -1,6 +1,6 @@
 import { Navbar, Center, Tooltip, UnstyledButton, createStyles, Stack, Divider, ScrollArea } from '@mantine/core';
 
-import { userTabs, adminTabs } from './utils/links';
+import { userTabs, editorTabs, adminTabs } from './utils/links';
 
 import { SlLogout } from "react-icons/sl";
 import { IconType } from 'react-icons';
@@ -65,6 +65,15 @@ const ResponsiveNavBar: React.FC<Props> = ({page}) => {
         />
     ));
 
+    const editorNav = editorTabs.map((link, index) => (
+        <NavbarLink
+            {...link}
+            key={link.label}
+            active={link.label === page}
+            onClick={() => router.push(link.link)}
+        />
+    ));
+
     const adminNav = adminTabs.map((link, index) => (
         <NavbarLink
             {...link}
@@ -83,7 +92,7 @@ const ResponsiveNavBar: React.FC<Props> = ({page}) => {
             <Stack spacing={5} align="center">
                 {userNav}
                 <Divider mt={5} mb={5} />
-                {adminNav}
+                {editorNav}
             </Stack>
         </Navbar.Section>
         <Navbar.Section>
