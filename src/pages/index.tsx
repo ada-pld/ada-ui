@@ -1,7 +1,13 @@
-export function Login() {
-    return (
-        <h1>Welcome to WAP</h1>
-    );
+import { useEffect } from 'react';
+
+import { useRouter } from 'next/router';
+
+const Index = () => {
+    const router = useRouter()
+
+    useEffect(() => {
+        router.push('/login')
+    }, [])
 }
 
-export default Login;
+export default Index
