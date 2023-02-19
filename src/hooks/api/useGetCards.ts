@@ -2,12 +2,15 @@ import { useEffect } from "react";
 
 import { useRouter } from "next/router";
 
-import { useListUsersQuery } from "store/api/usersAPI";
+import { useGetCardsQuery } from "store/api/cardAPI";
 
 import { checkError } from "./utils/checkError";
+import { useAppSelector } from "store/hooks/hooks";
 
-export const useListUsers = () => {
-    const { data, error, refetch } = useListUsersQuery();
+export const useGetCards = () => {
+    const userId = useAppSelector((state) => state.user.auth.userId);
+    const { data, error, refetch } = useGetCardsQuery(userId!);
+
     const router = useRouter();
 
     useEffect(() => {

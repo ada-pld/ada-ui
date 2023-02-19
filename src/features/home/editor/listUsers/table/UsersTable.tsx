@@ -1,10 +1,13 @@
+import { useState } from 'react';
 import { ActionIcon, Table, Group } from '@mantine/core';
 
 import { UsersList } from 'store/api/types/fetchedData';
 
 import { TbEdit } from 'react-icons/tb';
 import EditUser from '../editUser/EditUser';
-import { useState } from 'react';
+
+import UserRole from './components/UserRole';
+import UserEmail from './components/UserEmail';
 
 interface Props {
     users: UsersList[];
@@ -19,8 +22,8 @@ const UsersTable: React.FC<Props> = ({ users, refetch }) => {
         <tr key={index}>
             <td>{user.firstname}</td>
             <td>{user.lastname}</td>
-            <td>{user.email}</td>
-            <td>{user.role}</td>
+            <td><UserEmail email={user.email} /></td>
+            <td><UserRole role={user.role} /></td>
             <td>
                 <Group position='center'>
                     <ActionIcon color="violet" size="md" variant="light">
@@ -37,7 +40,7 @@ const UsersTable: React.FC<Props> = ({ users, refetch }) => {
     return (
         <>
             {selectedUser && <EditUser user={selectedUser} setSelectedUser={setSelectedUser} opened={opened} setOpened={setOpened} refetch={refetch} />}
-            <Table striped highlightOnHover withBorder withColumnBorders verticalSpacing="xs">
+            <Table highlightOnHover striped verticalSpacing="xs">
                 <thead>
                     <tr>
                         <th>First name</th>

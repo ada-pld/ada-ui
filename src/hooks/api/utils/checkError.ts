@@ -1,6 +1,6 @@
-import { sessionExpiredNotification } from "components/notifications/errors"
+import { sessionExpiredNotification } from "components/notifications/errors";
 
-import { NextRouter } from "next/router"
+import { NextRouter } from "next/router";
 
 export const checkError = (error: any, router: NextRouter) => {
     if (error.status === 401) {

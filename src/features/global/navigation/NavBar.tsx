@@ -1,15 +1,24 @@
 import FullNavBar from './FullNavBar';
 
-interface Props {
-    page: string;
-}
+import { useRouter } from 'next/router';
 
-const NavBar: React.FC<Props> = ({page}) => {
-    return (
+import { useGetUserInfos } from 'hooks/api/useGetUserInfos';
+
+import { useViewportSize } from '@mantine/hooks';
+import ResponsiveNavBar from './ResponsiveNavBar';
+
+const NavBar: React.FC = () => {
+    const { pathname } = useRouter();
+    const { width } = useViewportSize();
+
+    return pathname.includes("home") ? (
         <>
-            <FullNavBar page={page} />
+            {width >= 800
+                ? <FullNavBar page={pathname} />
+                : <ResponsiveNavBar page={pathname} />
+            }
         </>
-    );
+    ) : <></>;
 }
 
 export default NavBar;

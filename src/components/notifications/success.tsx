@@ -39,3 +39,21 @@ export const partCreatedNotification = () => {
         icon: <BsCheck2 size={18} />,
     });
 };
+
+export const cacheRefreshedNotification = () => {
+    showNotification({
+        title: "API cache refreshed",
+        message: "API cache refresh with success !",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
+
+export const configNotification = () => {
+    showNotification({
+        title: "Config edited",
+        message: "New config has been saved !",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};

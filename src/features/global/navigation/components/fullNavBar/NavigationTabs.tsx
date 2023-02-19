@@ -15,7 +15,7 @@ const Navigationtabs: React.FC<Props> = ({active}) => {
 
     const userNav = userTabs.map((item) => (
         <Link
-            className={cx(classes.link, { [classes.linkActive]: item.label === active })}
+            className={cx(classes.link, { [classes.linkActive]: item.link === active })}
             href={item.link}
             key={item.label}
         >
@@ -26,7 +26,7 @@ const Navigationtabs: React.FC<Props> = ({active}) => {
 
     const editorNav = editorTabs.map((item) => (
         <Link
-            className={cx(classes.link, { [classes.linkActive]: item.label === active })}
+            className={cx(classes.link, { [classes.linkActive]: item.link === active })}
             href={item.link}
             key={item.label}
         >
@@ -37,7 +37,7 @@ const Navigationtabs: React.FC<Props> = ({active}) => {
 
     const adminNav = adminTabs.map((item) => (
         <Link
-            className={cx(classes.link, { [classes.linkActive]: item.label === active })}
+            className={cx(classes.link, { [classes.linkActive]: item.link === active })}
             href={item.link}
             key={item.label}
         >

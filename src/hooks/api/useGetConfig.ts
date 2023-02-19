@@ -2,12 +2,12 @@ import { useEffect } from "react";
 
 import { useRouter } from "next/router";
 
-import { useListUsersQuery } from "store/api/usersAPI";
+import { useGetConfigQuery } from "store/api/configAPI";
 
 import { checkError } from "./utils/checkError";
 
-export const useListUsers = () => {
-    const { data, error, refetch } = useListUsersQuery();
+export const useGetConfig = () => {
+    const { data, error, refetch } = useGetConfigQuery();
     const router = useRouter();
 
     useEffect(() => {

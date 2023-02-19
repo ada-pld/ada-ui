@@ -1,8 +1,8 @@
 import "styles/global/global.css";
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-import { getCookie, setCookie, CookieValueTypes } from 'cookies-next';
+import { getCookie, setCookie } from 'cookies-next';
 
 import NextNProgress from 'nextjs-progressbar';
 
@@ -15,7 +15,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import { NotificationsProvider } from '@mantine/notifications';
 
-import { MantineProvider, ColorSchemeProvider, ColorScheme } from '@mantine/core';
+import { MantineProvider, ColorSchemeProvider, ColorScheme, AppShell } from '@mantine/core';
+import NavBar from "features/global/navigation/NavBar";
 
 const App = (props: AppProps & { colorScheme: ColorScheme }) => {
     const { Component, pageProps } = props;
@@ -38,7 +39,12 @@ const App = (props: AppProps & { colorScheme: ColorScheme }) => {
                             theme={{ colorScheme, primaryColor: "violet" }}
                         >
                             <NextNProgress color='#9775FA' height={3} showOnShallow={true} options={{ easing: 'ease', speed: 400, showSpinner: false }} />
-                            <Component {...pageProps} />
+                            <AppShell
+                                padding="md"
+                                navbar={<NavBar />}
+                            >
+                                <Component {...pageProps} />
+                            </AppShell>
                         </MantineProvider>
                     </NotificationsProvider>
                 </ColorSchemeProvider>

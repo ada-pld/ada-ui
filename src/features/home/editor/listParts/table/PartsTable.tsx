@@ -17,7 +17,7 @@ const PartsTable: React.FC<Props> = ({ parts }) => {
     ));
     
     return (
-        <Table striped highlightOnHover withBorder withColumnBorders verticalSpacing="xs">
+        <Table highlightOnHover striped verticalSpacing="xs">
             <thead>
                 <tr>
                     <th>id</th>

@@ -24,14 +24,14 @@ const useStyles = createStyles((theme) => ({
         color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[6],
 
         '&:hover': {
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[0],
+            backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[0],
         },
     },
 
     active: {
         '&, &:hover': {
-        backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
-        color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
+            backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
+            color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
         },
     },
 }));
@@ -59,8 +59,8 @@ const ResponsiveNavBar: React.FC<Props> = ({page}) => {
     const userNav = userTabs.map((link, index) => (
         <NavbarLink
             {...link}
-            key={link.label}
-            active={link.label === page}
+            key={link.link}
+            active={link.link === page}
             onClick={() => router.push(link.link)}
         />
     ));
@@ -68,8 +68,8 @@ const ResponsiveNavBar: React.FC<Props> = ({page}) => {
     const editorNav = editorTabs.map((link, index) => (
         <NavbarLink
             {...link}
-            key={link.label}
-            active={link.label === page}
+            key={link.link}
+            active={link.link === page}
             onClick={() => router.push(link.link)}
         />
     ));
@@ -77,8 +77,8 @@ const ResponsiveNavBar: React.FC<Props> = ({page}) => {
     const adminNav = adminTabs.map((link, index) => (
         <NavbarLink
             {...link}
-            key={link.label}
-            active={link.label === page}
+            key={link.link}
+            active={link.link === page}
             onClick={() => router.push(link.link)}
         />
     ));
@@ -93,6 +93,8 @@ const ResponsiveNavBar: React.FC<Props> = ({page}) => {
                 {userNav}
                 <Divider mt={5} mb={5} />
                 {editorNav}
+                <Divider mt={5} mb={5} />
+                {adminNav}
             </Stack>
         </Navbar.Section>
         <Navbar.Section>
