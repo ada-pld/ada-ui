@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const wapAPI = createApi({
     reducerPath: 'wapAPI',
-    keepUnusedDataFor: 0,
+    keepUnusedDataFor: 1,
     baseQuery: fetchBaseQuery({
         baseUrl: process.env.BASE_URL,
         prepareHeaders: (headers, { getState }) => {

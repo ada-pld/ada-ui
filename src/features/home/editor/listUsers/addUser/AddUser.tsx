@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { Modal, useMantineTheme, TextInput, Container, NativeSelect, Text, Button, Group } from "@mantine/core";
+import { Modal, useMantineTheme, TextInput, Container, Select, Text, Button, Group } from "@mantine/core";
 
 import { AiOutlineUserAdd } from "react-icons/ai";
 
@@ -53,7 +53,10 @@ const AddUser: React.FC<Props> = ({opened, setOpened, refetch}) => {
                         <TextInput required label="Last name" placeholder="Dubois" mt={20} {...form.getInputProps('lastname', { type: 'input' })} />
                     </Group>
                     <TextInput required label="Email" placeholder="example@example.fr" mt={20} {...form.getInputProps('email', { type: 'input' })} />
-                    <NativeSelect
+                    <Select
+                        searchable
+                        clearable
+                        required
                         data={['User', 'Maintener', 'Editor', 'Admin']}
                         label="Role"
                         radius={"sm"}

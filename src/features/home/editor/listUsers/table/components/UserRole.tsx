@@ -6,7 +6,7 @@ interface Props {
 
 const roleColors: Record<string, string> = {
     user: "violet",
-    maintener: "teal",
+    maintener: "violet",
     editor: "yellow",
     admin: "red",
 };

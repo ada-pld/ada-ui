@@ -2,8 +2,6 @@ import FullNavBar from './FullNavBar';
 
 import { useRouter } from 'next/router';
 
-import { useGetUserInfos } from 'hooks/api/useGetUserInfos';
-
 import { useViewportSize } from '@mantine/hooks';
 import ResponsiveNavBar from './ResponsiveNavBar';
 

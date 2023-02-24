@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Modal, useMantineTheme, TextInput, Container, NativeSelect, PasswordInput, Button, Group, Switch } from "@mantine/core";
+import { Modal, useMantineTheme, TextInput, Container, Select, PasswordInput, Button, Group, Switch } from "@mantine/core";
 
 import { editUserForm } from "./utils/editUserForm";
 
@@ -79,7 +79,10 @@ const EditUser: React.FC<Props> = ({opened, setOpened, user, setSelectedUser, re
                     <TextInput required label="Email" mt={20} {...form.getInputProps('email', { type: 'input' })} />
                     <PasswordInput disabled={!editPassword} label="Password" mt={20} {...form.getInputProps('password', { type: 'input' })} />
                     <Switch mt={10} label="Edit user password" size="xs" color="violet" checked={editPassword} onChange={(event) => {setEditPassword(event.currentTarget.checked); form.values.password = ""}} />
-                    <NativeSelect
+                    <Select
+                        searchable
+                        clearable
+                        required
                         data={['User', 'Maintener', 'Editor', 'Admin']}
                         label="Role"
                         radius={"sm"}
@@ -88,7 +91,7 @@ const EditUser: React.FC<Props> = ({opened, setOpened, user, setSelectedUser, re
                         {...form.getInputProps('role', { type: 'input' })}
                     />
                     <Group position="center" mt={30} grow>
-                        <Button color={"violet"} leftIcon={<IoSaveOutline size={20} />} miw={240} variant="outline" type="submit">
+                        <Button disabled={!form.isDirty()} color={"violet"} leftIcon={<IoSaveOutline size={20} />} miw={240} variant="outline" type="submit">
                             Save
                         </Button>
                         <Button color={"red"} leftIcon={<CiWarning size={24} />} miw={240} variant="outline" onClick={() => forgotPassword(user!.email)}>

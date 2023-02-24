@@ -8,5 +8,9 @@ export const checkError = (error: any, router: NextRouter) => {
         sessionExpiredNotification();
     } else if (error.status === 403) {
         router.replace("/403")
+    } else if (error.status === 500) {
+        router.replace("/500")
+    } else if (error.status === "FETCH_ERROR") {
+        router.replace("/502")
     }
 }

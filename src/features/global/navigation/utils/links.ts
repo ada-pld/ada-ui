@@ -4,6 +4,7 @@ import { MdOutlineCallToAction } from "react-icons/md";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { HiOutlineCog6Tooth } from "react-icons/hi2"
 import { FiUsers } from "react-icons/fi";
+import { BsCardChecklist } from "react-icons/bs"
 
 export const userTabs = [
     { link: '/home', label: 'Dashboard', icon: AiOutlineDashboard },
@@ -13,6 +14,7 @@ export const userTabs = [
 ];
 
 export const editorTabs = [
+    { link: '/home/editor/cards', label: 'Cards', icon: BsCardChecklist },
     { link: '/home/editor/parts', label: 'Parts', icon: RxComponent2 },
     { link: '/home/editor/users', label: 'Users', icon: FiUsers },
     { link: '/home/editor/pld', label: 'PLD', icon: HiOutlineDocumentText },

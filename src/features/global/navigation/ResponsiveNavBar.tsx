@@ -84,28 +84,28 @@ const ResponsiveNavBar: React.FC<Props> = ({page}) => {
     ));
 
     return (
-        <Navbar width={{ base: 80 }} p="md">
-        <Center>
-            <h1>W</h1>
-        </Center>
-        <Navbar.Section grow mt={"md"} component={ScrollArea} pb={10}>
-            <Stack spacing={5} align="center">
-                {userNav}
-                <Divider mt={5} mb={5} />
-                {editorNav}
-                <Divider mt={5} mb={5} />
-                {adminNav}
-            </Stack>
-        </Navbar.Section>
-        <Navbar.Section>
-            <Stack justify="center" spacing={10}>
-                <Divider />
-                <Center mt={10}>
-                    <LittleColorScheme />
-                </Center>
-                <NavbarLink icon={SlLogout} label="Logout" />
-            </Stack>
-        </Navbar.Section>
+        <Navbar width={{ base: 80 }} p="md" height={"100%"}>
+            <Center>
+                <h1>W</h1>
+            </Center>
+            <Navbar.Section grow mt={"md"} component={ScrollArea} pb={10}>
+                <Stack spacing={5} align="center">
+                    {userNav}
+                    <Divider mt={5} mb={5} />
+                    {editorNav}
+                    <Divider mt={5} mb={5} />
+                    {adminNav}
+                </Stack>
+            </Navbar.Section>
+            <Navbar.Section>
+                <Stack justify="center" spacing={10}>
+                    <Divider />
+                    <Center mt={10}>
+                        <LittleColorScheme />
+                    </Center>
+                    <NavbarLink icon={SlLogout} label="Logout" />
+                </Stack>
+            </Navbar.Section>
         </Navbar>
     );
 }

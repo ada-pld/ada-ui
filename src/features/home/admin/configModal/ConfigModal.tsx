@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Modal, useMantineTheme, Container, Group, TextInput, Button, PasswordInput, Switch } from "@mantine/core";
+import { Modal, useMantineTheme, Container, Group, TextInput, Button, PasswordInput, Switch, Title } from "@mantine/core";
 
 import { IoSaveOutline } from "react-icons/io5";
 
@@ -65,12 +65,13 @@ const ConfigModal: React.FC<Props> = ({opened, setOpened, actualConfig, refetch}
             opened={opened}
             onClose={() => (setOpened(false), form.reset())}
             size={"80%"}
-            title="Edit user"
+            title={<Title size={"h3"}>WAP Config</Title>}
             overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2]}
             overlayOpacity={0.55}
             overlayBlur={3}
             radius={10}
             transitionDuration={0}
+            overflow="inside"
         >
             <Container style={{width: "90%"}} mt={-20} p={20}>
                 <form onSubmit={form.onSubmit((values) => editConfig(values))}>
@@ -78,18 +79,18 @@ const ConfigModal: React.FC<Props> = ({opened, setOpened, actualConfig, refetch}
                         return (
                             <div key={config.id}>
                                 {config.name === "SMTP_PASSWORD" || config.name === "DEFAULT_PASSWORD"
-                                    ? <PasswordInput description={inputDescription[config.name]} label={inputLabel[config.name]} mt={20} {...form.getInputProps(config.name, { type: 'input' })} />
+                                    ? <PasswordInput description={inputDescription[config.name]} label={inputLabel[config.name]} mt={10} {...form.getInputProps(config.name, { type: 'input' })} />
                                     : config.name === "USING_CUSTOM_GENERATOR"
                                     ? <></>
                                     : config.name === "UNDER_MAINTENANCE"
                                     ? <Switch checked={checked} color="red" description={inputDescription[config.name]} label={inputLabel[config.name]} mt={30} size={"md"} onLabel="ON" offLabel="OFF" onChange={(event) => setChecked(event.currentTarget.checked)} />
-                                    : <TextInput required description={inputDescription[config.name]} label={inputLabel[config.name]} mt={20} {...form.getInputProps(config.name, { type: 'input' })} />
+                                    : <TextInput required description={inputDescription[config.name]} label={inputLabel[config.name]} mt={10} {...form.getInputProps(config.name, { type: 'input' })} />
                                 }
                             </div>
                         );
                     })}
                     <Group position="center" mt={30} grow>
-                        <Button color={"violet"} leftIcon={<IoSaveOutline size={20} />} miw={240} maw={400} variant="outline" type="submit">
+                        <Button disabled={!form.isDirty()} color={"violet"} leftIcon={<IoSaveOutline size={20} />} miw={240} maw={400} variant="outline" type="submit">
                             Save
                         </Button>
                     </Group>

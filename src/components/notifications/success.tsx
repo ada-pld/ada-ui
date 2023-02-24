@@ -57,3 +57,30 @@ export const configNotification = () => {
         icon: <BsCheck2 size={18} />,
     });
 };
+
+export const createdCardNotification = () => {
+    showNotification({
+        title: "Card created",
+        message: "Card successfully added to your collection !",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
+
+export const editCardNotification = () => {
+    showNotification({
+        title: "Card edited",
+        message: "Card successfully edited !",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
+
+export const deleteCardNotification = () => {
+    showNotification({
+        title: "Card deleted",
+        message: "Card successfully deleted from your collection",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};

@@ -15,6 +15,8 @@ import { useStyles } from './styles/fullNavBarStyle';
 
 import { useGetUserInfos } from 'hooks/api/useGetUserInfos';
 
+import CustomLoader from 'components/loader/CustomLoader';
+
 interface Props {
     page: string;
 }
