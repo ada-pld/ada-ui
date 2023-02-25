@@ -1,3 +1,18 @@
+export interface CardsStats {
+    JHDones: number;
+    JHInProgress: number;
+    JHIntended: number;
+    JHMissing: number;
+    JHNotAccepted: number;
+    JHNotStarted: number;
+    cards: Card[]
+    email: string;
+    firstname: string;
+    lastname: string;
+    id: string;
+    role: string;
+}
+
 export interface Card {
     id: number;
     idInSprint: number;

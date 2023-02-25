@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { Modal, useMantineTheme, TextInput, Container, Select, Text, Button, Group } from "@mantine/core";
+import { Modal, useMantineTheme, TextInput, Container, Select, Text, Button, Group, Title } from "@mantine/core";
 
 import { AiOutlineUserAdd } from "react-icons/ai";
 
@@ -40,7 +40,7 @@ const AddUser: React.FC<Props> = ({opened, setOpened, refetch}) => {
             opened={opened}
             onClose={() => (setOpened(false), form.reset())}
             size={"xl"}
-            title="Add a user"
+            title={<Title size={"h5"}>Add a user</Title>}
             overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2]}
             overlayOpacity={0.55}
             overlayBlur={3}

@@ -11,6 +11,7 @@ import LittleColorScheme from 'components/littleColorScheme/LittleColorScheme';
 
 interface Props {
     page: string;
+    userRole: string;
 }
 
 const useStyles = createStyles((theme) => ({
@@ -54,7 +55,7 @@ function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
     );
 }
 
-const ResponsiveNavBar: React.FC<Props> = ({page}) => {
+const ResponsiveNavBar: React.FC<Props> = ({page, userRole}) => {
     const router = useRouter();
     const userNav = userTabs.map((link, index) => (
         <NavbarLink
@@ -91,10 +92,18 @@ const ResponsiveNavBar: React.FC<Props> = ({page}) => {
             <Navbar.Section grow mt={"md"} component={ScrollArea} pb={10}>
                 <Stack spacing={5} align="center">
                     {userNav}
-                    <Divider mt={5} mb={5} />
-                    {editorNav}
-                    <Divider mt={5} mb={5} />
-                    {adminNav}
+                    <Divider mt={10} mb={10} />
+                    {(userRole === "2" || userRole === "3") &&
+                        <>
+                            {editorNav}
+                            <Divider mt={10} mb={10} />
+                        </>
+                    }
+                    {userRole === "3" &&
+                        <>
+                            {adminNav}
+                        </>
+                    }
                 </Stack>
             </Navbar.Section>
             <Navbar.Section>

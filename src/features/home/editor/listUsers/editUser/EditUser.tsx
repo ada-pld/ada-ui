@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Modal, useMantineTheme, TextInput, Container, Select, PasswordInput, Button, Group, Switch } from "@mantine/core";
+import { Modal, useMantineTheme, TextInput, Container, Select, PasswordInput, Button, Group, Switch, Title } from "@mantine/core";
 
 import { editUserForm } from "./utils/editUserForm";
 
@@ -63,7 +63,7 @@ const EditUser: React.FC<Props> = ({opened, setOpened, user, setSelectedUser, re
             opened={opened}
             onClose={() => (setOpened(false), setSelectedUser(null), form.reset())}
             size={"xl"}
-            title="Edit user"
+            title={<Title size={"h5"}>Edit user</Title>}
             overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2]}
             overlayOpacity={0.55}
             overlayBlur={3}

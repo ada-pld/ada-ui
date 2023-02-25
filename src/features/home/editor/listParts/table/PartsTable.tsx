@@ -15,7 +15,7 @@ const PartsTable: React.FC<Props> = ({ parts }) => {
             <td>{part.cards.filter(item => item.sprint.active).length}</td>
         </tr>
     ));
-    
+
     return (
         <Table highlightOnHover striped verticalSpacing="xs">
             <thead>

@@ -111,3 +111,21 @@ export const editErrorNotification = () => {
         icon: <AiOutlineExclamation size={24} />,
     });
 };
+
+export const approveErrorNotification = () => {
+    showNotification({
+        title: "Unable to approve",
+        message: "This card as already been approved",
+        color: "red",
+        icon: <AiOutlineExclamation size={24} />,
+    });
+};
+
+export const rejectErrorNotification = () => {
+    showNotification({
+        title: "Unable to reject",
+        message: "This card as already been approved",
+        color: "red",
+        icon: <AiOutlineExclamation size={24} />,
+    });
+};

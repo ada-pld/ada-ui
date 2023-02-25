@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useMantineTheme, Modal, Container, TextInput, Button, Group } from "@mantine/core";
+import { useMantineTheme, Modal, Container, TextInput, Button, Group, Title } from "@mantine/core";
 
 import { addPartForm } from "./utils/addPartForm";
 
@@ -39,7 +39,7 @@ const AddPart: React.FC<Props> = ({opened, setOpened, refetch}) => {
             opened={opened}
             onClose={() => (setOpened(false), form.reset())}
             size={"sm"}
-            title="Add a part"
+            title={<Title size={"h5"}>Add a part</Title>}
             overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2]}
             overlayOpacity={0.55}
             overlayBlur={3}

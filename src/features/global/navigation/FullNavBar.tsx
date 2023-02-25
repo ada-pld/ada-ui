@@ -15,13 +15,12 @@ import { useStyles } from './styles/fullNavBarStyle';
 
 import { useGetUserInfos } from 'hooks/api/useGetUserInfos';
 
-import CustomLoader from 'components/loader/CustomLoader';
-
 interface Props {
     page: string;
+    userRole: string;
 }
 
-const NavBar: React.FC<Props> = ({page}) => {
+const NavBar: React.FC<Props> = ({page, userRole}) => {
     const { data: user } = useGetUserInfos();
     const { classes, cx } = useStyles();
     const router = useRouter();
@@ -38,7 +37,7 @@ const NavBar: React.FC<Props> = ({page}) => {
             </Navbar.Section>
 
             <Navbar.Section mt="xl" grow component={ScrollArea}>
-                <Navigationtabs active={page} />
+                <Navigationtabs active={page} userRole={userRole} />
             </Navbar.Section>
 
             <Navbar.Section className={classes.footer}>

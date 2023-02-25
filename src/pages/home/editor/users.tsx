@@ -13,7 +13,7 @@ import { AiOutlineUserAdd } from "react-icons/ai";
 import CustomLoader from "components/loader/CustomLoader";
 
 const Users = () => {
-    const { data, refetch } = useListUsers();
+    const { data, refetch } = useListUsers(true);
     const [opened, setOpened] = useState(false);
 
     return data ? (

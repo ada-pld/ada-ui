@@ -5,8 +5,11 @@ import { useRouter } from "next/router";
 import { useListUsersQuery } from "store/api/usersAPI";
 
 import { checkError } from "./utils/checkError";
+import { useAppSelector } from "store/hooks/hooks";
 
-export const useListUsers = () => {
+export const useListUsers = (permission: boolean) => {
+    const role = useAppSelector((state) => state.user.auth.accessToken?.charAt(0));
+
     const { data, error, refetch } = useListUsersQuery();
     const router = useRouter();
 
@@ -14,6 +17,12 @@ export const useListUsers = () => {
         if (error)
             checkError(error, router);
     }, [data, error])
+
+    useEffect(() => {
+        if ((role === "0" || role === "1") && permission) {
+            router.replace("/403")
+        }
+    }, [role])
 
     return { data, error, refetch };
 };

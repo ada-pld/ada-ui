@@ -1,27 +1,26 @@
-import { useState } from "react";
-
 import Head from "next/head";
 
-import { useGetUserCards } from "hooks/api/useGetUserCards";
 import { useGetSprint } from "hooks/api/useGetSprint";
-import { Container } from "@mantine/core";
+import { Container, Divider } from "@mantine/core";
+
 import CustomLoader from "components/loader/CustomLoader";
-import WaitingCards from "features/home/user/cardTabs/WaitingCards";
+import { useGetSprintCards } from "hooks/api/useGetSprintCards";
+
+import ListWaitingCards from "features/home/editor/listWaitingCards";
 
 const Card = () => {
-    const { data: cards, refetch } = useGetUserCards();
+    const { data: cards, refetch } = useGetSprintCards();
     const { data: sprint } = useGetSprint();
 
-    console.log(cards)
-
     return cards && sprint ? (
-        <div>
+        <div style={{height: "80%", width: "100%"}}>
             <Head><title>WAP | Cards</title></Head>
             {cards &&
-                <Container fluid p={0} m={0}>
+                <Container fluid p={0} m={0} style={{height: "100%", width: "100%"}}>
                     <h1 style={{textAlign: "center"}}>Cards</h1>
                     <h3 style={{textAlign: "center", color: "dimgrey"}}>{sprint.name}</h3>
-                    <WaitingCards data={cards} refetch={refetch} />
+                    <Divider mt={20} />
+                    <ListWaitingCards cards={cards} refetch={refetch} />
                 </Container>
             }
         </div>

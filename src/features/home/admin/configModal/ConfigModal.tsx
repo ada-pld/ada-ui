@@ -65,7 +65,7 @@ const ConfigModal: React.FC<Props> = ({opened, setOpened, actualConfig, refetch}
             opened={opened}
             onClose={() => (setOpened(false), form.reset())}
             size={"80%"}
-            title={<Title size={"h3"}>WAP Config</Title>}
+            title={<Title size={"h5"}>Wap Config</Title>}
             overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2]}
             overlayOpacity={0.55}
             overlayBlur={3}

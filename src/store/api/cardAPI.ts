@@ -1,5 +1,5 @@
-import { Card } from "types/apiTypes";
-import { CreateCard, EditCard, UpdateStatus } from "./types/queryParams";
+import { Card, CardsStats } from "types/apiTypes";
+import { CreateCard, EditCard, RejectCard, UpdateStatus } from "./types/queryParams";
 
 import { wapAPI } from "./wapAPI";
 
@@ -14,6 +14,12 @@ const configApi = wapAPI.injectEndpoints({
         getCards: build.query<Card[], string>({
             query: (id) => ({
                 url: `/users/${id}/cards`,
+                method: 'GET',
+            }),
+        }),
+        getSprintCards: build.query<CardsStats[], void>({
+            query: () => ({
+                url: `/sprint/cardStats`,
                 method: 'GET',
             }),
         }),
@@ -61,15 +67,33 @@ const configApi = wapAPI.injectEndpoints({
                 method: 'GET',
             }),
         }),
+        approveCard: build.mutation<void, number>({
+            query: (id) => ({
+                url: `/card/approve/${id}`,
+                method: 'GET',
+            }),
+        }),
+        rejectCard: build.mutation<void, RejectCard>({
+            query: ({id, reason}) => ({
+                url: `/card/reject/${id}`,
+                method: 'POST',
+                body: {
+                    reason: reason,
+                }
+            }),
+        }),
     }),
     overrideExisting: true,
 });
   
 export const {
     useGetCardsQuery,
+    useGetSprintCardsQuery,
     useGetSprintQuery,
     useUpdateCardStatusMutation,
     useCreateCardMutation,
     useEditCardMutation,
     useDeleteCardMutation,
+    useApproveCardMutation,
+    useRejectCardMutation,
 } = configApi;

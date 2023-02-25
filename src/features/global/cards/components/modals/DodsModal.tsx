@@ -1,7 +1,7 @@
 import { Modal, useMantineTheme, Title, Text, Badge, Group, Container, Stack, List } from "@mantine/core"; 
 
 import { Card } from "types/apiTypes";
-import { statusColor, statusTranslate } from "../utils/dataTranslate";
+import { statusColor, statusTranslate } from "../../utils/dataTranslate";
 
 interface Header {
     card: Card;

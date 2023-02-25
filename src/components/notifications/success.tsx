@@ -84,3 +84,21 @@ export const deleteCardNotification = () => {
         icon: <BsCheck2 size={18} />,
     });
 };
+
+export const approveCardNotification = () => {
+    showNotification({
+        title: "Card approved",
+        message: "Card successfully approved !",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
+
+export const rejectCardNotification = () => {
+    showNotification({
+        title: "Card rejected",
+        message: "Card successfully rejected !",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};

@@ -15,7 +15,7 @@ import CustomLoader from "components/loader/CustomLoader";
 
 const Parts = () => {
     const [opened, setOpened] = useState(false);
-    const { data, refetch } = useListParts();
+    const { data, refetch } = useListParts(true);
 
     return data ? (
         <>

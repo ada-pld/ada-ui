@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 
 import { Modal, useMantineTheme, NumberInput, Container, Group, TextInput, Select, Button, MultiSelect, Textarea, Title, Switch, Checkbox, Center } from "@mantine/core"; 
-import { editCardForm } from "../utils/editCardForm";
+import { editCardForm } from "../../utils/editCardForm";
 
 import { RxCardStackPlus } from "react-icons/rx";
 
 import { useListParts } from "hooks/api/useListParts";
 import { useListUsers } from "hooks/api/useListUsers";
 
-import { numberFormater } from "../utils/dataTranslate";
-import { handleAssignees } from "../utils/assigneesGesture";
+import { numberFormater } from "../../utils/dataTranslate";
+import { handleAssignees } from "../../utils/assigneesGesture";
 
 import { useAppSelector } from "store/hooks/hooks";
 
@@ -28,8 +28,8 @@ interface Props {
 
 const EditCardModal: React.FC<Props> = ({ openEdit, setOpenEdit, card, refetch }) => {
     const userId = useAppSelector((state) => state.user.auth.userId);
-    const { data: parts } = useListParts();
-    const { data: users } = useListUsers();
+    const { data: parts } = useListParts(false);
+    const { data: users } = useListUsers(false);
 
     const [editCard, resultEditCard] = useEditCardMutation<any>();
 
@@ -74,25 +74,45 @@ const EditCardModal: React.FC<Props> = ({ openEdit, setOpenEdit, card, refetch }
                         <Select transitionDuration={250} transition="pop" transitionTimingFunction="ease" searchable clearable required data={parts.map((part) => {return {value: part.id, label: part.name}})} label="Part" radius={"sm"} withAsterisk mt={7} {...form.getInputProps('partId', { type: 'input' })}/>
                         <NumberInput formatter={(val) => numberFormater(val!)} required precision={1} label="Jour(s)/homme" placeholder="3" mt={7} {...form.getInputProps('workingDays', { type: 'input' })} />
                     </Group>
-                        <Textarea required autosize minRows={2} maxRows={4} label={"Definitions of done"} description={"Each dod must be on a newline"} placeholder={`Champ Email\nChamp Mot de passe`} mt={7} {...form.getInputProps('dods', { type: 'input' })} />
-                    <Group position="center" grow spacing={"xl"}>
-                        <Center>
-                            <Checkbox mt={25} label={"Share this card with someone"} checked={multiple} onChange={(event) => handleAssignees({checked: event.currentTarget.checked, setMultiple, form})} />
-                        </Center>
-                        {   multiple ?
-                            <MultiSelect 
-                                dropdownPosition="top"
-                                transitionDuration={250}
-                                transition="pop"
-                                transitionTimingFunction="ease"
-                                data={users.filter((user) => user.role !== "USER" && user.id !== userId).map((user) => {return {value: user.id, label: user.firstname + " " + user.lastname}})}
-                                label="Assignees"
-                                radius={"sm"}
-                                mt={7}
-                                {...form.getInputProps('assignees', { type: 'input' })}
-                            /> : <></>
-                        }
-                    </Group>
+                    <Textarea required autosize minRows={2} maxRows={4} label={"Definitions of done"} description={"Each dod must be on a newline"} placeholder={`Champ Email\nChamp Mot de passe`} mt={7} {...form.getInputProps('dods', { type: 'input' })} />
+                    { users.filter((user) => user.id !== userId).map((user) => user.role === "ADMIN" || user.role === "EDITOR")
+                        ?   <Group position="center" grow spacing={"xl"}>
+                                <Center>
+                                    <Checkbox mt={25} label={"Share this card with someone"} checked={multiple} onChange={(event) => handleAssignees({checked: event.currentTarget.checked, setMultiple, form})} />
+                                </Center>
+                                {   multiple ?
+                                    <MultiSelect 
+                                        dropdownPosition="top"
+                                        transitionDuration={250}
+                                        transition="pop"
+                                        transitionTimingFunction="ease"
+                                        data={users.filter((user) => user.role !== "USER").map((user) => {return {value: user.id, label: user.firstname + " " + user.lastname}})}
+                                        label="Assignees"
+                                        radius={"sm"}
+                                        mt={7}
+                                        {...form.getInputProps('assignees', { type: 'input' })}
+                                    /> : <></>
+                                }
+                            </Group>
+                        :   <Group position="center" grow spacing={"xl"}>
+                                <Center>
+                                    <Checkbox mt={25} label={"Share this card with someone"} checked={multiple} onChange={(event) => handleAssignees({checked: event.currentTarget.checked, setMultiple, form})} />
+                                </Center>
+                                {   multiple ?
+                                    <MultiSelect 
+                                        dropdownPosition="top"
+                                        transitionDuration={250}
+                                        transition="pop"
+                                        transitionTimingFunction="ease"
+                                        data={users.filter((user) => user.role !== "USER" && userId !== user.id).map((user) => {return {value: user.id, label: user.firstname + " " + user.lastname}})}
+                                        label="Assignees"
+                                        radius={"sm"}
+                                        mt={7}
+                                        {...form.getInputProps('assignees', { type: 'input' })}
+                                    /> : <></>
+                                }
+                            </Group>
+                    }
                     <Group position="center" mt={25}>
                         <Button fullWidth maw={400} color={"violet"} leftIcon={<RxCardStackPlus size={20} />} variant="outline" type="submit">
                             Update card

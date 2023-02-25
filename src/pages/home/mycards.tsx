@@ -15,7 +15,7 @@ import ApprovedCards from "features/home/user/cardTabs/ApprovedCards";
 import { Card } from "types/apiTypes";
 import { useGetSprint } from "hooks/api/useGetSprint";
 
-import AddCardModal from "features/global/cards/components/AddCardModal";
+import AddCardModal from "features/global/cards/components/modals/AddCardModal";
 
 import CustomLoader from "components/loader/CustomLoader";
 

@@ -15,12 +15,12 @@ const ApprovedCards: React.FC<Props> = ({ data, refetch }) => {
     return (
         <Tabs.Panel value="Approved">
             {filteredCards.length === 0
-                ?   <Center mt={100}><Title>No approved card(s)</Title></Center>
-                :   <Grid mt={20} grow>
+                ?   <Center mt={100}><Title size={"h3"}>No approved card(s)</Title></Center>
+                :   <Grid mt={20}>
                         {filteredCards.map((card: Card, index: number) =>
-                            <Grid.Col key={index} p={20} span={"auto"}>
+                            <Grid.Col key={index} md={6} lg={4} p={20} span={'auto'}>
                                 <Center>
-                                    <UserCard card={card} refetch={refetch} />
+                                    <UserCard card={card} refetch={refetch} edition={false} />
                                 </Center>
                             </Grid.Col>
                         )}

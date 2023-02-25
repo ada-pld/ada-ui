@@ -6,11 +6,11 @@ import { HiOutlineDotsHorizontal, HiOutlineTrash } from "react-icons/hi";
 import { RiEditLine } from "react-icons/ri";
 import { TbCheckbox } from "react-icons/tb";
 
-import DodsModal from "./DodsModal";
+import DodsModal from "./modals/DodsModal";
 
 import { Card } from "types/apiTypes";
 
-import EditModal from "./EditCardModal";
+import EditModal from "./modals/EditCardModal";
 import { useDeleteCardMutation } from "store/api/cardAPI";
 import { deleteError2Notification, deleteErrorNotification } from "components/notifications/errors";
 import { deleteCardNotification } from "components/notifications/success";

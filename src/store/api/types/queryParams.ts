@@ -38,7 +38,7 @@ export interface CreateCard {
 }
 
 export interface EditCard {
-    id: number,
+    id: number;
     values: {
         name: string,
         asWho: string,
@@ -49,4 +49,9 @@ export interface EditCard {
         partId: number,
         assignees: string[];
     }
+}
+
+export interface RejectCard {
+    id: number;
+    reason: string;
 }

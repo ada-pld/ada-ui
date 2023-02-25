@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 
 import { Modal, useMantineTheme, NumberInput, Container, Group, TextInput, Select, Button, MultiSelect, Textarea, Title, Switch, Checkbox, Center, Loader } from "@mantine/core"; 
-import { addCardForm } from "../utils/addCardForm";
+import { addCardForm } from "../../utils/addCardForm";
 
 import { RxCardStackPlus } from "react-icons/rx";
 
 import { useListParts } from "hooks/api/useListParts";
 import { useListUsers } from "hooks/api/useListUsers";
 
-import { numberFormater } from "../utils/dataTranslate";
-import { handleAssignees } from "../utils/assigneesGesture";
+import { numberFormater } from "../../utils/dataTranslate";
+import { handleAssignees } from "../../utils/assigneesGesture";
 
 import { useAppSelector } from "store/hooks/hooks";
 import { useCreateCardMutation } from "store/api/cardAPI";
@@ -26,8 +26,8 @@ const AddCardModal: React.FC<Props> = ({ openAdd, setOpenAdd, refetch }) => {
     const userId = useAppSelector((state) => state.user.auth.userId);
 
     const [multiple, setMultiple] = useState(false);
-    const { data: parts } = useListParts();
-    const { data: users } = useListUsers();
+    const { data: parts } = useListParts(false);
+    const { data: users } = useListUsers(false);
     const [createCard, createResult] = useCreateCardMutation<any>();
 
     const theme = useMantineTheme();

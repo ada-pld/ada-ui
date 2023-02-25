@@ -8,9 +8,10 @@ import { userTabs, editorTabs, adminTabs } from "features/global/navigation/util
 
 interface Props {
     active: string;
+    userRole: string;
 }
 
-const Navigationtabs: React.FC<Props> = ({active}) => {
+const Navigationtabs: React.FC<Props> = ({active, userRole}) => {
     const { classes, cx } = useStyles();
 
     const userNav = userTabs.map((item) => (
@@ -50,9 +51,17 @@ const Navigationtabs: React.FC<Props> = ({active}) => {
         <>
             {userNav}
             <Divider mt={10} mb={10} />
-            {editorNav}
-            <Divider mt={10} mb={10} />
-            {adminNav}
+            {(userRole === "2" || userRole === "3") &&
+                <>
+                    {editorNav}
+                    <Divider mt={10} mb={10} />
+                </>
+            }
+            {userRole === "3" &&
+                <>
+                    {adminNav}
+                </>
+            }
         </>
     );
 }
