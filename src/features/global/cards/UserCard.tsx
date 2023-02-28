@@ -36,8 +36,9 @@ const UserCard: React.FC<Props> = ({ card, refetch, edition }) => {
                 statusErrorNotification();
             if (statusResult.error.status === 400)
                 statusError2Notification();
-        } else if (statusResult.isSuccess)
+        } else if (statusResult.isSuccess) {
             refetch();
+        }
     }, [statusResult])
 
     return (

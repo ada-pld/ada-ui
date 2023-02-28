@@ -28,6 +28,7 @@ interface Props {
 
 const EditCardModal: React.FC<Props> = ({ openEdit, setOpenEdit, card, refetch }) => {
     const userId = useAppSelector((state) => state.user.auth.userId);
+
     const { data: parts } = useListParts(false);
     const { data: users } = useListUsers(false);
 
@@ -36,7 +37,12 @@ const EditCardModal: React.FC<Props> = ({ openEdit, setOpenEdit, card, refetch }
     const [multiple, setMultiple] = useState(card.assignees.length > 0);
 
     const theme = useMantineTheme();
-    const form = editCardForm(card);
+    let form = editCardForm(card);
+
+    useEffect(() => {
+        form.reset();
+        form.setValues({name: card.name, asWho: card.asWho, task: card.task, description: card.description, partId: card.part.id, workingDays: card.workingDays, dods: card.dods, assignees: card.assignees.map((assignee) => assignee.id)})
+    }, [openEdit])
 
     useEffect(() => {
         if (resultEditCard.isError) {
@@ -47,10 +53,9 @@ const EditCardModal: React.FC<Props> = ({ openEdit, setOpenEdit, card, refetch }
             refetch();
         }
         setOpenEdit(false);
-        form.reset();
     }, [resultEditCard])
 
-    return parts && users ? (
+    return users && parts ? (
         <Modal
             centered
             opened={openEdit}
@@ -114,7 +119,7 @@ const EditCardModal: React.FC<Props> = ({ openEdit, setOpenEdit, card, refetch }
                             </Group>
                     }
                     <Group position="center" mt={25}>
-                        <Button fullWidth maw={400} color={"violet"} leftIcon={<RxCardStackPlus size={20} />} variant="outline" type="submit">
+                        <Button disabled={!form.isDirty()} fullWidth maw={400} color={"violet"} leftIcon={<RxCardStackPlus size={20} />} variant="outline" type="submit">
                             Update card
                         </Button>
                     </Group>
