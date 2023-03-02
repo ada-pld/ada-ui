@@ -21,7 +21,7 @@ const DashboardCards: React.FC<Props> = ({user, refetch}) => {
                         {user.cards.map((card, index) => card.status !== "REJECTED" && card.status !== "WAITING_APPROVAL" && (
                             <Grid.Col key={index} md={6} lg={4} p={20} span={'auto'}>
                                 <Center>
-                                    <UserCard card={card} refetch={refetch} edition={false} />
+                                    <UserCard card={card} refetch={refetch} edition={false} mode={"status"} />
                                 </Center>
                             </Grid.Col>
                         ))}

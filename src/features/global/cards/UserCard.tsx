@@ -14,18 +14,19 @@ import CardMenu from './components/CardMenu';
 
 import { statusError2Notification, statusErrorNotification } from 'components/notifications/errors';
 
-import CardBody from './components/cardParts/CardBody';
-import CardTitle from './components/cardParts/CardTitle';
-import CardStatusControl from './components/cardParts/CardStatusControl';
-import CardManagement from './components/cardParts/CardManagement';
+import CardBody from './components/CardParts/CardBody';
+import CardTitle from './components/CardParts/CardTitle';
+import CardStatusControl from './components/CardParts/CardStatusControl';
+import CardManagement from './components/CardParts/CardManagement';
 
 interface Props {
     card: CardType;
     refetch: any;
     edition: boolean;
+    mode: "status" | "approval" | "none";
 }
 
-const UserCard: React.FC<Props> = ({ card, refetch, edition }) => {
+const UserCard: React.FC<Props> = ({ card, refetch, edition, mode }) => {
     const { classes } = CardsStyle();
 
     const [updateStatus, statusResult] = useUpdateCardStatusMutation<any>();
@@ -46,14 +47,16 @@ const UserCard: React.FC<Props> = ({ card, refetch, edition }) => {
             <Card.Section className={classes.footer}>
                 <Group position="apart">
                     <Badge variant="light" size="md" radius={"sm"} color={statusColor[`${card.status}`]}>{statusTranslate[`${card.status}`]}</Badge>
-                    <CardMenu card={card} refetch={refetch} />
+                    <CardMenu card={card} refetch={refetch} edition={edition} />
                 </Group>
             </Card.Section>
             <CardTitle card={card} />
             <CardBody card={card} />
-            { edition
-                ? <CardManagement card={card} refetch={refetch} />
-                : <CardStatusControl card={card} updateStatus={updateStatus} />
+            { mode === "approval"
+                ?   <CardManagement card={card} refetch={refetch} />
+                :   mode === "status"
+                ?   <CardStatusControl card={card} updateStatus={updateStatus} />
+                :   <></>
             }
         </Card>
     );

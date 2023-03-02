@@ -6,7 +6,7 @@ import { Container } from "@mantine/core";
 import CustomLoader from "components/loader/CustomLoader";
 import { useGetSprintCards } from "hooks/api/useGetSprintCards";
 
-import ListWaitingCards from "features/home/editor/listWaitingCards";
+import ListWaitingCards from "features/home/editor/CardsApprovalAndEdition";
 import { useListParts } from "hooks/api/useListParts";
 
 const Card = () => {
