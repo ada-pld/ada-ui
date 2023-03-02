@@ -4,20 +4,22 @@ import { MdOutlineCallToAction } from "react-icons/md";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { HiOutlineCog6Tooth } from "react-icons/hi2"
 import { FiUsers } from "react-icons/fi";
-
-export const editorTabs = [
-    { link: '/parts', label: 'Parts', icon: RxComponent2 },
-    { link: '/pld', label: 'PLD', icon: HiOutlineDocumentText },
-    { link: '/users', label: 'Users', icon: FiUsers },
-];
+import { BsCardChecklist } from "react-icons/bs"
 
 export const userTabs = [
-    { link: '/dashboard', label: 'Dashboard', icon: AiOutlineDashboard },
-    { link: '/mycards', label: 'My cards', icon: RxCardStack },
-    { link: '/meetings', label: 'Meetings', icon: MdOutlineCallToAction },
-    { link: '/profile', label: 'Profile', icon: AiOutlineUser },
+    { link: '/home', label: 'Dashboard', icon: AiOutlineDashboard },
+    { link: '/home/mycards', label: 'My cards', icon: RxCardStack },
+    { link: '/home/meetings', label: 'Meetings', icon: MdOutlineCallToAction },
+    { link: '/home/profile', label: 'Profile', icon: AiOutlineUser },
+];
+
+export const editorTabs = [
+    { link: '/home/editor/cards', label: 'Cards', icon: BsCardChecklist },
+    { link: '/home/editor/parts', label: 'Parts', icon: RxComponent2 },
+    { link: '/home/editor/users', label: 'Users', icon: FiUsers },
+    { link: '/home/editor/pld', label: 'PLD', icon: HiOutlineDocumentText },
 ];
 
 export const adminTabs = [
-    { link: '/config', label: 'Config', icon: HiOutlineCog6Tooth },
+    { link: '/home/admin/config', label: 'Config', icon: HiOutlineCog6Tooth },
 ];

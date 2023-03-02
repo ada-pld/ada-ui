@@ -57,3 +57,75 @@ export const partErrorNotification = () => {
         icon: <AiOutlineExclamation size={24} />,
     });
 };
+
+export const statusErrorNotification = () => {
+    showNotification({
+        title: "Unable to update status",
+        message: "You don't have the permission to perform this action",
+        color: "red",
+        icon: <AiOutlineExclamation size={24} />,
+    });
+};
+
+export const statusError2Notification = () => {
+    showNotification({
+        title: "Unable to update status",
+        message: "You can't update the status of this card",
+        color: "red",
+        icon: <AiOutlineExclamation size={24} />,
+    });
+};
+
+export const deleteErrorNotification = () => {
+    showNotification({
+        title: "Unable to delete",
+        message: "You don't have the permission to delete this card",
+        color: "red",
+        icon: <AiOutlineExclamation size={24} />,
+    });
+};
+
+export const deleteError2Notification = () => {
+    showNotification({
+        title: "Unable to delete",
+        message: "This card as already been approved",
+        color: "red",
+        icon: <AiOutlineExclamation size={24} />,
+    });
+};
+
+export const createErrorNotification = () => {
+    showNotification({
+        title: "Unable to create",
+        message: "An error occured, please try again",
+        color: "red",
+        icon: <AiOutlineExclamation size={24} />,
+    });
+};
+
+export const editErrorNotification = () => {
+    showNotification({
+        title: "Unable to edit",
+        message: "An error occured, please try again",
+        color: "red",
+        icon: <AiOutlineExclamation size={24} />,
+    });
+};
+
+export const approveErrorNotification = () => {
+    showNotification({
+        title: "Unable to approve",
+        message: "This card as already been approved",
+        color: "red",
+        icon: <AiOutlineExclamation size={24} />,
+    });
+};
+
+export const rejectErrorNotification = () => {
+    showNotification({
+        title: "Unable to reject",
+        message: "This card as already been approved",
+        color: "red",
+        icon: <AiOutlineExclamation size={24} />,
+    });
+};

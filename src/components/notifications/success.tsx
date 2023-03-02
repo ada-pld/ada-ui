@@ -39,3 +39,66 @@ export const partCreatedNotification = () => {
         icon: <BsCheck2 size={18} />,
     });
 };
+
+export const cacheRefreshedNotification = () => {
+    showNotification({
+        title: "API cache refreshed",
+        message: "API cache refresh with success !",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
+
+export const configNotification = () => {
+    showNotification({
+        title: "Config edited",
+        message: "New config has been saved !",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
+
+export const createdCardNotification = () => {
+    showNotification({
+        title: "Card created",
+        message: "Card successfully added to your collection !",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
+
+export const editCardNotification = () => {
+    showNotification({
+        title: "Card edited",
+        message: "Card successfully edited !",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
+
+export const deleteCardNotification = () => {
+    showNotification({
+        title: "Card deleted",
+        message: "Card successfully deleted from your collection",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
+
+export const approveCardNotification = () => {
+    showNotification({
+        title: "Card approved",
+        message: "Card successfully approved !",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
+
+export const rejectCardNotification = () => {
+    showNotification({
+        title: "Card rejected",
+        message: "Card successfully rejected !",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};

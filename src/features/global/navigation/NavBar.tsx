@@ -1,15 +1,24 @@
 import FullNavBar from './FullNavBar';
 
-interface Props {
-    page: string;
-}
+import { useRouter } from 'next/router';
 
-const NavBar: React.FC<Props> = ({page}) => {
-    return (
+import { useViewportSize } from '@mantine/hooks';
+import ResponsiveNavBar from './ResponsiveNavBar';
+import { useAppSelector } from 'store/hooks/hooks';
+
+const NavBar: React.FC = () => {
+    const userRole = useAppSelector((state) => state.user.auth.accessToken?.charAt(0));
+    const { pathname } = useRouter();
+    const { width } = useViewportSize();
+
+    return pathname.includes("home") && userRole ? (
         <>
-            <FullNavBar page={page} />
+            {width >= 800
+                ? <FullNavBar page={pathname} userRole={userRole}  />
+                : <ResponsiveNavBar page={pathname} userRole={userRole} />
+            }
         </>
-    );
+    ) : <></>;
 }
 
 export default NavBar;

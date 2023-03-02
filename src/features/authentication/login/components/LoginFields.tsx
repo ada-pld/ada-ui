@@ -36,7 +36,7 @@ const LoginFields: React.FC = () => {
                     }
                 })
             )
-            router.push("/dashboard")
+            router.push("/home")
         }
     }, [result])
 

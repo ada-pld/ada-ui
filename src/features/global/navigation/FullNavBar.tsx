@@ -13,11 +13,15 @@ import { useAppDispatch } from 'store/hooks/hooks';
 
 import { useStyles } from './styles/fullNavBarStyle';
 
+import { useGetUserInfos } from 'hooks/api/useGetUserInfos';
+
 interface Props {
     page: string;
+    userRole: string;
 }
 
-const NavBar: React.FC<Props> = ({page}) => {
+const NavBar: React.FC<Props> = ({page, userRole}) => {
+    const { data: user } = useGetUserInfos();
     const { classes, cx } = useStyles();
     const router = useRouter();
     const dispatch = useAppDispatch();
@@ -26,13 +30,14 @@ const NavBar: React.FC<Props> = ({page}) => {
         <Navbar p="xs" width={{ base: 275 }} className={classes.navbar}>
             <Navbar.Section>
                 <UserButton
-                    name="Pierre Perrin"
-                    email="pierre.perrin@epitech.eu"
+                    firstname={user?.firstname}
+                    lastname={user?.lastname}
+                    email={user?.email}
                 />
             </Navbar.Section>
 
             <Navbar.Section mt="xl" grow component={ScrollArea}>
-                <Navigationtabs active={page} />
+                <Navigationtabs active={page} userRole={userRole} />
             </Navbar.Section>
 
             <Navbar.Section className={classes.footer}>

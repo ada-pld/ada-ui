@@ -15,8 +15,14 @@ const authApi = wapAPI.injectEndpoints({
                 }
             }),
         }),
+        userInfos: build.query<any, string>({
+            query: (id) => ({
+                url: `users/${id}`,
+                method: 'GET',
+            }),
+        }),
     }),
     overrideExisting: true,
 });
   
-export const { useUserLoginMutation } = authApi;
+export const { useUserLoginMutation, useUserInfosQuery } = authApi;
