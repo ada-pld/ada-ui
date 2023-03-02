@@ -20,7 +20,7 @@ const RejectedCards: React.FC<Props> = ({ data, refetch }) => {
                         {filteredCards.map((card: Card, index: number) =>
                             <Grid.Col key={index} md={6} lg={4} p={20} span={'auto'}>
                                 <Center>
-                                    <UserCard card={card} refetch={refetch} edition={false}/>
+                                    <UserCard card={card} refetch={refetch} edition={false} mode={"none"}/>
                                 </Center>
                             </Grid.Col>
                         )}

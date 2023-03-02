@@ -18,9 +18,10 @@ import { deleteCardNotification } from "components/notifications/success";
 interface Props {
     card: Card;
     refetch: any;
+    edition: boolean;
 }
 
-const CardMenu: React.FC<Props> = ({ card, refetch }) => {
+const CardMenu: React.FC<Props> = ({ card, refetch, edition }) => {
     const [openDods, setOpenDods] = useState(false);
     const [openEdit, setOpenEdit] = useState(false);
     const theme = useMantineTheme();
@@ -57,8 +58,8 @@ const CardMenu: React.FC<Props> = ({ card, refetch }) => {
                     <Menu.Divider />
 
                     <Menu.Label>Danger zone</Menu.Label>
-                    <Menu.Item disabled={card.status === "WAITING_APPROVAL" || card.status === "REJECTED" ? false : true} onClick={() => setOpenEdit(true)} icon={<RiEditLine size={18} />}>Edit</Menu.Item>
-                    <Menu.Item disabled={card.status === "WAITING_APPROVAL" || card.status === "REJECTED" ? false : true} color="red" icon={<HiOutlineTrash size={18} />} onClick={() => deleteCard(card.id)}>Delete card</Menu.Item>
+                    <Menu.Item disabled={card.status === "WAITING_APPROVAL" || card.status === "REJECTED" || edition ? false : true} onClick={() => setOpenEdit(true)} icon={<RiEditLine size={18} />}>Edit</Menu.Item>
+                    <Menu.Item disabled={card.status === "WAITING_APPROVAL" || card.status === "REJECTED" || edition ? false : true} color="red" icon={<HiOutlineTrash size={18} />} onClick={() => deleteCard(card.id)}>Delete card</Menu.Item>
                 </Menu.Dropdown>
             </Menu>
         </>
