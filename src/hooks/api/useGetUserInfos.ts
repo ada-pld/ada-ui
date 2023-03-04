@@ -14,6 +14,8 @@ export const useGetUserInfos = () => {
 
     const { data, error, refetch } = useUserInfosQuery<any>(user.userId!);
 
+    console.log(data)
+
     useEffect(() => {
         if (error)
             checkError(error, router);
