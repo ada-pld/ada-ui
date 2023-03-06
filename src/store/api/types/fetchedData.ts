@@ -19,3 +19,11 @@ export interface PartsList {
     name: string;
     cards: Card[];
 }
+
+export interface UserInfos {
+    id: string;
+    firstname: string;
+    lastname: string;
+    email: string;
+    role: string;
+}

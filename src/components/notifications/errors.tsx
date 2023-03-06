@@ -129,3 +129,12 @@ export const rejectErrorNotification = () => {
         icon: <AiOutlineExclamation size={24} />,
     });
 };
+
+export const editProfileErrorNotification = (message: string) => {
+    showNotification({
+        title: "Unhautorized",
+        message: message,
+        color: "red",
+        icon: <AiOutlineExclamation size={24} />,
+    });
+};

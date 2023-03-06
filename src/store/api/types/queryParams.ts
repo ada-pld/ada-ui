@@ -15,7 +15,7 @@ export interface EditUser {
     firstname: string;
     lastname: string;
     email: string;
-    password: string;
+    password: string | null;
     role: string;
 }
 

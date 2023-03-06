@@ -102,3 +102,12 @@ export const rejectCardNotification = () => {
         icon: <BsCheck2 size={18} />,
     });
 };
+
+export const editProfileNotification = () => {
+    showNotification({
+        title: "Success",
+        message: "Profile updated !",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
