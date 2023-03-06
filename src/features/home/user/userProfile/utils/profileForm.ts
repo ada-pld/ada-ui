@@ -4,9 +4,10 @@ import { UserInfos } from "store/api/types/fetchedData";
 
 interface Props {
     user: UserInfos;
+    editPassword: boolean;
 }
 
-export const profileForm = ({user}: Props) => {
+export const profileForm = ({user, editPassword}: Props) => {
     return useForm({
         initialValues: {
             firstname: user.firstname,
@@ -19,7 +20,7 @@ export const profileForm = ({user}: Props) => {
             firstname: (value) => (value.length < 2 ? 'Part name must have at least 2 letters' : null),
             lastname: (value) => (value.length < 2 ? 'Part name must have at least 2 letters' : null),
             email: isEmail(),
-            password: (value) => (value.length < 6 ? 'Part name must have at least 6 characters' : null),
+            password: (value) => (value.length < 6 && editPassword === true ? 'Part name must have at least 6 characters' : null),
         },
     });
 }
