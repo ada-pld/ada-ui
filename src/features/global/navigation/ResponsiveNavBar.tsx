@@ -8,6 +8,8 @@ import { IconType } from 'react-icons';
 import { useRouter } from 'next/router';
 
 import LittleColorScheme from 'components/littleColorScheme/LittleColorScheme';
+import { logoutHandling } from './utils/logoutHandling';
+import { useAppDispatch } from 'store/hooks/hooks';
 
 interface Props {
     page: string;
@@ -57,6 +59,7 @@ function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
 
 const ResponsiveNavBar: React.FC<Props> = ({page, userRole}) => {
     const router = useRouter();
+    const dispatch = useAppDispatch();
     const userNav = userTabs.map((link, index) => (
         <NavbarLink
             {...link}
@@ -112,7 +115,7 @@ const ResponsiveNavBar: React.FC<Props> = ({page, userRole}) => {
                     <Center mt={10}>
                         <LittleColorScheme />
                     </Center>
-                    <NavbarLink icon={SlLogout} label="Logout" />
+                    <NavbarLink icon={SlLogout} label="Logout" onClick={() => {logoutHandling({dispatch, router})}} />
                 </Stack>
             </Navbar.Section>
         </Navbar>
