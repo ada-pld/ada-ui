@@ -5,7 +5,7 @@ export const useStyles = createStyles((theme, _params, getRef) => {
 
     return {
         navbar: {
-            backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+            background: theme.colorScheme === 'dark' ? `linear-gradient(${theme.colors.dark[6]}, ${theme.colors.dark[7]})` : `linear-gradient(rgb(248, 248, 248), #fff)`,
         },
 
         title: {
@@ -26,7 +26,6 @@ export const useStyles = createStyles((theme, _params, getRef) => {
             marginTop: 5,
 
             '&:hover': {
-                backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
                 color: theme.colorScheme === 'dark' ? theme.white : theme.black,
 
                 [`& .${icon}`]: {
@@ -43,8 +42,6 @@ export const useStyles = createStyles((theme, _params, getRef) => {
 
         linkActive: {
             '&, &:hover': {
-                backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor })
-                .background,
                 color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
                 [`& .${icon}`]: {
                 color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
@@ -53,9 +50,6 @@ export const useStyles = createStyles((theme, _params, getRef) => {
         },
 
         footer: {
-            borderTop: `1px solid ${
-                theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
-            }`,
             paddingTop: 10,
         },
     };

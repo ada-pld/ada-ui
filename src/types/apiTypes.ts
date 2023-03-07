@@ -58,3 +58,12 @@ export interface Part {
     createdAt: string;
     updatedAt: string;
 }
+
+export interface MeetingAttendance {
+    attendance: "UNDEFINED" | "PRESENT" | "ABSENT";
+    createdAt: string;
+    id: number;
+    rendezVousId: number;
+    updatedAt: string;
+    userId: string;
+}

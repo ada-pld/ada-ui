@@ -27,7 +27,7 @@ const NavBar: React.FC<Props> = ({page, userRole}) => {
     const dispatch = useAppDispatch();
 
     return (
-        <Navbar p="xs" width={{ base: 275 }} className={classes.navbar}>
+        <Navbar p="xs" width={{ base: 275 }} style={{borderWidth: 0}} className={classes.navbar}>
             <Navbar.Section>
                 <UserButton
                     firstname={user?.firstname}

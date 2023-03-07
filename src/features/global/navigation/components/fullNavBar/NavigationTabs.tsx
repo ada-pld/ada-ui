@@ -50,17 +50,11 @@ const Navigationtabs: React.FC<Props> = ({active, userRole}) => {
     return (
         <>
             {userNav}
-            <Divider mt={10} mb={10} />
             {(userRole === "2" || userRole === "3") &&
-                <>
-                    {editorNav}
-                    <Divider mt={10} mb={10} />
-                </>
+                <div style={{marginTop: 15}}>{editorNav}</div>
             }
             {userRole === "3" &&
-                <>
-                    {adminNav}
-                </>
+                <div style={{marginTop: 15}}>{adminNav}</div>
             }
         </>
     );
