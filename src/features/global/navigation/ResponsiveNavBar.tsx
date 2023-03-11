@@ -49,7 +49,7 @@ interface NavbarLinkProps {
 function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
     const { classes, cx } = useStyles();
     return (
-        <Tooltip label={label} position="right" transitionDuration={300} withinPortal>
+        <Tooltip label={label} position="right" transitionProps={{duration: 300}} withinPortal>
             <UnstyledButton onClick={onClick} className={cx(classes.link, { [classes.active]: active })}>
                 <Icon size={20} />
             </UnstyledButton>

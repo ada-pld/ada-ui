@@ -2,10 +2,10 @@ import React from "react";
 
 import { AiOutlineExclamation } from "react-icons/ai";
 
-import { showNotification } from "@mantine/notifications";
+import { notifications } from '@mantine/notifications';
 
 export const sessionExpiredNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Session expired",
         message: "Please login to proceed",
         color: "red",
@@ -14,7 +14,7 @@ export const sessionExpiredNotification = () => {
 };
 
 export const unauthorizedNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Unhautorized",
         message: "You cannot access to this ressource with your actual permissions",
         color: "red",
@@ -23,7 +23,7 @@ export const unauthorizedNotification = () => {
 };
 
 export const emailInUseNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Email already in use",
         message: "The email you provide is already allocated to an active account",
         color: "red",
@@ -32,7 +32,7 @@ export const emailInUseNotification = () => {
 };
 
 export const missingIdNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Missing or invalid ID",
         message: "The id provided is not valid",
         color: "red",
@@ -41,7 +41,7 @@ export const missingIdNotification = () => {
 };
 
 export const emailErrorNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Unable to send email",
         message: "Mail sending is not supported on this WAP instance. Please contact your WAP administrator",
         color: "red",
@@ -50,7 +50,7 @@ export const emailErrorNotification = () => {
 };
 
 export const partErrorNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Unable to create part",
         message: "Part name already in use",
         color: "red",
@@ -59,7 +59,7 @@ export const partErrorNotification = () => {
 };
 
 export const statusErrorNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Unable to update status",
         message: "You don't have the permission to perform this action",
         color: "red",
@@ -68,7 +68,7 @@ export const statusErrorNotification = () => {
 };
 
 export const statusError2Notification = () => {
-    showNotification({
+    notifications.show({
         title: "Unable to update status",
         message: "You can't update the status of this card",
         color: "red",
@@ -77,7 +77,7 @@ export const statusError2Notification = () => {
 };
 
 export const deleteErrorNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Unable to delete",
         message: "You don't have the permission to delete this card",
         color: "red",
@@ -86,7 +86,7 @@ export const deleteErrorNotification = () => {
 };
 
 export const deleteError2Notification = () => {
-    showNotification({
+    notifications.show({
         title: "Unable to delete",
         message: "This card as already been approved",
         color: "red",
@@ -95,7 +95,7 @@ export const deleteError2Notification = () => {
 };
 
 export const createErrorNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Unable to create",
         message: "An error occured, please try again",
         color: "red",
@@ -104,7 +104,7 @@ export const createErrorNotification = () => {
 };
 
 export const editErrorNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Unable to edit",
         message: "An error occured, please try again",
         color: "red",
@@ -113,7 +113,7 @@ export const editErrorNotification = () => {
 };
 
 export const approveErrorNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Unable to approve",
         message: "This card as already been approved",
         color: "red",
@@ -122,7 +122,7 @@ export const approveErrorNotification = () => {
 };
 
 export const rejectErrorNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Unable to reject",
         message: "This card as already been approved",
         color: "red",
@@ -131,7 +131,7 @@ export const rejectErrorNotification = () => {
 };
 
 export const editProfileErrorNotification = (message: string) => {
-    showNotification({
+    notifications.show({
         title: "Unhautorized",
         message: message,
         color: "red",

@@ -28,17 +28,14 @@ const DodsModal: React.FC<Props> = ({ openDods, setOpenDods, card }) => {
 
     return (
         <Modal
-            overflow="inside"
             centered
             opened={openDods}
             onClose={() => (setOpenDods(false))}
             size={"xl"}
             title={<Header card={card} />}
-            overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2]}
-            overlayOpacity={0.55}
-            overlayBlur={3}
+            overlayProps={{color: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2], opacity: 0.55, blur: 3}}
             radius={10}
-            transitionDuration={200}
+            transitionProps={{duration: 200}}
         >
             <Container>
                 <Stack align={"center"} spacing={10}>

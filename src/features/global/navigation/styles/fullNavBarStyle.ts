@@ -1,7 +1,7 @@
-import { createStyles } from "@mantine/core";
+import { createStyles, getStylesRef } from "@mantine/core";
 
-export const useStyles = createStyles((theme, _params, getRef) => {
-    const icon = getRef('icon');
+export const useStyles = createStyles((theme, _params) => {
+    const icon = getStylesRef('icon');
 
     return {
         navbar: {
@@ -20,10 +20,11 @@ export const useStyles = createStyles((theme, _params, getRef) => {
             textDecoration: 'none',
             fontSize: theme.fontSizes.sm,
             color: theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[7],
-            padding: `${theme.spacing.xs}px ${theme.spacing.sm}px`,
+            padding: 5,
+            marginTop: 5,
+            marginLeft: 5,
             borderRadius: theme.radius.sm,
             fontWeight: 500,
-            marginTop: 5,
 
             '&:hover': {
                 color: theme.colorScheme === 'dark' ? theme.white : theme.black,
@@ -37,15 +38,27 @@ export const useStyles = createStyles((theme, _params, getRef) => {
         linkIcon: {
             ref: icon,
             color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[6],
+        },
+
+        iconGroup: {
             marginRight: theme.spacing.sm,
+            borderRadius: 6,
+            padding: 5,
         },
 
         linkActive: {
             '&, &:hover': {
-                color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
+                color: theme.colorScheme === 'dark' ? theme.colors.violet[3] : theme.colors.violet[7],
                 [`& .${icon}`]: {
-                color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
+                    color: "#fff",
                 },
+            },
+        },
+
+        iconGroupActive: {
+            '&, &:hover': {
+                backgroundColor: theme.colors.violet[7],
+                boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
             },
         },
 

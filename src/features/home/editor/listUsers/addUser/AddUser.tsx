@@ -40,10 +40,8 @@ const AddUser: React.FC<Props> = ({opened, setOpened, refetch}) => {
             opened={opened}
             onClose={() => (setOpened(false), form.reset())}
             size={"xl"}
-            title={<Title size={"h5"}>Add a user</Title>}
-            overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2]}
-            overlayOpacity={0.55}
-            overlayBlur={3}
+            title={<Text>Add a user</Text>}
+            overlayProps={{color: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2], opacity: 0.55, blur: 3}}
             radius={10}
         >
             <Container style={{width: "90%"}} mt={-20} p={20}>

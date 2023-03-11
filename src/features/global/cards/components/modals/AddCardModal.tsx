@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Modal, useMantineTheme, NumberInput, Container, Group, TextInput, Select, Button, MultiSelect, Textarea, Title, Switch, Checkbox, Center, Loader } from "@mantine/core"; 
+import { Modal, useMantineTheme, NumberInput, Container, Group, TextInput, Select, Button, MultiSelect, Textarea, Title, Switch, Checkbox, Center, Loader, Text } from "@mantine/core"; 
 import { addCardForm } from "../../utils/addCardForm";
 
 import { RxCardStackPlus } from "react-icons/rx";
@@ -51,10 +51,8 @@ const AddCardModal: React.FC<Props> = ({ openAdd, setOpenAdd, refetch }) => {
             opened={openAdd}
             onClose={() => (setOpenAdd(false), form.reset())}
             size={"90%"}
-            title={<Title size={"h5"}>Add a Card</Title>}
-            overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2]}
-            overlayOpacity={0.55}
-            overlayBlur={3}
+            title={<Text>Add a Card</Text>}
+            overlayProps={{color: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2], opacity: 0.55, blur: 3}}
             radius={10}
         >
             <Container style={{width: "90%"}} mt={-20} p={20}>
@@ -66,7 +64,7 @@ const AddCardModal: React.FC<Props> = ({ openAdd, setOpenAdd, refetch }) => {
                     </Group>
                     <Textarea required autosize minRows={2} maxRows={4} label="Description" placeholder="Cette user story permettra a l'utilisateur..." mt={7} {...form.getInputProps('description', { type: 'input' })} />
                     <Group position="apart" grow spacing={"xl"}>
-                        <Select transitionDuration={250} transition="pop" transitionTimingFunction="ease" searchable clearable required data={parts.map((part) => {return {value: part.id, label: part.name}})} label="Part" radius={"sm"} withAsterisk mt={7} {...form.getInputProps('partId', { type: 'input' })}/>
+                        <Select transitionProps={{duration: 250, transition: "pop", timingFunction: "ease"}} searchable clearable required data={parts.map((part) => {return {value: part.id, label: part.name}})} label="Part" radius={"sm"} withAsterisk mt={7} {...form.getInputProps('partId', { type: 'input' })}/>
                         <NumberInput formatter={(val) => numberFormater(val!)} required precision={1} label="Jour(s)/homme" placeholder="3" mt={7} {...form.getInputProps('workingDays', { type: 'input' })} />
                     </Group>
                         <Textarea required autosize minRows={2} maxRows={4} label={"Definitions of done"} description={"Each dod must be on a newline"} placeholder={`Champ Email\nChamp Mot de passe`} mt={7} {...form.getInputProps('dods', { type: 'input' })} />
@@ -77,9 +75,7 @@ const AddCardModal: React.FC<Props> = ({ openAdd, setOpenAdd, refetch }) => {
                         {   multiple ?
                             <MultiSelect 
                                 dropdownPosition="top"
-                                transitionDuration={250}
-                                transition="pop"
-                                transitionTimingFunction="ease"
+                                transitionProps={{duration: 250, transition: "pop", timingFunction: "ease"}}
                                 data={users.filter((user) => user.role !== "USER" && user.id !== userId).map((user) => {return {value: user.id, label: user.firstname + " " + user.lastname}})}
                                 label="Assignees"
                                 radius={"sm"}

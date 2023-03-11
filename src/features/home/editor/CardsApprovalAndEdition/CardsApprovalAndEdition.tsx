@@ -63,7 +63,7 @@ const ListWaitingCards: React.FC<Props> = ({cards, refetch, parts}) => {
                 search={search}
                 setSearch={setSearch}
             />
-            <Tabs radius={"sm"} defaultValue="Waiting approval" mt={40} value={activeTab} onTabChange={setActiveTab}>
+            <Tabs variant="outline" radius={"sm"} defaultValue="Waiting approval" mt={40} value={activeTab} onTabChange={setActiveTab}>
                 <Tabs.List grow position="center">
                     <Tabs.Tab value="Waiting approval">Waiting approval</Tabs.Tab>
                     <Tabs.Tab value="Approved">Approved</Tabs.Tab>

@@ -1,9 +1,7 @@
 import { useEffect } from "react";
-import { useMantineTheme, Modal, Container, TextInput, Button, Group, Title, Textarea } from "@mantine/core";
+import { useMantineTheme, Modal, Container, Button, Group, Textarea, Text } from "@mantine/core";
 
 import { rejectCardForm } from "../../utils/rejectCardForm";
-
-import { BiAddToQueue } from "react-icons/bi";
 
 import { rejectErrorNotification } from "components/notifications/errors";
 import { rejectCardNotification } from "components/notifications/success";
@@ -11,7 +9,6 @@ import { rejectCardNotification } from "components/notifications/success";
 import { useRejectCardMutation } from "store/api/cardAPI";
 
 import { Card } from "types/apiTypes";
-import { RxCross2 } from "react-icons/rx";
 
 interface Props {
     opened: boolean;
@@ -45,10 +42,8 @@ const RejectionModal: React.FC<Props> = ({opened, setOpened, refetch, card}) => 
             opened={opened}
             onClose={() => (setOpened(false), form.reset())}
             size={"lg"}
-            title={<Title size={"h5"}>Reject card</Title>}
-            overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2]}
-            overlayOpacity={0.55}
-            overlayBlur={3}
+            title={<Text>Reject a Card</Text>}
+            overlayProps={{color: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2], opacity: 0.55, blur: 3}}
             radius={10}
         >
             <Container style={{width: "90%"}} mt={-20} p={20}>

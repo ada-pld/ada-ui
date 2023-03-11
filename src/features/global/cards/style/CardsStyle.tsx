@@ -37,9 +37,21 @@ export const CardsStyle = createStyles((theme) => ({
         color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[5],
     },
 
-    footer: {
-        padding: `${theme.spacing.xs}px ${theme.spacing.lg}px`,
+    header: {
+        height: 55,
+        padding: 10,
         marginTop: theme.spacing.md,
+        borderTop: `1px solid ${
+            theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
+        }`,
+    },
+
+    footer: {
+        height: 40,
+        paddingLeft: theme.spacing.md,
+        paddingRight: theme.spacing.md,
+        paddingTop: theme.spacing.xs,
+        marginTop: theme.spacing.xs,
         borderTop: `1px solid ${
             theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
         }`,

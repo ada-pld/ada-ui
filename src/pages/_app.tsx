@@ -13,7 +13,7 @@ import { store, persistor } from 'store/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
-import { NotificationsProvider } from '@mantine/notifications';
+import { Notifications } from '@mantine/notifications';
 
 import { MantineProvider, ColorSchemeProvider, ColorScheme, AppShell } from '@mantine/core';
 import NavBar from "features/global/navigation/NavBar";
@@ -32,21 +32,20 @@ const App = (props: AppProps & { colorScheme: ColorScheme }) => {
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
                 <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-                    <NotificationsProvider position="bottom-left" style={{width: 400}}>
-                        <MantineProvider
-                            withGlobalStyles
-                            withNormalizeCSS
-                            theme={{ colorScheme, primaryColor: "violet" }}
+                    <MantineProvider
+                        withGlobalStyles
+                        withNormalizeCSS
+                        theme={{ colorScheme, primaryColor: "violet" }}
+                    >
+                        <NextNProgress color='#9775FA' height={3} showOnShallow={true} options={{ easing: 'ease', speed: 400, showSpinner: false }} />
+                        <AppShell
+                            padding="md"
+                            navbar={<NavBar />}
                         >
-                            <NextNProgress color='#9775FA' height={3} showOnShallow={true} options={{ easing: 'ease', speed: 400, showSpinner: false }} />
-                            <AppShell
-                                padding="md"
-                                navbar={<NavBar />}
-                            >
-                                <Component {...pageProps} />
-                            </AppShell>
-                        </MantineProvider>
-                    </NotificationsProvider>
+                            <Notifications position="bottom-left" />
+                            <Component {...pageProps} />
+                        </AppShell>
+                    </MantineProvider>
                 </ColorSchemeProvider>
             </PersistGate>
         </Provider>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Modal, useMantineTheme, Container, Group, TextInput, Button, PasswordInput, Switch, Title } from "@mantine/core";
+import { Modal, useMantineTheme, Container, Group, TextInput, Button, PasswordInput, Switch, Title, Text } from "@mantine/core";
 
 import { IoSaveOutline } from "react-icons/io5";
 
@@ -65,13 +65,10 @@ const ConfigModal: React.FC<Props> = ({opened, setOpened, actualConfig, refetch}
             opened={opened}
             onClose={() => (setOpened(false), form.reset())}
             size={"80%"}
-            title={<Title size={"h5"}>Wap Config</Title>}
-            overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2]}
-            overlayOpacity={0.55}
-            overlayBlur={3}
+            title={<Text>Wap Config</Text>}
+            overlayProps={{color: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2], opacity: 0.55, blur: 3}}
             radius={10}
-            transitionDuration={0}
-            overflow="inside"
+            transitionProps={{duration: 0}}
         >
             <Container style={{width: "90%"}} mt={-20} p={20}>
                 <form onSubmit={form.onSubmit((values) => editConfig(values))}>

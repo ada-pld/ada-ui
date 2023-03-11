@@ -39,7 +39,7 @@ const MyCards = () => {
                             Add a card
                         </Button>
                     </Group>
-                    <Tabs radius={"sm"} defaultValue="Approved" mt={40} value={activeTab} onTabChange={setActiveTab}>
+                    <Tabs variant="outline" radius={"sm"} defaultValue="Approved" mt={40} value={activeTab} onTabChange={setActiveTab}>
                         <Tabs.List grow position="center">
                             <Tabs.Tab value="Approved" rightSection={<Badge radius={"sm"} variant={activeTab === "Approved" ? "filled" : "light"} size="sm">{cards.filter((card: Card) => card.status !== "WAITING_APPROVAL" && card.status !== "REJECTED" && card.sprint.active).reduce((accumulator, card) => accumulator + card.workingDays, 0) + " J/H"}</Badge>}>Approved</Tabs.Tab>
                             <Tabs.Tab value="Waiting approval" rightSection={<Badge radius={"sm"} variant={activeTab === "Waiting approval" ? "filled" : "light"}  size="sm">{cards.filter((card: Card) => card.status === "WAITING_APPROVAL" && card.sprint.active).reduce((accumulator, card) => accumulator + card.workingDays, 0) + " J/H"}</Badge>}>Waiting approval</Tabs.Tab>

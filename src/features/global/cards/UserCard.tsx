@@ -43,8 +43,8 @@ const UserCard: React.FC<Props> = ({ card, refetch, edition, mode }) => {
     }, [statusResult])
 
     return (
-        <Card withBorder radius="sm" className={classes.card} p={0} shadow={"md"} mih={300}>
-            <Card.Section className={classes.footer}>
+        <Card withBorder radius="sm" className={classes.card} shadow={"md"} mih={300}>
+            <Card.Section className={classes.header}>
                 <Group position="apart">
                     <Badge variant="light" size="md" radius={"sm"} color={statusColor[`${card.status}`]}>{statusTranslate[`${card.status}`]}</Badge>
                     <CardMenu card={card} refetch={refetch} edition={edition} />
