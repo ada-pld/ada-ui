@@ -67,3 +67,12 @@ export interface MeetingAttendance {
     updatedAt: string;
     userId: string;
 }
+
+export interface MeetingGroup {
+    PLDMustBeGenerated: boolean;
+    groupColor: string;
+    groupName: string;
+    id: number;
+    typicalDuration: number;
+    typicalLocation: string;
+}

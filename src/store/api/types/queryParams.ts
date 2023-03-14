@@ -55,3 +55,20 @@ export interface RejectCard {
     id: number;
     reason: string;
 }
+
+export interface CreateMeeting {
+    meeting: {
+        title: string,
+        date: string,
+        agenda: string,
+        duration: number,
+        location: string,
+        newGroup?: {
+            name: string,
+            color: string,
+            duration: number,
+            location: string,
+        },
+        groupId?: string,
+    }
+}

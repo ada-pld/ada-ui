@@ -50,12 +50,12 @@ const ConfigModal: React.FC<Props> = ({opened, setOpened, actualConfig, refetch}
     useEffect(() => {
         if (result.isSuccess) {
             configNotification();
+            refetch();
         }
     }, [result])
 
     const editConfig = (values: any) => {
         newConfig({smtphost: values.SMTP_HOST, smtpuser: values.SMTP_USER, smtpport: values.SMTP_PORT, smtppassword: values.SMTP_PASSWORD, hostname: values.HOSTNAME, defaultPassword: values.DEFAULT_PASSWORD, underMaintenance: checked.toString()});
-        refetch();
         setOpened(false);
     }
 

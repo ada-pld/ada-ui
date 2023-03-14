@@ -1,4 +1,4 @@
-import { Card, MeetingAttendance } from "types/apiTypes";
+import { Card, MeetingAttendance, MeetingGroup } from "types/apiTypes";
 
 export interface User {
     userId: string;
@@ -32,8 +32,12 @@ export interface Meeting {
     id: number;
     agenda: string;
     date: string;
+    duration: number;
+    location: string;
+    rendezVousGroup: MeetingGroup;
     report: string | null;
     sheduling: "PLANNED" | "PASSED";
     updatedAt: string;
     userAttendances: MeetingAttendance[];
+    
 }

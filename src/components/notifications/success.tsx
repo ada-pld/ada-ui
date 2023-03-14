@@ -111,3 +111,12 @@ export const editProfileNotification = () => {
         icon: <BsCheck2 size={18} />,
     });
 };
+
+export const meetingCreatedNotification = () => {
+    notifications.show({
+        title: "Meeting created",
+        message: "A new meeting has been created",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};

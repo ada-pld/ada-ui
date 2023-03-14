@@ -138,3 +138,12 @@ export const editProfileErrorNotification = (message: string) => {
         icon: <AiOutlineExclamation size={24} />,
     });
 };
+
+export const meetingErrorNotification = (message: string) => {
+    notifications.show({
+        title: "Unhautorized",
+        message: message,
+        color: "red",
+        icon: <AiOutlineExclamation size={24} />,
+    });
+};

@@ -12,23 +12,28 @@ import { BsCalendarPlus } from "react-icons/bs";
 
 import { Meeting } from "store/api/types/fetchedData";
 import { useDisclosure } from "@mantine/hooks";
-import CreateMeeting from "features/home/user/meetings/modal/CreateMeeting";
+import CreateMeeting from "features/home/user/meetings/components/CreateMeetingModal";
+import { useAppSelector } from "store/hooks/hooks";
 
 const Meetings = () => {
     const { data: meetings, refetch } = useGetMeetings();
     const [activeTab, setActiveTab] = useState<string | null>('PLANNED');
     const [opened, { open, close }] = useDisclosure(false);
+    const role = useAppSelector((state) => state.user.auth.accessToken?.charAt(0));
 
     return meetings ? (
         <div>
             <Head><title>WAP | Meetings</title></Head>
-            <CreateMeeting opened={opened} close={close} />
+            <CreateMeeting meetings={meetings} opened={opened} close={close} refetch={refetch} />
             <Container fluid p={0} m={0}>
                 <h1 style={{textAlign: "center"}}>Meetings</h1>
                 <Group position="center" mt={40} style={{width: "100%", minWidth: 400}}>
-                    <Button w={"30%"} miw={250} leftIcon={<BsCalendarPlus size={20} />} variant="outline" onClick={open}>
-                        Create a meeting
-                    </Button>
+                    {role === "2" || role === "3" ?
+                        <Button w={"30%"} miw={250} leftIcon={<BsCalendarPlus size={20} />} variant="outline" onClick={open}>
+                            Create a meeting
+                        </Button>
+                        :<></>
+                    }
                 </Group>
                 <Tabs variant="outline" radius={"sm"} defaultValue="Approved" mt={40} value={activeTab} onTabChange={setActiveTab}>
                     <Tabs.List grow position="center">
