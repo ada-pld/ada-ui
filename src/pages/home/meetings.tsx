@@ -12,7 +12,7 @@ import { BsCalendarPlus } from "react-icons/bs";
 
 import { Meeting } from "store/api/types/fetchedData";
 import { useDisclosure } from "@mantine/hooks";
-import CreateMeeting from "features/home/user/meetings/components/CreateMeetingModal";
+import CreateMeeting from "features/home/user/meetings/components/modals/createMeetingModal/CreateMeetingModal";
 import { useAppSelector } from "store/hooks/hooks";
 
 const Meetings = () => {

@@ -120,3 +120,12 @@ export const meetingCreatedNotification = () => {
         icon: <BsCheck2 size={18} />,
     });
 };
+
+export const meetingEditedNotification = () => {
+    notifications.show({
+        title: "Meeting edited",
+        message: "The meeting has been edited",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};

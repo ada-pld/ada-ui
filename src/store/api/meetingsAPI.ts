@@ -1,4 +1,4 @@
-import { CreateMeeting } from "./types/queryParams";
+import { CreateMeeting, EditMeeting } from "./types/queryParams";
 import { wapAPI } from "./wapAPI";
 
 const meetingsApi = wapAPI.injectEndpoints({
@@ -7,6 +7,20 @@ const meetingsApi = wapAPI.injectEndpoints({
             query: () => ({
                 url: "rendezVous/list",
                 method: 'GET',
+            }),
+        }),
+        editMeeting: build.mutation<any, EditMeeting>({
+            query: ({ meeting }) => ({
+                url: "rendezVous/edit",
+                method: 'POST',
+                body: {
+                    id: meeting.id,
+                    title: meeting.title,
+                    date: meeting.date,
+                    agenda: meeting.agenda,
+                    duration: meeting.duration,
+                    location: meeting.location,
+                }
             }),
         }),
         createMeeting: build.mutation<any, CreateMeeting>({
@@ -35,4 +49,4 @@ const meetingsApi = wapAPI.injectEndpoints({
     overrideExisting: true,
 });
   
-export const { useGetMeetingsQuery, useCreateMeetingMutation } = meetingsApi;
+export const { useGetMeetingsQuery, useCreateMeetingMutation, useEditMeetingMutation } = meetingsApi;

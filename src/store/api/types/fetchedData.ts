@@ -30,6 +30,7 @@ export interface UserInfos {
 
 export interface Meeting {
     id: number;
+    title: string;
     agenda: string;
     date: string;
     duration: number;

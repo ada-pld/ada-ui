@@ -4,7 +4,7 @@ import { Button, Container, Group, Modal, Select, Text, Textarea, TextInput, use
 import { DateTimePicker } from "@mantine/dates";
 import { IoSaveOutline } from "react-icons/io5";
 
-import { CreateMeeting, createMeetingForm } from "../utils/createForm";
+import { CreateMeeting, createMeetingForm } from "./utils/createForm";
 import NewGroupForm from "./NewGroupForm";
 import { SelectItem } from "./SelectItem";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -117,8 +117,9 @@ const CreateMeetingModal: React.FC<Props> = ({ meetings, opened, close, refetch 
                     <DateTimePicker
                         required
                         clearable
+                        valueFormat="DD MMM YYYY HH:mm"
+                        minDate={new Date()}
                         dropdownType="popover"
-                        valueFormat="DD MMM YYYY hh:mm A"
                         label="Pick date and time of the meeting"
                         placeholder="Pick date and time of the meeting"
                         mt={10}

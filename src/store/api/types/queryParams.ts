@@ -72,3 +72,14 @@ export interface CreateMeeting {
         groupId?: string,
     }
 }
+
+export interface EditMeeting {
+    meeting: {
+        id: number,
+        title: string,
+        date: string,
+        agenda: string,
+        duration: number,
+        location: string,
+    }
+}
