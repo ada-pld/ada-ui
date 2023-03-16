@@ -23,4 +23,7 @@ const partsApi = wapAPI.injectEndpoints({
     overrideExisting: true,
 });
   
-export const { useListPartsQuery, useCreatePartMutation } = partsApi;
+export const {
+    useListPartsQuery,
+    useCreatePartMutation
+} = partsApi;

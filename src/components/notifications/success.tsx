@@ -2,10 +2,10 @@ import React from "react";
 
 import { BsCheck2 } from "react-icons/bs";
 
-import { showNotification } from "@mantine/notifications";
+import { notifications } from '@mantine/notifications';
 
 export const userCreatedNotification = () => {
-    showNotification({
+    notifications.show({
         title: "User created",
         message: "A mail has been sent to the user with a temporary password",
         color: "green",
@@ -14,7 +14,7 @@ export const userCreatedNotification = () => {
 };
 
 export const userModifiedNotification = () => {
-    showNotification({
+    notifications.show({
         title: "User modified",
         message: "User informations modified with success",
         color: "green",
@@ -23,7 +23,7 @@ export const userModifiedNotification = () => {
 };
 
 export const forgotPasswordNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Password recover",
         message: "A mail has been sent to the user with a temporary password",
         color: "green",
@@ -32,7 +32,7 @@ export const forgotPasswordNotification = () => {
 };
 
 export const partCreatedNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Part created",
         message: "A new part has been added to WAP",
         color: "green",
@@ -41,7 +41,7 @@ export const partCreatedNotification = () => {
 };
 
 export const cacheRefreshedNotification = () => {
-    showNotification({
+    notifications.show({
         title: "API cache refreshed",
         message: "API cache refresh with success !",
         color: "green",
@@ -50,7 +50,7 @@ export const cacheRefreshedNotification = () => {
 };
 
 export const configNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Config edited",
         message: "New config has been saved !",
         color: "green",
@@ -59,7 +59,7 @@ export const configNotification = () => {
 };
 
 export const createdCardNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Card created",
         message: "Card successfully added to your collection !",
         color: "green",
@@ -68,7 +68,7 @@ export const createdCardNotification = () => {
 };
 
 export const editCardNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Card edited",
         message: "Card successfully edited !",
         color: "green",
@@ -77,7 +77,7 @@ export const editCardNotification = () => {
 };
 
 export const deleteCardNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Card deleted",
         message: "Card successfully deleted from your collection",
         color: "green",
@@ -86,7 +86,7 @@ export const deleteCardNotification = () => {
 };
 
 export const approveCardNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Card approved",
         message: "Card successfully approved !",
         color: "green",
@@ -95,7 +95,7 @@ export const approveCardNotification = () => {
 };
 
 export const rejectCardNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Card rejected",
         message: "Card successfully rejected !",
         color: "green",
@@ -104,9 +104,45 @@ export const rejectCardNotification = () => {
 };
 
 export const editProfileNotification = () => {
-    showNotification({
+    notifications.show({
         title: "Success",
         message: "Profile updated !",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
+
+export const meetingCreatedNotification = () => {
+    notifications.show({
+        title: "Meeting created",
+        message: "A new meeting has been created",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
+
+export const meetingEditedNotification = () => {
+    notifications.show({
+        title: "Meeting edited",
+        message: "The meeting has been edited",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
+
+export const deleteMeetingNotification = () => {
+    notifications.show({
+        title: "Meeting deleted",
+        message: "The meeting has been deleted",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
+
+export const meetingValidatedNotification = () => {
+    notifications.show({
+        title: "Meeting Validated",
+        message: "The meeting has been validated",
         color: "green",
         icon: <BsCheck2 size={18} />,
     });

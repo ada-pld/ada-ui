@@ -1,4 +1,4 @@
-import { Card } from "types/apiTypes";
+import { Card, MeetingAttendance, MeetingGroup } from "types/apiTypes";
 
 export interface User {
     userId: string;
@@ -26,4 +26,25 @@ export interface UserInfos {
     lastname: string;
     email: string;
     role: string;
+}
+
+export interface Meeting {
+    id: number;
+    title: string;
+    agenda: string;
+    date: string;
+    duration: number;
+    location: string;
+    rendezVousGroup: MeetingGroup;
+    report: string | null;
+    sheduling: "PLANNED" | "PASSED";
+    updatedAt: string;
+    userAttendances: MeetingAttendance[];   
+}
+
+export interface Sprint {
+    active: boolean;
+    id: number;
+    name: string;
+    workDaysNeeded: number;
 }

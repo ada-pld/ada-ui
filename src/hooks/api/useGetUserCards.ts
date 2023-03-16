@@ -5,11 +5,15 @@ import { useRouter } from "next/router";
 import { useGetCardsQuery } from "store/api/cardAPI";
 
 import { checkError } from "./utils/checkError";
-import { useAppSelector } from "store/hooks/hooks";
 
-export const useGetUserCards = () => {
+import { useAppSelector } from "store/hooks/hooks";
+import { useGetSprint } from "./useGetSprint";
+
+export const useGetUserCards = (variant: "all" | "user") => {
     const userId = useAppSelector((state) => state.user.auth.userId);
-    const { data, error, refetch } = useGetCardsQuery(userId!);
+    const { data: sprint } = useGetSprint();
+    const query = variant === "user" ? {userId: userId!, sprintId: sprint?.id ?? 0} : {sprintId: sprint?.id ?? 0}
+    const { data, error, refetch } = useGetCardsQuery(query, { skip: !sprint?.id });
 
     const router = useRouter();
 

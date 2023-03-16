@@ -49,7 +49,7 @@ interface NavbarLinkProps {
 function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
     const { classes, cx } = useStyles();
     return (
-        <Tooltip label={label} position="right" transitionDuration={300} withinPortal>
+        <Tooltip label={label} position="right" transitionProps={{duration: 300}} withinPortal>
             <UnstyledButton onClick={onClick} className={cx(classes.link, { [classes.active]: active })}>
                 <Icon size={20} />
             </UnstyledButton>
@@ -94,24 +94,15 @@ const ResponsiveNavBar: React.FC<Props> = ({page, userRole}) => {
             </Center>
             <Navbar.Section grow mt={"md"} component={ScrollArea} pb={10}>
                 <Stack spacing={5} align="center">
-                    {userNav}
-                    <Divider mt={10} mb={10} />
-                    {(userRole === "2" || userRole === "3") &&
-                        <>
-                            {editorNav}
-                            <Divider mt={10} mb={10} />
-                        </>
-                    }
-                    {userRole === "3" &&
-                        <>
-                            {adminNav}
-                        </>
-                    }
+                    <>
+                        {userNav}
+                        {(userRole === "2" || userRole === "3") && <div style={{marginTop: 15}}>{editorNav}</div>}
+                        {userRole === "3" && <div style={{marginTop: 15}}>{adminNav}</div>}
+                    </>
                 </Stack>
             </Navbar.Section>
             <Navbar.Section>
                 <Stack justify="center" spacing={10}>
-                    <Divider />
                     <Center mt={10}>
                         <LittleColorScheme />
                     </Center>

@@ -1,4 +1,4 @@
-import { Navbar, UnstyledButton, ScrollArea } from '@mantine/core';
+import { Navbar, UnstyledButton, ScrollArea, Group } from '@mantine/core';
 
 import UserButton from './components/fullNavBar/UserButton';
 
@@ -27,7 +27,7 @@ const NavBar: React.FC<Props> = ({page, userRole}) => {
     const dispatch = useAppDispatch();
 
     return (
-        <Navbar p="xs" width={{ base: 275 }} className={classes.navbar}>
+        <Navbar p="xs" width={{ base: 275 }} style={{borderWidth: 0}} className={classes.navbar}>
             <Navbar.Section>
                 <UserButton
                     firstname={user?.firstname}
@@ -47,7 +47,9 @@ const NavBar: React.FC<Props> = ({page, userRole}) => {
                     className={classes.link}
                     onClick={() => {logoutHandling({dispatch, router})}}
                 >
-                    <SlLogout className={classes.linkIcon} />
+                    <Group className={classes.iconGroup}>
+                        <SlLogout className={classes.linkIcon} />
+                    </Group>
                     <span>Logout</span>
                 </UnstyledButton>
             </Navbar.Section>

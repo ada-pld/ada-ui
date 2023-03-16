@@ -55,3 +55,45 @@ export interface RejectCard {
     id: number;
     reason: string;
 }
+
+export interface CreateMeeting {
+    meeting: {
+        title: string,
+        date: string,
+        agenda: string,
+        duration: number,
+        location: string,
+        newGroup?: {
+            name: string,
+            color: string,
+            duration: number,
+            location: string,
+        },
+        groupId?: string,
+    }
+}
+
+export interface EditMeeting {
+    meeting: {
+        id: number,
+        title: string,
+        date: string,
+        agenda: string,
+        duration: number,
+        location: string,
+    }
+}
+
+export interface ValidateMeeting {
+    meetingId: number,
+    report: string,
+    attendances: { 
+        id: number,
+        presence: "present" | "absent" | "na";
+    }[]
+}
+
+export interface GetUserCards {
+    userId?: string;
+    sprintId: number;
+}

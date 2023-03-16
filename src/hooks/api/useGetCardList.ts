@@ -2,12 +2,15 @@ import { useEffect } from "react";
 
 import { useRouter } from "next/router";
 
-import { useGetSprintCardsQuery } from "store/api/cardAPI";
+import { useGetCardListQuery } from "store/api/cardAPI";
 
 import { checkError } from "./utils/checkError";
 
-export const useGetSprintCards = () => {
-    const { data, error, refetch } = useGetSprintCardsQuery();
+import { useGetSprint } from "./useGetSprint";
+
+export const useGetCardList = () => {
+    const { data: sprint } = useGetSprint();
+    const { data, error, refetch } = useGetCardListQuery(sprint?.id ?? 0, { skip: !sprint?.id });
 
     const router = useRouter();
 

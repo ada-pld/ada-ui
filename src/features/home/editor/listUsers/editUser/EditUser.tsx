@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Modal, useMantineTheme, TextInput, Container, Select, PasswordInput, Button, Group, Switch, Title } from "@mantine/core";
+import { Modal, useMantineTheme, TextInput, Container, Select, PasswordInput, Button, Group, Switch, Title, Text } from "@mantine/core";
 
 import { editUserForm } from "./utils/editUserForm";
 
@@ -63,12 +63,10 @@ const EditUser: React.FC<Props> = ({opened, setOpened, user, setSelectedUser, re
             opened={opened}
             onClose={() => (setOpened(false), setSelectedUser(null), form.reset())}
             size={"xl"}
-            title={<Title size={"h5"}>Edit user</Title>}
-            overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2]}
-            overlayOpacity={0.55}
-            overlayBlur={3}
+            title={<Text>Edit user</Text>}
+            overlayProps={{color: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2], opacity: 0.55, blur: 3}}
             radius={10}
-            transitionDuration={0}
+            transitionProps={{duration: 0}}
         >
             <Container style={{width: "90%"}} mt={-20} p={20}>
                 <form onSubmit={form.onSubmit((values) => (editUserHandling({user, editUser, values, setOpened})))}>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Divider } from "@mantine/core";
+import { Divider, Group } from "@mantine/core";
 
 import { useStyles } from "../../styles/fullNavBarStyle";
 
@@ -20,7 +20,9 @@ const Navigationtabs: React.FC<Props> = ({active, userRole}) => {
             href={item.link}
             key={item.label}
         >
-            <item.icon size={18} className={classes.linkIcon} />
+            <Group className={cx(classes.iconGroup, { [classes.iconGroupActive]: item.link === active })}>
+                <item.icon size={18} className={classes.linkIcon} />
+            </Group>
             <span>{item.label}</span>
         </Link>
     ));
@@ -31,7 +33,9 @@ const Navigationtabs: React.FC<Props> = ({active, userRole}) => {
             href={item.link}
             key={item.label}
         >
-            <item.icon size={18} className={classes.linkIcon} />
+            <Group className={cx(classes.iconGroup, { [classes.iconGroupActive]: item.link === active })}>
+                <item.icon size={18} className={classes.linkIcon} />
+            </Group>
             <span>{item.label}</span>
         </Link>
     ));
@@ -42,7 +46,9 @@ const Navigationtabs: React.FC<Props> = ({active, userRole}) => {
             href={item.link}
             key={item.label}
         >
-            <item.icon size={20} className={classes.linkIcon} />
+            <Group className={cx(classes.iconGroup, { [classes.iconGroupActive]: item.link === active })}>
+                <item.icon size={18} className={classes.linkIcon} />
+            </Group>
             <span>{item.label}</span>
         </Link>
     ));
@@ -50,16 +56,16 @@ const Navigationtabs: React.FC<Props> = ({active, userRole}) => {
     return (
         <>
             {userNav}
-            <Divider mt={10} mb={10} />
             {(userRole === "2" || userRole === "3") &&
                 <>
-                    {editorNav}
-                    <Divider mt={10} mb={10} />
+                    <Divider mt={10} />
+                    <div style={{marginTop: 10}}>{editorNav}</div>
                 </>
             }
             {userRole === "3" &&
                 <>
-                    {adminNav}
+                    <Divider mt={10} />
+                    <div style={{marginTop: 10}}>{adminNav}</div>
                 </>
             }
         </>

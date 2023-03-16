@@ -4,13 +4,14 @@ import { useGetSprint } from "hooks/api/useGetSprint";
 import { Container } from "@mantine/core";
 
 import CustomLoader from "components/loader/CustomLoader";
-import { useGetSprintCards } from "hooks/api/useGetSprintCards";
 
 import ListWaitingCards from "features/home/editor/CardsApprovalAndEdition";
 import { useListParts } from "hooks/api/useListParts";
 
+import { useGetCardList } from "hooks/api/useGetCardList";
+
 const Card = () => {
-    const { data: cards, refetch } = useGetSprintCards();
+    const { data: cards, refetch } = useGetCardList();
     const { data: sprint } = useGetSprint();
     const { data: parts } = useListParts(true);
 

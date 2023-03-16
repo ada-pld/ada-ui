@@ -1,25 +1,25 @@
-import { Card, CardsStats } from "types/apiTypes";
-import { CreateCard, EditCard, RejectCard, UpdateStatus } from "./types/queryParams";
+import { Sprint, UserCards } from "types/apiTypes";
+import { CreateCard, EditCard, GetUserCards, RejectCard, UpdateStatus } from "./types/queryParams";
 
 import { wapAPI } from "./wapAPI";
 
 const configApi = wapAPI.injectEndpoints({
     endpoints: (build) => ({
-        getSprint: build.query<any, void>({
+        getCards: build.query<UserCards, GetUserCards>({
+            query: ({userId, sprintId}) => ({
+                url: `/users/cardsStats?sprintId=${sprintId.toString()}${userId ? `&userId=${userId}` : ''}`,
+                method: 'GET',
+            }),
+        }),
+        getCardList: build.query<any, number>({
+            query: (sprintId) => ({
+                url: `/card/list?sprintId=${sprintId.toString()}`,
+                method: 'GET',
+            }),
+        }),
+        getSprint: build.query<Sprint, void>({
             query: () => ({
                 url: `sprint/active`,
-                method: 'GET',
-            }),
-        }),
-        getCards: build.query<Card[], string>({
-            query: (id) => ({
-                url: `/users/${id}/cards`,
-                method: 'GET',
-            }),
-        }),
-        getSprintCards: build.query<CardsStats[], void>({
-            query: () => ({
-                url: `/sprint/cardStats`,
                 method: 'GET',
             }),
         }),
@@ -88,7 +88,7 @@ const configApi = wapAPI.injectEndpoints({
   
 export const {
     useGetCardsQuery,
-    useGetSprintCardsQuery,
+    useGetCardListQuery,
     useGetSprintQuery,
     useUpdateCardStatusMutation,
     useCreateCardMutation,

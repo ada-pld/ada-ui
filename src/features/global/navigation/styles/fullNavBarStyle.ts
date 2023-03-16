@@ -1,11 +1,11 @@
-import { createStyles } from "@mantine/core";
+import { createStyles, getStylesRef } from "@mantine/core";
 
-export const useStyles = createStyles((theme, _params, getRef) => {
-    const icon = getRef('icon');
+export const useStyles = createStyles((theme, _params) => {
+    const icon = getStylesRef('icon');
 
     return {
         navbar: {
-            backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+            background: theme.colorScheme === 'dark' ? `linear-gradient(${theme.colors.dark[6]}, ${theme.colors.dark[7]})` : `linear-gradient(rgb(248, 248, 248), #fff)`,
         },
 
         title: {
@@ -20,13 +20,13 @@ export const useStyles = createStyles((theme, _params, getRef) => {
             textDecoration: 'none',
             fontSize: theme.fontSizes.sm,
             color: theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[7],
-            padding: `${theme.spacing.xs}px ${theme.spacing.sm}px`,
+            padding: 5,
+            marginTop: 5,
+            marginLeft: 5,
             borderRadius: theme.radius.sm,
             fontWeight: 500,
-            marginTop: 5,
 
             '&:hover': {
-                backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
                 color: theme.colorScheme === 'dark' ? theme.white : theme.black,
 
                 [`& .${icon}`]: {
@@ -38,24 +38,31 @@ export const useStyles = createStyles((theme, _params, getRef) => {
         linkIcon: {
             ref: icon,
             color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[6],
+        },
+
+        iconGroup: {
             marginRight: theme.spacing.sm,
+            borderRadius: 6,
+            padding: 5,
         },
 
         linkActive: {
             '&, &:hover': {
-                backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor })
-                .background,
-                color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
+                color: theme.colorScheme === 'dark' ? theme.colors.violet[3] : theme.colors.violet[7],
                 [`& .${icon}`]: {
-                color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
+                    color: "#fff",
                 },
             },
         },
 
+        iconGroupActive: {
+            '&, &:hover': {
+                backgroundColor: theme.colors.violet[7],
+                boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+            },
+        },
+
         footer: {
-            borderTop: `1px solid ${
-                theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
-            }`,
             paddingTop: 10,
         },
     };

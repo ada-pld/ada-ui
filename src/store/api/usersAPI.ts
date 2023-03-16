@@ -51,4 +51,9 @@ const usersApi = wapAPI.injectEndpoints({
     overrideExisting: true,
 });
   
-export const { useListUsersQuery, useCreateUserMutation, useEditUserMutation, useForgotPasswordMutation } = usersApi;
+export const {
+    useListUsersQuery,
+    useCreateUserMutation,
+    useEditUserMutation,
+    useForgotPasswordMutation
+} = usersApi;
