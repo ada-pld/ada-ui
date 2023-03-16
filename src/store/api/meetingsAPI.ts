@@ -1,4 +1,4 @@
-import { CreateMeeting, EditMeeting } from "./types/queryParams";
+import { CreateMeeting, EditMeeting, ValidateMeeting } from "./types/queryParams";
 import { wapAPI } from "./wapAPI";
 
 const meetingsApi = wapAPI.injectEndpoints({
@@ -20,6 +20,18 @@ const meetingsApi = wapAPI.injectEndpoints({
                     agenda: meeting.agenda,
                     duration: meeting.duration,
                     location: meeting.location,
+                }
+            }),
+        }),
+        validateMeeting: build.mutation<any, ValidateMeeting>({
+            query: ({ meetingId, report, attendances }) => ({
+                url: "rendezVous/edit",
+                method: 'POST',
+                body: {
+                    id: meetingId,
+                    report: report,
+                    attendances: attendances,
+                    passed: true,
                 }
             }),
         }),
@@ -45,8 +57,20 @@ const meetingsApi = wapAPI.injectEndpoints({
                 }
             }),
         }),
+        deleteMeeting: build.mutation<void, number>({
+            query: (id) => ({
+                url: `rendezVous/delete/${id}`,
+                method: 'GET',
+            }),
+        }),
     }),
     overrideExisting: true,
 });
   
-export const { useGetMeetingsQuery, useCreateMeetingMutation, useEditMeetingMutation } = meetingsApi;
+export const {
+    useGetMeetingsQuery,
+    useCreateMeetingMutation,
+    useEditMeetingMutation,
+    useValidateMeetingMutation,
+    useDeleteMeetingMutation
+} = meetingsApi;

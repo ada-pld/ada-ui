@@ -47,7 +47,6 @@ const EditMeetingModal: React.FC<Props> = ({ meeting, opened, close, refetch }) 
             close();
         } else if (result.isSuccess) {
             meetingEditedNotification();
-            form.reset();
             close();
             refetch();
         }
@@ -57,7 +56,7 @@ const EditMeetingModal: React.FC<Props> = ({ meeting, opened, close, refetch }) 
         <Modal
             centered
             opened={opened}
-            onClose={() => (close(), form.reset())}
+            onClose={() => (close())}
             size={"xl"}
             title={<Text>Edit meeting</Text>}
             overlayProps={{color: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2], opacity: 0.55, blur: 3}}

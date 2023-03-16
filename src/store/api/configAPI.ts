@@ -32,5 +32,9 @@ const configApi = wapAPI.injectEndpoints({
     }),
     overrideExisting: true,
 });
-  
-export const { useGetConfigQuery, useRefreshCacheMutation, useEditConfigMutation } = configApi;
+
+export const {
+    useGetConfigQuery,
+    useRefreshCacheMutation,
+    useEditConfigMutation
+} = configApi;

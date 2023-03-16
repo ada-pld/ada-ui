@@ -10,7 +10,7 @@ interface Props {
 }
 
 const WaitingCards: React.FC<Props> = ({ data, refetch }) => {
-    const filteredCards = data.filter((card: Card) => card.status === "WAITING_APPROVAL" && card.sprint.active);
+    const filteredCards = data.filter((card: Card) => card.status === "WAITING_APPROVAL");
 
     return (
         <Tabs.Panel value="Waiting approval">

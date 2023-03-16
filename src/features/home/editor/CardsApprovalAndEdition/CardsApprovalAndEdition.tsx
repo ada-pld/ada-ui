@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
-import { Badge, Center, Divider, Grid, Tabs, Title } from "@mantine/core";
+import { Tabs } from "@mantine/core";
 
 import { PartsList } from "store/api/types/fetchedData";
-import { Card, CardsStats } from "types/apiTypes";
+import { Card } from "types/apiTypes";
 
 import Filters from "./components/Filters";
 
@@ -12,18 +12,17 @@ import ApprovedCardsEditable from "./components/CardsTabs/ApprovedCardsEditable"
 import RejectedCardsEditable from "./components/CardsTabs/RejectedCardsEditable";
 
 interface Props {
-    cards: CardsStats[];
+    cards: Card[];
     refetch: any;
     parts: PartsList[];
 }
 
 const ListWaitingCards: React.FC<Props> = ({cards, refetch, parts}) => {
     const [activeTab, setActiveTab] = useState<string | null>("Waiting approval");
-    const cardsArray = cards.flatMap((card: CardsStats)  => card.cards);
     
-    const waitingCards = cardsArray.filter((card: Card) => card.status === "WAITING_APPROVAL");
-    const rejectedCards = cardsArray.filter((card: Card) => card.status === "REJECTED");
-    const approvedCards = cardsArray.filter((card: Card) => card.status !== "WAITING_APPROVAL" && card.status !== "REJECTED");
+    const waitingCards = cards.filter((card: Card) => card.status === "WAITING_APPROVAL");
+    const rejectedCards = cards.filter((card: Card) => card.status === "REJECTED");
+    const approvedCards = cards.filter((card: Card) => card.status !== "WAITING_APPROVAL" && card.status !== "REJECTED");
 
     const [filteredWaitingCards, setFilteredWaitingCards] = useState(waitingCards);
     const [filteredRejectedCards, setFilteredRejectedCards] = useState(rejectedCards);
@@ -33,9 +32,9 @@ const ListWaitingCards: React.FC<Props> = ({cards, refetch, parts}) => {
     const [search, setSearch] = useState<string>("");
 
     useEffect(() => {
-        let waitingCardsFiltering = cardsArray.filter((card: Card) => card.status === "WAITING_APPROVAL");
-        let rejectedCardsFiltering = cardsArray.filter((card: Card) => card.status === "REJECTED");
-        let approvedCardsFiltering = cardsArray.filter((card: Card) => card.status !== "WAITING_APPROVAL" && card.status !== "REJECTED");
+        let waitingCardsFiltering = cards.filter((card: Card) => card.status === "WAITING_APPROVAL");
+        let rejectedCardsFiltering = cards.filter((card: Card) => card.status === "REJECTED");
+        let approvedCardsFiltering = cards.filter((card: Card) => card.status !== "WAITING_APPROVAL" && card.status !== "REJECTED");
 
         if (partFilter) {
             waitingCardsFiltering = waitingCardsFiltering.filter((card: Card) => card.part.name === partFilter);

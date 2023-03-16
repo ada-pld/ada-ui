@@ -10,7 +10,7 @@ interface Props {
 }
 
 const RejectedCards: React.FC<Props> = ({ data, refetch }) => {
-    const filteredCards = data.filter((card: Card) => card.status === "REJECTED" && card.sprint.active);
+    const filteredCards = data.filter((card: Card) => card.status === "REJECTED");
 
     return (
         <Tabs.Panel value="Rejected">

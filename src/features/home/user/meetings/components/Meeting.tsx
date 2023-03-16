@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Badge, Container, Divider, Group, Spoiler, Text, Title, useMantineTheme } from "@mantine/core";
+import { Badge, Container, Divider, Group, Spoiler, Text, Title, Tooltip, useMantineTheme } from "@mantine/core";
 import { Meeting } from "store/api/types/fetchedData";
 
 import { SlLocationPin } from "react-icons/sl";
@@ -33,7 +33,7 @@ const Meeting: React.FC<Props> = ({ meeting, refetch }) => {
         <Container p={20} m={20} style={{borderRadius: 10, borderColor: meeting.rendezVousGroup.groupColor, borderWidth: 2, borderStyle: "solid"}}>
             <Group position="apart">
                 <Title weight={"600"} size={20} style={{display: "flex", alignItems: "center", gap: 10}}>
-                    {isMeetingActive
+                    {isMeetingActive && meeting.sheduling === "PLANNED"
                         ?   <Badge size="lg" radius="sm" variant={"dot"} color={"green"}>
                                 Live
                             </Badge>
@@ -59,8 +59,9 @@ const Meeting: React.FC<Props> = ({ meeting, refetch }) => {
             <Group position="center">
                 <Divider mt={20} style={{width: "90%"}} />
             </Group>
-            <Spoiler maxHeight={100} showLabel="Show more" hideLabel="Hide">
-                <Text mt={20}>
+            <Spoiler maxHeight={110} showLabel="Show more" hideLabel="Hide">
+                <Text weight={"bold"} mt={20}>Agenda :</Text>
+                <Text mt={10} pb={10}>
                     {meeting.agenda.split('\n').map((str, index) => 
                         <React.Fragment key={index}>
                             {str}
@@ -68,6 +69,39 @@ const Meeting: React.FC<Props> = ({ meeting, refetch }) => {
                         </React.Fragment>
                     )}
                 </Text>
+                {meeting.report &&
+                    <>
+                        <div style={{display: "flex", justifyContent: "center"}}>
+                            <Divider mt={10} style={{width: "90%"}} />
+                        </div>
+                        <Text weight={"bold"} mt={20}>Meeting report :</Text>
+                        <Text mt={10} pb={10}>
+                            {meeting.report.split('\n').map((str, index) => 
+                                <React.Fragment key={index}>
+                                    {str}
+                                    <br />
+                                </React.Fragment>
+                            )}
+                        </Text>
+                    </>
+                }
+                {meeting.sheduling === "PASSED" &&
+                    <>
+                        <div style={{display: "flex", justifyContent: "center"}}>
+                            <Divider mt={10} style={{width: "90%"}} />
+                        </div>
+                        <Text weight={"bold"} mt={20}>Attendances :</Text>
+                        <Group mt={20} position={"center"} align={"center"} spacing={10}>
+                            {meeting.userAttendances.map((attendance) => (
+                                <Tooltip key={attendance.id} label={attendance.attendance === "PRESENT" ? "Present" : "ABSENT" ? "Absent" : "Excused"} transitionProps={{duration: 300, transition: "pop", timingFunction: "ease"}} withinPortal withArrow arrowSize={6} arrowRadius={4}>
+                                    <Badge style={{cursor: "pointer"}} radius={"sm"} size={"lg"} variant={"dot"} color={attendance.attendance === "PRESENT" ? "green" : "ABSENT" ? "red" : "orange"}>
+                                        {attendance.user.firstname} {attendance.user.lastname}
+                                    </Badge>
+                                </Tooltip>
+                            ))}
+                        </Group>
+                    </>
+                }
             </Spoiler>
         </Container>
     );

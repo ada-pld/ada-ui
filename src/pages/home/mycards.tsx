@@ -12,7 +12,6 @@ import RejectedCards from "features/home/user/cardTabs/RejectedCards";
 import WaitingCards from "features/home/user/cardTabs/WaitingCards";
 import ApprovedCards from "features/home/user/cardTabs/ApprovedCards";
 
-import { Card } from "types/apiTypes";
 import { useGetSprint } from "hooks/api/useGetSprint";
 
 import AddCardModal from "features/global/cards/components/modals/AddCardModal";
@@ -20,17 +19,17 @@ import AddCardModal from "features/global/cards/components/modals/AddCardModal";
 import CustomLoader from "components/loader/CustomLoader";
 
 const MyCards = () => {
-    const { data: cards, refetch } = useGetUserCards();
     const { data: sprint } = useGetSprint();
+    const { data, refetch } = useGetUserCards("user");
 
     const [activeTab, setActiveTab] = useState<string | null>('Approved');
     const [openAdd, setOpenAdd] = useState<boolean>(false);
     
-    return cards && sprint ? (
+    return data && sprint ? (
         <div>
             <Head><title>WAP | MyCards</title></Head>
             <AddCardModal openAdd={openAdd} setOpenAdd={setOpenAdd} refetch={refetch} />
-            {cards &&
+            {data &&
                 <Container fluid p={0} m={0}>
                     <h1 style={{textAlign: "center"}}>My Cards</h1>
                     <h3 style={{textAlign: "center", color: "dimgrey"}}>{sprint.name}</h3>
@@ -41,13 +40,13 @@ const MyCards = () => {
                     </Group>
                     <Tabs variant="outline" radius={"sm"} defaultValue="Approved" mt={40} value={activeTab} onTabChange={setActiveTab}>
                         <Tabs.List grow position="center">
-                            <Tabs.Tab value="Approved" rightSection={<Badge radius={"sm"} variant={activeTab === "Approved" ? "filled" : "light"} size="sm">{cards.filter((card: Card) => card.status !== "WAITING_APPROVAL" && card.status !== "REJECTED" && card.sprint.active).reduce((accumulator, card) => accumulator + card.workingDays, 0) + " J/H"}</Badge>}>Approved</Tabs.Tab>
-                            <Tabs.Tab value="Waiting approval" rightSection={<Badge radius={"sm"} variant={activeTab === "Waiting approval" ? "filled" : "light"}  size="sm">{cards.filter((card: Card) => card.status === "WAITING_APPROVAL" && card.sprint.active).reduce((accumulator, card) => accumulator + card.workingDays, 0) + " J/H"}</Badge>}>Waiting approval</Tabs.Tab>
-                            <Tabs.Tab value="Rejected" rightSection={<Badge radius={"sm"} variant={activeTab === "Rejected" ? "filled" : "light"}  size="sm">{cards.filter((card: Card) => card.status === "REJECTED" && card.sprint.active).reduce((accumulator, card) => accumulator + card.workingDays, 0) + " J/H"}</Badge>}>Rejected</Tabs.Tab>
+                            <Tabs.Tab value="Approved" rightSection={<Badge radius={"sm"} variant={activeTab === "Approved" ? "filled" : "light"} size="sm">{`${data.JHIntended} J/H`}</Badge>}>Approved</Tabs.Tab>
+                            <Tabs.Tab value="Waiting approval" rightSection={<Badge radius={"sm"} variant={activeTab === "Waiting approval" ? "filled" : "light"}  size="sm">{`${data.JHWaitingApproval} J/H`}</Badge>}>Waiting approval</Tabs.Tab>
+                            <Tabs.Tab value="Rejected" rightSection={<Badge radius={"sm"} variant={activeTab === "Rejected" ? "filled" : "light"}  size="sm">{`${data.JHRejected} J/H`}</Badge>}>Rejected</Tabs.Tab>
                         </Tabs.List>
-                        <ApprovedCards data={cards} refetch={refetch} />
-                        <WaitingCards data={cards} refetch={refetch} />
-                        <RejectedCards data={cards} refetch={refetch} />
+                        <ApprovedCards data={data.cards} refetch={refetch} />
+                        <WaitingCards data={data.cards} refetch={refetch} />
+                        <RejectedCards data={data.cards} refetch={refetch} />
                     </Tabs>
                 </Container>
             }

@@ -1,11 +1,13 @@
-export interface CardsStats {
+export interface UserCards {
     JHDones: number;
     JHInProgress: number;
     JHIntended: number;
     JHMissing: number;
     JHNotAccepted: number;
     JHNotStarted: number;
-    cards: Card[]
+    JHRejected: number;
+    JHWaitingApproval: number;
+    cards: Card[];
     email: string;
     firstname: string;
     lastname: string;
@@ -62,6 +64,11 @@ export interface Part {
 export interface MeetingAttendance {
     attendance: "UNDEFINED" | "PRESENT" | "ABSENT";
     createdAt: string;
+    user: {
+        firstname: string;
+        lastname: string;
+        email: string;
+    }
     id: number;
     rendezVousId: number;
     updatedAt: string;

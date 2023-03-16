@@ -129,3 +129,21 @@ export const meetingEditedNotification = () => {
         icon: <BsCheck2 size={18} />,
     });
 };
+
+export const deleteMeetingNotification = () => {
+    notifications.show({
+        title: "Meeting deleted",
+        message: "The meeting has been deleted",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
+
+export const meetingValidatedNotification = () => {
+    notifications.show({
+        title: "Meeting Validated",
+        message: "The meeting has been validated",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};

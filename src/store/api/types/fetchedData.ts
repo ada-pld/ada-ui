@@ -39,6 +39,12 @@ export interface Meeting {
     report: string | null;
     sheduling: "PLANNED" | "PASSED";
     updatedAt: string;
-    userAttendances: MeetingAttendance[];
-    
+    userAttendances: MeetingAttendance[];   
+}
+
+export interface Sprint {
+    active: boolean;
+    id: number;
+    name: string;
+    workDaysNeeded: number;
 }

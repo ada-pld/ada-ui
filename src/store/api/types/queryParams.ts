@@ -83,3 +83,17 @@ export interface EditMeeting {
         location: string,
     }
 }
+
+export interface ValidateMeeting {
+    meetingId: number,
+    report: string,
+    attendances: { 
+        id: number,
+        presence: "present" | "absent" | "na";
+    }[]
+}
+
+export interface GetUserCards {
+    userId?: string;
+    sprintId: number;
+}
