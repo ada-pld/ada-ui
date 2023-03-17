@@ -11,13 +11,13 @@ export const userTabs = [
     { link: '/home/mycards', label: 'My cards', icon: RxCardStack },
     { link: '/home/meetings', label: 'Meetings', icon: MdOutlineCallToAction },
     { link: '/home/profile', label: 'Profile', icon: AiOutlineUser },
+    { link: '/home/pld', label: 'PLD', icon: HiOutlineDocumentText },
 ];
 
 export const editorTabs = [
     { link: '/home/editor/cards', label: 'Cards', icon: BsCardChecklist },
     { link: '/home/editor/parts', label: 'Parts', icon: RxComponent2 },
     { link: '/home/editor/users', label: 'Users', icon: FiUsers },
-    { link: '/home/editor/pld', label: 'PLD', icon: HiOutlineDocumentText },
 ];
 
 export const adminTabs = [

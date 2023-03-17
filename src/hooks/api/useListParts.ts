@@ -17,12 +17,14 @@ export const useListParts = (permission: boolean) => {
     useEffect(() => {
         if (error)
             checkError(error, router);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data, error])
 
     useEffect(() => {
         if ((role === "0" || role === "1") && permission) {
             router.replace("/403")
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [role])
 
     return { data, error, refetch };

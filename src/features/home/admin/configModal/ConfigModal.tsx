@@ -4,7 +4,7 @@ import { Modal, useMantineTheme, Container, Group, TextInput, Button, PasswordIn
 
 import { IoSaveOutline } from "react-icons/io5";
 
-import { editUserForm } from "./utils/configForm";
+import { EditUserForm } from "./utils/configForm";
 
 import { useEditConfigMutation } from "store/api/configAPI";
 
@@ -40,7 +40,7 @@ const ConfigModal: React.FC<Props> = ({opened, setOpened, actualConfig, refetch}
     const theme = useMantineTheme();
     
     const arrayOfObjects = Object.values(actualConfig);
-    const form = editUserForm({arrayOfObjects});
+    const form = EditUserForm({arrayOfObjects});
     
     const isUnderMaintenance = actualConfig.UnderMaintenance.value;
     const [checked, setChecked] = useState(isUnderMaintenance === "true" ? true : false);
@@ -52,6 +52,7 @@ const ConfigModal: React.FC<Props> = ({opened, setOpened, actualConfig, refetch}
             configNotification();
             refetch();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result])
 
     const editConfig = (values: any) => {

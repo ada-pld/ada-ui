@@ -7,6 +7,7 @@ const Index = () => {
 
     useEffect(() => {
         router.replace('/login')
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 }
 

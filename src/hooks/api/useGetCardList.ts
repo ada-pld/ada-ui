@@ -13,10 +13,11 @@ export const useGetCardList = () => {
     const { data, error, refetch } = useGetCardListQuery(sprint?.id ?? 0, { skip: !sprint?.id });
 
     const router = useRouter();
-
+    
     useEffect(() => {
         if (error)
             checkError(error, router);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data, error])
 
     return { data, error, refetch };

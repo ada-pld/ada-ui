@@ -7,7 +7,7 @@ interface Props {
     editPassword: boolean;
 }
 
-export const profileForm = ({user, editPassword}: Props) => {
+export const ProfileForm = ({user, editPassword}: Props) => {
     return useForm({
         initialValues: {
             firstname: user.firstname,

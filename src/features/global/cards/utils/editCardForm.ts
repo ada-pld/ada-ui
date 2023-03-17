@@ -2,7 +2,7 @@ import { useForm } from '@mantine/form';
 
 import { Card } from 'types/apiTypes';
 
-export const editCardForm = (card: Card) => {
+export const EditCardForm = (card: Card) => {
     return useForm({
         initialValues: {
             name: "",

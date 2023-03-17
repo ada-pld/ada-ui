@@ -51,6 +51,7 @@ const ListWaitingCards: React.FC<Props> = ({cards, refetch, parts}) => {
         setFilteredRejectedCards(rejectedCardsFiltering);
         setFilteredApprovedCards(approvedCardsFiltering);
         setFilteredWaitingCards(waitingCardsFiltering);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [partFilter, search, cards]);
 
     return (

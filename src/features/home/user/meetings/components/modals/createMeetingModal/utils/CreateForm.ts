@@ -11,7 +11,7 @@ export interface CreateMeeting {
     duration: string;
 }
 
-export const createMeetingForm = () => {
+export const CreateMeetingForm = () => {
     return useForm({
         initialValues: {
             title: "",

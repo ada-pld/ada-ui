@@ -4,7 +4,7 @@ import { Button, Container, Group, Modal, Select, Text, Textarea, TextInput, use
 import { DateTimePicker } from "@mantine/dates";
 import { IoSaveOutline } from "react-icons/io5";
 
-import { CreateMeeting, createMeetingForm } from "./utils/createForm";
+import { CreateMeeting, CreateMeetingForm } from "./utils/CreateForm";
 import NewGroupForm from "./NewGroupForm";
 import { SelectItem } from "./SelectItem";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -35,7 +35,7 @@ interface Group {
 
 const CreateMeetingModal: React.FC<Props> = ({ meetings, opened, close, refetch }) => {
     const theme = useMantineTheme();
-    const form = createMeetingForm();
+    const form = CreateMeetingForm();
     const [isNewGroup, setIsNewGroup] = useState(false);
     const [createMeeting, result] = useCreateMeetingMutation<any>();
 
@@ -54,7 +54,7 @@ const CreateMeetingModal: React.FC<Props> = ({ meetings, opened, close, refetch 
     useEffect(() => {
         if (result.isError) {
             if (result.error.status === 400)
-                meetingErrorNotification(result.data.message);
+                meetingErrorNotification(result.error.data.message);
             form.reset();
             close();
         } else if (result.isSuccess) {
@@ -63,6 +63,7 @@ const CreateMeetingModal: React.FC<Props> = ({ meetings, opened, close, refetch 
             close();
             refetch();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result])
 
     useEffect(() => {
@@ -77,6 +78,7 @@ const CreateMeetingModal: React.FC<Props> = ({ meetings, opened, close, refetch 
             form.setValues({location: selected.location, duration: duration});
             setIsNewGroup(false)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [form.values.group])
 
     const meetingHandling = (values: CreateMeeting) => {

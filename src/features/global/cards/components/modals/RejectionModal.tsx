@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useMantineTheme, Modal, Container, Button, Group, Textarea, Text } from "@mantine/core";
 
-import { rejectCardForm } from "../../utils/rejectCardForm";
+import { RejectCardForm } from "../../utils/rejectCardForm";
 
 import { rejectErrorNotification } from "components/notifications/errors";
 import { rejectCardNotification } from "components/notifications/success";
@@ -21,7 +21,7 @@ const RejectionModal: React.FC<Props> = ({opened, setOpened, refetch, card}) => 
     const [rejectCard, rejectResult] = useRejectCardMutation<any>();
 
     const theme = useMantineTheme();
-    const form = rejectCardForm();
+    const form = RejectCardForm();
 
     useEffect(() => {
         if (rejectResult.isError) {
@@ -34,6 +34,7 @@ const RejectionModal: React.FC<Props> = ({opened, setOpened, refetch, card}) => 
             refetch();
         }
         form.reset();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [rejectResult])
 
     return (

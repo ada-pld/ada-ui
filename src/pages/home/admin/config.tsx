@@ -25,6 +25,7 @@ const Config = () => {
     useEffect(() => {
         if (result.isSuccess)
             cacheRefreshedNotification();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result])
 
     return data ? (
@@ -45,7 +46,7 @@ const Config = () => {
                     </Button>
                 </Group>
                 <Title order={2} mt={40}>Having troubles ?</Title>
-                <Text mt={20}>Some DB values are cached in the backend of WAP, if you changed values directly in the database and don't see the change appears on the frontend, it could be coming from this.</Text>
+                <Text mt={20}>Some DB values are cached in the backend of WAP, if you changed values directly in the database and don&apos;t see the change appears on the frontend, it could be coming from this.</Text>
                 <Group mt={20}>
                     <Tooltip multiline label={`This will also restart the connection with the mail transporter`} withArrow radius={"sm"} arrowSize={6} arrowRadius={4} width={300} style={{textAlign: "center"}}>
                         <Button color={"red"} leftIcon={<IoRefresh size={20} />} miw={240} variant="outline" onClick={(() => {refreshCache()})}>

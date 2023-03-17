@@ -1,6 +1,6 @@
 import { createStyles } from "@mantine/core";
 
-export const notFoundStyle = createStyles((theme) => ({
+export const notFoundStyle = createStyles((theme: any) => ({
     root: {
         paddingTop: 80,
         paddingBottom: 80,

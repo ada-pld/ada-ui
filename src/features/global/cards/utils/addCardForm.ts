@@ -1,6 +1,6 @@
 import { useForm } from '@mantine/form';
 
-export const addCardForm = () => {
+export const AddCardForm = () => {
     return useForm({
         initialValues: {
             name: '',

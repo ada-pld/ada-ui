@@ -6,35 +6,36 @@ import { IoSaveOutline } from "react-icons/io5";
 
 import { useValidateMeetingMutation } from "store/api/meetingsAPI";
 import { Meeting } from "store/api/types/fetchedData";
-import { validateMeetingForm } from "./utils/validateForm";
+import { ValidateMeetingForm } from "./utils/ValidateForm";
 
 import ValidateMeetingRows from "./ValidateMeetingRows";
 import { meetingErrorNotification } from "components/notifications/errors";
 import { meetingValidatedNotification } from "components/notifications/success";
 
 interface Props {
-  meeting: Meeting;
-  opened: boolean;
-  close: () => void;
-  refetch: any;
+    meeting: Meeting;
+    opened: boolean;
+    close: () => void;
+    refetch: any;
 }
 
 const ValidateMeetingModal: React.FC<Props> = ({ meeting, opened, close, refetch }) => {
     const theme = useMantineTheme();
-    const form = validateMeetingForm(meeting.id);
+    const form = ValidateMeetingForm(meeting.id);
 
     const [validateMeeting, result] = useValidateMeetingMutation<any>();
 
     useEffect(() => {
         if (result.isError) {
             if (result.error.status === 400)
-                meetingErrorNotification(result.data.message);
+                meetingErrorNotification(result.error.data.message);
             close();
         } else if (result.isSuccess) {
             meetingValidatedNotification();
             close();
             refetch();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result])
 
     return (

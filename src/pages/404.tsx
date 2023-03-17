@@ -18,7 +18,7 @@ const NotFound = () => {
                     <Title className={classes.title}>Are you lost ?</Title>
                     <Text color="dimmed" size="lg" align="center" className={classes.description}>
                         Well chosen undead, you seem lost. What did you try to find ? <br />
-                        Go back to the nearest bonfire! Your quest isn't finished.
+                        Go back to the nearest bonfire! Your quest isn&apos;t finished.
                     </Text>
                     <Group position="center">
                         <Button variant="subtle" size="md" component={Link} href="/login">

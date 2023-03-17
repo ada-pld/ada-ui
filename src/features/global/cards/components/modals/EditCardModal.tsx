@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { Modal, useMantineTheme, NumberInput, Container, Group, TextInput, Select, Button, MultiSelect, Textarea, Title, Switch, Checkbox, Center, Text } from "@mantine/core"; 
-import { editCardForm } from "../../utils/editCardForm";
+import { EditCardForm } from "../../utils/editCardForm";
 
 import { RxCardStackPlus } from "react-icons/rx";
 
@@ -37,11 +37,12 @@ const EditCardModal: React.FC<Props> = ({ openEdit, setOpenEdit, card, refetch }
     const [multiple, setMultiple] = useState(card.assignees.length > 0);
 
     const theme = useMantineTheme();
-    let form = editCardForm(card);
+    let form = EditCardForm(card);
 
     useEffect(() => {
         form.reset();
         form.setValues({name: card.name, asWho: card.asWho, task: card.task, description: card.description, partId: card.part.id, workingDays: card.workingDays, dods: card.dods, assignees: card.assignees.map((assignee) => assignee.id)})
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [openEdit])
 
     useEffect(() => {
@@ -53,6 +54,7 @@ const EditCardModal: React.FC<Props> = ({ openEdit, setOpenEdit, card, refetch }
             refetch();
         }
         setOpenEdit(false);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [resultEditCard])
 
     return users && parts ? (

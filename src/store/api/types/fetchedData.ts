@@ -48,3 +48,18 @@ export interface Sprint {
     name: string;
     workDaysNeeded: number;
 }
+
+export interface PLD {
+    id: number;
+    versionInSprint: number;
+    path: string;
+    downloadPath: string;
+    changesToPld: string;
+    sprintId: number;
+    sprint: Sprint;
+}
+
+export interface GetGenerator {
+    generatorExist: boolean;
+    actualCode: string;
+}

@@ -40,6 +40,7 @@ const UserCard: React.FC<Props> = ({ card, refetch, edition, mode }) => {
         } else if (statusResult.isSuccess) {
             refetch();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [statusResult])
 
     return (

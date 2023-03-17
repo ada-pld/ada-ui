@@ -18,7 +18,7 @@ const Unauthorized = () => {
                     <Title className={classes.title}>Unauthorized</Title>
                     <Text color="dimmed" size="lg" align="center" className={classes.description}>
                         You cannot access to this ressource, please verify your permissions <br />
-                        Go back to the nearest bonfire! Your quest isn't finished.
+                        Go back to the nearest bonfire! Your quest isn&apos;t finished.
                     </Text>
                     <Group position="center">
                         <Button variant="subtle" size="md" component={Link} href="/login">

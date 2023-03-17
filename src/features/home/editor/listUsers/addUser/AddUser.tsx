@@ -4,7 +4,7 @@ import { Modal, useMantineTheme, TextInput, Container, Select, Text, Button, Gro
 
 import { AiOutlineUserAdd } from "react-icons/ai";
 
-import { addUserForm } from "./utils/addUserForm";
+import { AddUserForm } from "./utils/addUserForm";
 
 import { useCreateUserMutation } from "store/api/usersAPI";
 
@@ -20,7 +20,7 @@ interface Props {
 const AddUser: React.FC<Props> = ({opened, setOpened, refetch}) => {
     const [createUser, result] = useCreateUserMutation<any>();
     const theme = useMantineTheme();
-    const form = addUserForm();
+    const form = AddUserForm();
 
     useEffect(() => {
         if (result.isError) {
@@ -32,6 +32,7 @@ const AddUser: React.FC<Props> = ({opened, setOpened, refetch}) => {
             setOpened(false);
             refetch();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result])
 
     return (

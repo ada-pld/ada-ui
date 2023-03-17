@@ -38,6 +38,7 @@ const LoginFields: React.FC = () => {
             )
             router.push("/home")
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result])
 
     return (
