@@ -1,38 +1,97 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">Wap UI</h1>
 
-## Getting Started
+<div align="center">
 
-First, run the development server:
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+![GitHub issues](https://img.shields.io/github/issues/protoxvga/wap_ui?color=emerald)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/protoxvga/wap_ui?color=emerald)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
+![License](https://img.shields.io/github/license/protoxvga/wap_ui?label=License)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+</div>
+
+---
+
+<p align="center">User Interface of the <a href="https://github.com/theohemmer/wap" target="_BLANK">Wap</a> original API created by <a href="https://github.com/theohemmer" target="_BLANK">Théo Hemmer</a></p>
+<h3 align="center">⭐️</h3>
+<p align="center">
+If you like this project, do not hesitate to contribute and star it
+</p>
+
+## 📝 Table of Contents
+
+- [📝 Table of Contents](#-table-of-contents)
+- [🧐 About ](#-about-)
+- [🏁 Getting Started ](#-getting-started-)
+  - [Prerequisites](#prerequisites)
+  - [Installing](#installing)
+- [⛏️ Built Using ](#️-built-using-)
+- [✍️ Authors ](#️-authors-)
+
+## 🧐 About <a name = "about"></a>
+
+For our end-of-school project at Epitech Nancy, we are required to regularly submit project log documents detailing our work through diagrams and user stories. We must also organize our team's work to move in a single direction.
+
+Wap aims to simplify this process through the creation of user stories, changing their status (not started/in progress/completed), as well as scheduling appointments and automatically generating PLDs. Many features will be regularly added to WAP to evolve and become a project tracking tool for EIP projects.
+
+The development of this tool was initiated by [Théo hemmer](https://github.com/theohemmer), and the creation of wap_ui was a natural next step.
+
+## 🏁 Getting Started <a name = "getting_started"></a>
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+First, you need to have a Wap instance running and operational. Please [check](https://github.com/theohemmer/wap) the Wap documentation to install your environment
+
+### Installing
+
+First thing first, you need to clone wap_ui project
+
+```
+git clone git@github.com:protoxvga/wap_ui.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install wap_ui dependencies
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+npm install
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Create a .env files at the root of the repository with the following values
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+BASE_API_URL=YOUR_BASE_API_URL
+BASE_URL=YOUR_BASE_URL
+HOSTNAME=YOUR_HOSTNAME
+```
+ex.
+```
+BASE_API_URL=https://myserver.fr/api/
+BASE_URL=https://myserver.fr
+HOSTNAME=myserver.fr
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Finally if you want to run the application:
+```
+npm run dev
+```
+And your application shoul run on [http://localhost:3000](http://localhost:3000)
 
-## Learn More
+To build wap in static for deployment:
+```
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## ⛏️ Built Using <a name = "built_using"></a>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Mantine](https://mantine.dev/) - React component library
+- [Redux toolkit](https://redux-toolkit.js.org/) - State manager
+- [NextJS](https://nextjs.org/) - Web Framework
+- [TypeScript](https://www.typescriptlang.org/) - Language
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## ✍️ Authors <a name = "authors"></a>
 
-## Deploy on Vercel
+- [Pierre Perrin](https://github.com/protoxvga) - Idea & Initial work
+- [Théo hemmer](https://github.com/theohemmer) - Wap idea and API
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+See also the list of [contributors](https://github.com/protoxvga/wap_ui/contributors) who participated in this project.
