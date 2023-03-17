@@ -97,3 +97,8 @@ export interface GetUserCards {
     userId?: string;
     sprintId: number;
 }
+
+export interface SetImages {
+    file: File;
+    fileName: string;
+}

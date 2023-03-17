@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useMantineTheme, Modal, Container, TextInput, Button, Group, Title, Text } from "@mantine/core";
 
-import { addPartForm } from "./utils/addPartForm";
+import { AddPartForm } from "./utils/addPartForm";
 
 import { BiAddToQueue } from "react-icons/bi";
 import { useCreatePartMutation } from "store/api/partsAPI";
@@ -19,7 +19,7 @@ interface Props {
 const AddPart: React.FC<Props> = ({opened, setOpened, refetch}) => {
     const [createPart, result] = useCreatePartMutation<any>();
     const theme = useMantineTheme();
-    const form = addPartForm();
+    const form = AddPartForm();
 
     useEffect(() => {
         if (result.isError) {

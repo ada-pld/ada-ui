@@ -26,6 +26,9 @@ const NavBar: React.FC<Props> = ({page, userRole}) => {
     const router = useRouter();
     const dispatch = useAppDispatch();
 
+    if (page === "/home/pld/generator" || page === "/home/pld/images")
+        page = "/home/pld";
+
     return (
         <Navbar p="xs" width={{ base: 275 }} style={{borderWidth: 0}} className={classes.navbar}>
             <Navbar.Section>

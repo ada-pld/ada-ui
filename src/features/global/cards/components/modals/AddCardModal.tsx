@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { Modal, useMantineTheme, NumberInput, Container, Group, TextInput, Select, Button, MultiSelect, Textarea, Title, Switch, Checkbox, Center, Loader, Text } from "@mantine/core"; 
-import { addCardForm } from "../../utils/addCardForm";
+import { AddCardForm } from "../../utils/addCardForm";
 
 import { RxCardStackPlus } from "react-icons/rx";
 
@@ -31,7 +31,7 @@ const AddCardModal: React.FC<Props> = ({ openAdd, setOpenAdd, refetch }) => {
     const [createCard, createResult] = useCreateCardMutation<any>();
 
     const theme = useMantineTheme();
-    const form = addCardForm();
+    const form = AddCardForm();
 
     useEffect(() => {
         if (createResult.isError) {

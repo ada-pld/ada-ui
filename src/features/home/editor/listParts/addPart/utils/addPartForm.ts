@@ -1,6 +1,6 @@
 import { useForm } from "@mantine/form";
 
-export const addPartForm = () => {
+export const AddPartForm = () => {
     return useForm({
         initialValues: {
             name: '',

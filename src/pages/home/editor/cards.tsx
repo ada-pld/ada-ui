@@ -5,12 +5,12 @@ import { Container } from "@mantine/core";
 
 import CustomLoader from "components/loader/CustomLoader";
 
-import ListWaitingCards from "features/home/editor/CardsApprovalAndEdition";
+import ListWaitingCards from "features/home/editor/cardsApprovalAndEdition";
 import { useListParts } from "hooks/api/useListParts";
 
 import { useGetCardList } from "hooks/api/useGetCardList";
 
-const Card = () => {
+const Cards = () => {
     const { data: cards, refetch } = useGetCardList();
     const { data: sprint } = useGetSprint();
     const { data: parts } = useListParts(true);
@@ -29,4 +29,4 @@ const Card = () => {
     ) : <CustomLoader />;
 }
 
-export default Card;
+export default Cards;

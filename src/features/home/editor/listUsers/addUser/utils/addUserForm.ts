@@ -1,6 +1,6 @@
 import { isEmail, useForm } from '@mantine/form';
 
-export const addUserForm = () => {
+export const AddUserForm = () => {
     return useForm({
         initialValues: {
             firstname: '',

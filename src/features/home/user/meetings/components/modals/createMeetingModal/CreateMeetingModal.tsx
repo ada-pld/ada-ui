@@ -4,7 +4,7 @@ import { Button, Container, Group, Modal, Select, Text, Textarea, TextInput, use
 import { DateTimePicker } from "@mantine/dates";
 import { IoSaveOutline } from "react-icons/io5";
 
-import { CreateMeeting, createMeetingForm } from "./utils/createForm";
+import { CreateMeeting, CreateMeetingForm } from "./utils/CreateForm";
 import NewGroupForm from "./NewGroupForm";
 import { SelectItem } from "./SelectItem";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -35,7 +35,7 @@ interface Group {
 
 const CreateMeetingModal: React.FC<Props> = ({ meetings, opened, close, refetch }) => {
     const theme = useMantineTheme();
-    const form = createMeetingForm();
+    const form = CreateMeetingForm();
     const [isNewGroup, setIsNewGroup] = useState(false);
     const [createMeeting, result] = useCreateMeetingMutation<any>();
 

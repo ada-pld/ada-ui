@@ -147,3 +147,12 @@ export const meetingValidatedNotification = () => {
         icon: <BsCheck2 size={18} />,
     });
 };
+
+export const fileUploadNotification = () => {
+    notifications.show({
+        title: "Success",
+        message: "New PLD generator upladed",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};

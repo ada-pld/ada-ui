@@ -1,6 +1,6 @@
 import { useForm } from '@mantine/form';
 
-export const rejectCardForm = () => {
+export const RejectCardForm = () => {
     return useForm({
         initialValues: {
             reason: '',

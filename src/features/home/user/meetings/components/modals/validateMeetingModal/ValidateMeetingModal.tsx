@@ -6,22 +6,22 @@ import { IoSaveOutline } from "react-icons/io5";
 
 import { useValidateMeetingMutation } from "store/api/meetingsAPI";
 import { Meeting } from "store/api/types/fetchedData";
-import { validateMeetingForm } from "./utils/validateForm";
+import { ValidateMeetingForm } from "./utils/ValidateForm";
 
 import ValidateMeetingRows from "./ValidateMeetingRows";
 import { meetingErrorNotification } from "components/notifications/errors";
 import { meetingValidatedNotification } from "components/notifications/success";
 
 interface Props {
-  meeting: Meeting;
-  opened: boolean;
-  close: () => void;
-  refetch: any;
+    meeting: Meeting;
+    opened: boolean;
+    close: () => void;
+    refetch: any;
 }
 
 const ValidateMeetingModal: React.FC<Props> = ({ meeting, opened, close, refetch }) => {
     const theme = useMantineTheme();
-    const form = validateMeetingForm(meeting.id);
+    const form = ValidateMeetingForm(meeting.id);
 
     const [validateMeeting, result] = useValidateMeetingMutation<any>();
 

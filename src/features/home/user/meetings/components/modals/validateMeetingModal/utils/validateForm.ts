@@ -8,7 +8,7 @@ export interface ValidateMeeting {
     duration: string;
 }
 
-export const validateMeetingForm = (meetingId: number) => {
+export const ValidateMeetingForm = (meetingId: number) => {
     return useForm({
         initialValues: {
             id: meetingId,

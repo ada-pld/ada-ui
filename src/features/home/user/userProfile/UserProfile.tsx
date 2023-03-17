@@ -5,7 +5,7 @@ import { IoSaveOutline } from "react-icons/io5";
 import { UserInfos } from "store/api/types/fetchedData";
 import { useEditUserMutation } from "store/api/usersAPI";
 
-import { profileForm } from "./utils/profileForm";
+import { ProfileForm } from "./utils/ProfileForm";
 import { useAppSelector } from "store/hooks/hooks";
 import { editProfileErrorNotification } from "components/notifications/errors";
 import { editProfileNotification } from "components/notifications/success";
@@ -19,7 +19,7 @@ const UserProfile: React.FC<Props> = ({ user, refetch }) => {
     const [editPassword, setEditPassword] = useState(false);
     const userId = useAppSelector((state) => state.user.auth.userId);
     const [editUser, editResult] = useEditUserMutation<any>();
-    const form = profileForm({user, editPassword});
+    const form = ProfileForm({user, editPassword});
 
     useEffect(() => {
         if (editResult.isError) {

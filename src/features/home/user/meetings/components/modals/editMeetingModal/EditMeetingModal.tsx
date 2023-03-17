@@ -7,7 +7,7 @@ import { IoSaveOutline } from "react-icons/io5";
 import { useEditMeetingMutation } from "store/api/meetingsAPI";
 import { Meeting } from "store/api/types/fetchedData";
 
-import { EditMeeting, editMeetingForm } from "./utils/editForm";
+import { EditMeeting, EditMeetingForm } from "./utils/EditForm";
 
 import moment from "moment";
 import { useEffect } from "react";
@@ -22,7 +22,7 @@ interface Props {
 }
 
 const EditMeetingModal: React.FC<Props> = ({ meeting, opened, close, refetch }) => {
-    const form = editMeetingForm({ meeting });
+    const form = EditMeetingForm({ meeting });
     const theme = useMantineTheme();
     const [editMeeting, result] = useEditMeetingMutation<any>();
 

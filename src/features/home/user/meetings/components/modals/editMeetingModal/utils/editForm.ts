@@ -17,7 +17,7 @@ export interface EditMeeting {
     duration: string;
 }
 
-export const editMeetingForm = ({ meeting }: Props) => {
+export const EditMeetingForm = ({ meeting }: Props) => {
     return useForm({
         initialValues: {
             id: meeting.id,

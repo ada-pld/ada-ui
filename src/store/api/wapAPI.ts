@@ -6,14 +6,18 @@ export const wapAPI = createApi({
     reducerPath: 'wapAPI',
     keepUnusedDataFor: 1,
     baseQuery: fetchBaseQuery({
-        baseUrl: process.env.BASE_URL,
+        baseUrl: process.env.BASE_API_URL,
         prepareHeaders: (headers, { getState }) => {
             const accessToken = (getState() as RootState).user.auth.accessToken;
 
-            if (accessToken !== "") {
+            if (accessToken !== "")
                 headers.set('authorization', `Bearer ${accessToken}`)
-                headers.set('Content-Type', `application/json`)
-            }
+
+            if (!headers.has("Content-Type"))
+                headers.set('Content-Type', `application/json`);
+            
+            if (headers.get("Content-Type") === "multipart/form-data")
+                headers.delete("Content-Type");
 
             return headers
         },

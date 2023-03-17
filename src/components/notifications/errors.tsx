@@ -147,3 +147,12 @@ export const meetingErrorNotification = (message: string) => {
         icon: <AiOutlineExclamation size={24} />,
     });
 };
+
+export const fileUploadErrorNotification = (type: "js" | "image") => {
+    notifications.show({
+        title: "Upload error",
+        message: type === "js" ? "The upload must be one JavaScript file" : "The upload must be one .png or.jpg file",
+        color: "red",
+        icon: <AiOutlineExclamation size={24} />,
+    });
+};

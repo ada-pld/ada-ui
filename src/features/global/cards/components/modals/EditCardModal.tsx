@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { Modal, useMantineTheme, NumberInput, Container, Group, TextInput, Select, Button, MultiSelect, Textarea, Title, Switch, Checkbox, Center, Text } from "@mantine/core"; 
-import { editCardForm } from "../../utils/editCardForm";
+import { EditCardForm } from "../../utils/editCardForm";
 
 import { RxCardStackPlus } from "react-icons/rx";
 
@@ -37,7 +37,7 @@ const EditCardModal: React.FC<Props> = ({ openEdit, setOpenEdit, card, refetch }
     const [multiple, setMultiple] = useState(card.assignees.length > 0);
 
     const theme = useMantineTheme();
-    let form = editCardForm(card);
+    let form = EditCardForm(card);
 
     useEffect(() => {
         form.reset();

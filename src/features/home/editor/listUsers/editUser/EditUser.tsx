@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { Modal, useMantineTheme, TextInput, Container, Select, PasswordInput, Button, Group, Switch, Title, Text } from "@mantine/core";
 
-import { editUserForm } from "./utils/editUserForm";
+import { EditUserForm } from "./utils/editUserForm";
 
 import { UsersList } from "store/api/types/fetchedData";
 
@@ -28,7 +28,7 @@ const EditUser: React.FC<Props> = ({opened, setOpened, user, setSelectedUser, re
     const [forgotPassword, forgotResult] = useForgotPasswordMutation<any>();
 
     const roleFirstUpper = user!.role[0].toUpperCase() + user!.role.slice(1).toLowerCase();
-    const form = editUserForm({firstname: user!.firstname, lastname: user!.lastname, email: user!.email, role: roleFirstUpper, editPassword: editPassword});
+    const form = EditUserForm({firstname: user!.firstname, lastname: user!.lastname, email: user!.email, role: roleFirstUpper, editPassword: editPassword});
     
     const theme = useMantineTheme();
 
