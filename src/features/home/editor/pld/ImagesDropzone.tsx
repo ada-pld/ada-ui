@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Group, Text, useMantineTheme } from "@mantine/core"
+import { Group, Text } from "@mantine/core"
 import { Dropzone, IMAGE_MIME_TYPE } from "@mantine/dropzone"
 
 import { fileUploadErrorNotification } from "components/notifications/errors"
@@ -10,18 +10,22 @@ import Image from "next/image";
 import { IoImagesOutline } from "react-icons/io5";
 import { useSetPLDImagesMutation } from "store/api/pldAPI";
 
+import { imageUploadNotification } from "components/notifications/success";
+import CustomLoader from "components/loader/CustomLoader";
+
 interface Props {
     fileName: string;
-    refetch: any;
 }
 
-const ImagesDropZone: React.FC<Props> = ({ fileName, refetch }) => {
+const ImagesDropZone: React.FC<Props> = ({ fileName }) => {
     const [setImage, result] = useSetPLDImagesMutation();
+
     const [imageError, setImageError] = useState(false);
+    const [loader, setLoader] = useState(true);
 
     useEffect(() => {
         if (result.isSuccess) {
-            refetch();
+            imageUploadNotification(fileName);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result])
@@ -49,19 +53,22 @@ const ImagesDropZone: React.FC<Props> = ({ fileName, refetch }) => {
                             </div>
                         </>
                     ) : (
-                        <Image
-                            src={process.env.BASE_URL + "/pldAssets/" + fileName + `#${new Date().getTime()}`}
-                            alt={fileName}
-                            priority
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw,33vw"
-                            style={{objectFit: "contain", padding: 20}}
-                            onError={() => setImageError(true)}
-                        />
+                        <>
+                            <Image
+                                src={process.env.BASE_URL + "/pldAssets/" + fileName + `?${new Date().getTime()}`}
+                                alt={fileName}
+                                fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw,33vw"
+                                style={{objectFit: "contain", padding: 20}}
+                                onError={() => setImageError(true)}
+                                onLoadingComplete={(() => setLoader(false))}
+                            />
+                            {loader && <CustomLoader />}
+                        </>
                     )}
                 </Group>
             </Dropzone>
-            <Text mt={7} align="center">{fileName}</Text>
+            <Text mt={7} align="center" italic>{fileName}</Text>
         </>
     )
 }

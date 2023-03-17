@@ -24,7 +24,7 @@ const UserProfile: React.FC<Props> = ({ user, refetch }) => {
     useEffect(() => {
         if (editResult.isError) {
             if (editResult.error.status === 403)
-                editProfileErrorNotification(editResult.data.message);
+                editProfileErrorNotification(editResult.error.data.message);
         } else if (editResult.isSuccess) {
             editProfileNotification();
             form.reset();

@@ -39,7 +39,7 @@ const MeetingMenu: React.FC<Props> = ({ meeting, refetch }) => {
     useEffect(() => {
         if (result.isError) {
             if (result.error.status === 400)
-                meetingErrorNotification(result.data.message);
+                meetingErrorNotification(result.error.data.message);
         } else if (result.isSuccess) {
             deleteMeetingNotification();
             refetch();

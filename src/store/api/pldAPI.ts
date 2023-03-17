@@ -3,7 +3,7 @@ import { wapAPI } from "./wapAPI";
 import { GetGenerator, PLD } from "./types/fetchedData";
 import { createFormDataGenerator, createFormDataImages } from "./utils/createFormData";
 
-import { SetImages } from "./types/queryParams";
+import { PLDChanges, SetImages } from "./types/queryParams";
 
 const pldApi = wapAPI.injectEndpoints({
     endpoints: (build) => ({
@@ -37,8 +37,29 @@ const pldApi = wapAPI.injectEndpoints({
             query: ({file, fileName}) => ({
                 url: "pld/images",
                 method: 'POST',
-                headers: {'Content-Type': `multipart/form-data`},
+                headers: {
+                    "Content-Type": `multipart/form-data`,
+                },
                 body: createFormDataImages(file, fileName)
+            }),
+        }),
+        getPLDChanges: build.query<PLDChanges, void>({
+            query: () => ({
+                url: "pld/changes",
+                method: 'GET',
+            }),
+        }),
+        generatePreview: build.mutation<void, any>({
+            query: (values) => ({
+                url: "pld/changes",
+                method: 'POST',
+                body: values
+            }),
+        }),
+        generatePLD: build.mutation<void, void>({
+            query: () => ({
+                url: "pld/generate",
+                method: 'POST',
             }),
         }),
     }),
@@ -51,4 +72,7 @@ export const {
     useSetGeneratorMutation,
     useGetPLDImagesQuery,
     useSetPLDImagesMutation,
+    useGetPLDChangesQuery,
+    useGeneratePreviewMutation,
+    useGeneratePLDMutation
 } = pldApi;

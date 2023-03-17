@@ -42,7 +42,7 @@ const EditMeetingModal: React.FC<Props> = ({ meeting, opened, close, refetch }) 
     useEffect(() => {
         if (result.isError) {
             if (result.error.status === 400)
-                meetingErrorNotification(result.data.message);
+                meetingErrorNotification(result.error.data.message);
             form.reset();
             close();
         } else if (result.isSuccess) {

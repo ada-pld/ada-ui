@@ -156,3 +156,30 @@ export const fileUploadNotification = () => {
         icon: <BsCheck2 size={18} />,
     });
 };
+
+export const imageUploadNotification = (fileName: string) => {
+    notifications.show({
+        title: "Success",
+        message: `New image for ${fileName} successfully uploaded`,
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
+
+export const generatePreviewNotification = () => {
+    notifications.show({
+        title: "Success",
+        message: `Preview PLD succesfully generated`,
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
+
+export const PLDGenerationNotification = () => {
+    notifications.show({
+        title: "Success",
+        message: `PLD successfully generated`,
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};

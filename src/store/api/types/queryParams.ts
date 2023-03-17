@@ -102,3 +102,14 @@ export interface SetImages {
     file: File;
     fileName: string;
 }
+
+export interface PLDChanges {
+    cardAdded: string,
+    cardModified: string,
+    advancementReports: {
+        userId: string,
+        firstname: string,
+        lastname: string,
+        report: string
+    }[]
+}

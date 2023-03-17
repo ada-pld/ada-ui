@@ -156,3 +156,21 @@ export const fileUploadErrorNotification = (type: "js" | "image") => {
         icon: <AiOutlineExclamation size={24} />,
     });
 };
+
+export const generatePreviewErrorNotification = (message: string) => {
+    notifications.show({
+        title: "Upload error",
+        message: message,
+        color: "red",
+        icon: <AiOutlineExclamation size={24} />,
+    });
+};
+
+export const PLDGenerationErrorNotification = (message: string) => {
+    notifications.show({
+        title: "Generation error",
+        message: message,
+        color: "red",
+        icon: <AiOutlineExclamation size={24} />,
+    });
+};

@@ -26,7 +26,7 @@ const NavBar: React.FC<Props> = ({page, userRole}) => {
     const router = useRouter();
     const dispatch = useAppDispatch();
 
-    if (page === "/home/pld/generator" || page === "/home/pld/images")
+    if (page === "/home/pld/generator" || page === "/home/pld/images" || page === "/home/pld/changes")
         page = "/home/pld";
 
     return (
