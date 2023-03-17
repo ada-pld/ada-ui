@@ -24,6 +24,7 @@ const PldDropZone: React.FC<Props> = ({ refetch }) => {
             fileUploadNotification();
             refetch();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result])
 
     return (

@@ -44,6 +44,7 @@ const EditUser: React.FC<Props> = ({opened, setOpened, user, setSelectedUser, re
             setSelectedUser(null);
             refetch();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [editResult])
 
     useEffect(() => {
@@ -55,6 +56,7 @@ const EditUser: React.FC<Props> = ({opened, setOpened, user, setSelectedUser, re
             forgotPasswordNotification();
             setSelectedUser(null);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [forgotResult])
 
     return (

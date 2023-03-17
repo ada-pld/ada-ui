@@ -27,6 +27,7 @@ const Generator = () => {
             router.back();
         else
             setIsLoaded(true);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return isLoaded && generator ? (

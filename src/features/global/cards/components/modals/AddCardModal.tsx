@@ -43,6 +43,7 @@ const AddCardModal: React.FC<Props> = ({ openAdd, setOpenAdd, refetch }) => {
         }
         setOpenAdd(false);
         form.reset();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [createResult])
 
     return parts && users ? (

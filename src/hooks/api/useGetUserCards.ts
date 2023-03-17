@@ -20,6 +20,7 @@ export const useGetUserCards = (variant: "all" | "user") => {
     useEffect(() => {
         if (error)
             checkError(error, router);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data, error])
 
     return { data, error, refetch };

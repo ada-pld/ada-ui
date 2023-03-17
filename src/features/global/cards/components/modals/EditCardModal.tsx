@@ -42,6 +42,7 @@ const EditCardModal: React.FC<Props> = ({ openEdit, setOpenEdit, card, refetch }
     useEffect(() => {
         form.reset();
         form.setValues({name: card.name, asWho: card.asWho, task: card.task, description: card.description, partId: card.part.id, workingDays: card.workingDays, dods: card.dods, assignees: card.assignees.map((assignee) => assignee.id)})
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [openEdit])
 
     useEffect(() => {
@@ -53,6 +54,7 @@ const EditCardModal: React.FC<Props> = ({ openEdit, setOpenEdit, card, refetch }
             refetch();
         }
         setOpenEdit(false);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [resultEditCard])
 
     return users && parts ? (

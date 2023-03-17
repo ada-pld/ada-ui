@@ -31,6 +31,7 @@ const CardManagement: React.FC<Props> = ({ card, refetch }) => {
             approveCardNotification();
             refetch();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [approveResult])
 
     return (

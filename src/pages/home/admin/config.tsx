@@ -25,6 +25,7 @@ const Config = () => {
     useEffect(() => {
         if (result.isSuccess)
             cacheRefreshedNotification();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result])
 
     return data ? (

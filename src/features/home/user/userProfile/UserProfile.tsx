@@ -30,6 +30,7 @@ const UserProfile: React.FC<Props> = ({ user, refetch }) => {
             form.reset();
             refetch();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [editResult])
 
     return userId ? (

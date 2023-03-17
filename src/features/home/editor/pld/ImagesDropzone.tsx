@@ -23,6 +23,7 @@ const ImagesDropZone: React.FC<Props> = ({ fileName, refetch }) => {
         if (result.isSuccess) {
             refetch();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result])
 
     return (

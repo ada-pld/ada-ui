@@ -38,6 +38,7 @@ const CardMenu: React.FC<Props> = ({ card, refetch, edition }) => {
             deleteCardNotification();
             refetch();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [resultDelete])
 
     return (

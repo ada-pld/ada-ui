@@ -31,6 +31,7 @@ const AddPart: React.FC<Props> = ({opened, setOpened, refetch}) => {
             setOpened(false);
             refetch();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result])
 
     return (

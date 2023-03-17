@@ -52,6 +52,7 @@ const ConfigModal: React.FC<Props> = ({opened, setOpened, actualConfig, refetch}
             configNotification();
             refetch();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result])
 
     const editConfig = (values: any) => {

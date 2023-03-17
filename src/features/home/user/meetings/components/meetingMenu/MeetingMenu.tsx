@@ -44,6 +44,7 @@ const MeetingMenu: React.FC<Props> = ({ meeting, refetch }) => {
             deleteMeetingNotification();
             refetch();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result])
 
     return (

@@ -63,6 +63,7 @@ const CreateMeetingModal: React.FC<Props> = ({ meetings, opened, close, refetch 
             close();
             refetch();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result])
 
     useEffect(() => {
@@ -77,6 +78,7 @@ const CreateMeetingModal: React.FC<Props> = ({ meetings, opened, close, refetch 
             form.setValues({location: selected.location, duration: duration});
             setIsNewGroup(false)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [form.values.group])
 
     const meetingHandling = (values: CreateMeeting) => {

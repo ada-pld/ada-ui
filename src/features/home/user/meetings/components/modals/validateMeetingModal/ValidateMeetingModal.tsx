@@ -35,6 +35,7 @@ const ValidateMeetingModal: React.FC<Props> = ({ meeting, opened, close, refetch
             close();
             refetch();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result])
 
     return (

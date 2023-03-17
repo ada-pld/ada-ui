@@ -34,6 +34,7 @@ const RejectionModal: React.FC<Props> = ({opened, setOpened, refetch, card}) => 
             refetch();
         }
         form.reset();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [rejectResult])
 
     return (
