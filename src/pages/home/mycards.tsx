@@ -33,7 +33,7 @@ const MyCards = () => {
                 <Container fluid p={0} m={0}>
                     <h1 style={{textAlign: "center"}}>My Cards</h1>
                     <h3 style={{textAlign: "center", color: "dimgrey"}}>{sprint.name}</h3>
-                    <Group position="center" mt={40} style={{width: "100%", minWidth: 400}}>
+                    <Group position="center" mt={40} style={{width: "100%", minWidth: 250}}>
                         <Button w={"30%"} miw={250} leftIcon={<RxCardStackPlus size={20} />} variant="outline" onClick={() => setOpenAdd(true)}>
                             Add a card
                         </Button>

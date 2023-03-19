@@ -17,17 +17,19 @@ const PartsTable: React.FC<Props> = ({ parts }) => {
     ));
 
     return (
-        <Table highlightOnHover striped verticalSpacing="xs">
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>Name</th>
-                    <th>Total cards</th>
-                    <th>Cards in sprint</th>
-                </tr>
-            </thead>
-            <tbody>{rows}</tbody>
-        </Table>
+        <div style={{overflow: "auto"}}>
+            <Table highlightOnHover striped verticalSpacing="xs">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Total cards</th>
+                        <th>Cards in sprint</th>
+                    </tr>
+                </thead>
+                <tbody>{rows}</tbody>
+            </Table>
+        </div>
     );
 }
 
