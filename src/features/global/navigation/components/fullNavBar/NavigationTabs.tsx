@@ -2,22 +2,24 @@ import Link from "next/link";
 
 import { Divider, Group } from "@mantine/core";
 
-import { useStyles } from "../../styles/fullNavBarStyle";
+import { useNavBarStyles } from "../../styles/useNavBarStyles";
 
 import { userTabs, editorTabs, adminTabs } from "features/global/navigation/utils/links";
 
 interface Props {
     active: string;
     userRole: string;
+    onClose?: () => void;
 }
 
-const Navigationtabs: React.FC<Props> = ({active, userRole}) => {
-    const { classes, cx } = useStyles();
+const Navigationtabs: React.FC<Props> = ({active, userRole, onClose}) => {
+    const { classes, cx } = useNavBarStyles();
 
     const userNav = userTabs.map((item) => (
         <Link
             className={cx(classes.link, { [classes.linkActive]: item.link === active })}
             href={item.link}
+            onClick={onClose && (() => onClose())}
             key={item.label}
         >
             <Group className={cx(classes.iconGroup, { [classes.iconGroupActive]: item.link === active })}>
@@ -31,6 +33,7 @@ const Navigationtabs: React.FC<Props> = ({active, userRole}) => {
         <Link
             className={cx(classes.link, { [classes.linkActive]: item.link === active })}
             href={item.link}
+            onClick={onClose && (() => onClose())}
             key={item.label}
         >
             <Group className={cx(classes.iconGroup, { [classes.iconGroupActive]: item.link === active })}>
@@ -44,6 +47,7 @@ const Navigationtabs: React.FC<Props> = ({active, userRole}) => {
         <Link
             className={cx(classes.link, { [classes.linkActive]: item.link === active })}
             href={item.link}
+            onClick={onClose && (() => onClose())}
             key={item.label}
         >
             <Group className={cx(classes.iconGroup, { [classes.iconGroupActive]: item.link === active })}>

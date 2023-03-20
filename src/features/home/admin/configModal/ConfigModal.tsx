@@ -88,7 +88,7 @@ const ConfigModal: React.FC<Props> = ({opened, setOpened, actualConfig, refetch}
                         );
                     })}
                     <Group position="center" mt={30} grow>
-                        <Button disabled={!form.isDirty()} color={"violet"} leftIcon={<IoSaveOutline size={20} />} miw={240} maw={400} variant="outline" type="submit">
+                        <Button color={"violet"} leftIcon={<IoSaveOutline size={20} />} miw={240} maw={400} variant="outline" type="submit">
                             Save
                         </Button>
                     </Group>

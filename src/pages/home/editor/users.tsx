@@ -11,20 +11,24 @@ import AddUser from "features/home/editor/listUsers/addUser/AddUser";
 
 import { AiOutlineUserAdd } from "react-icons/ai";
 import CustomLoader from "components/loader/CustomLoader";
+import { useViewportSize } from "@mantine/hooks";
 
 const Users = () => {
     const { data, refetch } = useListUsers(true);
     const [opened, setOpened] = useState(false);
+    const { width } = useViewportSize();
 
     return data ? (
         <div>
             <Head><title>WAP | Users</title></Head>
             <AddUser opened={opened} setOpened={setOpened} refetch={refetch} />
-            <Container m={0} fluid>
+            <Container m={0} p={width <= 800 ? 0 : 20} fluid>
                 <h1 style={{paddingBottom: 20, textAlign: "center"}}>Users</h1>
-                <UsersTable users={data} refetch={refetch} />
-                <Group position="center" style={{width: "100%", minWidth: 400}}>
-                    <Button w={"30%"} mt={20} miw={250} leftIcon={<AiOutlineUserAdd size={20} />} variant="outline" onClick={() => setOpened(true)}>
+                <div style={{overflow: 'auto'}}>
+                    <UsersTable users={data} refetch={refetch} />
+                </div>
+                <Group position="center" mt={50} style={{width: "100%", minWidth: 250}}>
+                    <Button w={"30%"} miw={250} leftIcon={<AiOutlineUserAdd size={20} />} variant="outline" onClick={() => setOpened(true)}>
                         Add a user
                     </Button>
                 </Group>

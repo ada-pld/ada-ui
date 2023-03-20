@@ -14,5 +14,7 @@ export const checkError = (error: any, router: NextRouter) => {
         router.replace("/500")
     } else if (error.status === "FETCH_ERROR") {
         router.replace("/502")
+    } else if (error.status === 503) {
+        router.replace("/503")
     }
 }

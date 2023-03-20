@@ -1,6 +1,6 @@
 import { createStyles, getStylesRef } from "@mantine/core";
 
-export const useStyles = createStyles((theme, _params) => {
+export const useNavBarStyles = createStyles((theme, _params) => {
     const icon = getStylesRef('icon');
 
     return {
