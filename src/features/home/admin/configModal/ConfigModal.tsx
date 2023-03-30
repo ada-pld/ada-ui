@@ -38,8 +38,9 @@ interface Props {
 
 const ConfigModal: React.FC<Props> = ({opened, setOpened, actualConfig, refetch}) => {
     const theme = useMantineTheme();
-    
-    const arrayOfObjects = Object.values(actualConfig);
+
+    const arrayOfObjects = Object.values(actualConfig).filter((obj) => obj !== null);
+
     const form = EditUserForm({arrayOfObjects});
     
     const isUnderMaintenance = actualConfig.UnderMaintenance.value;
