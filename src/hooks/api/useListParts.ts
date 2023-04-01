@@ -10,8 +10,9 @@ import { useAppSelector } from "store/hooks/hooks";
 
 export const useListParts = (permission: boolean) => {
     const role = useAppSelector((state) => state.user.auth.accessToken?.charAt(0));
+    const isLoggedIn = useAppSelector((state) => state.user.isLoggedIn);
 
-    const { data, error, refetch } = useListPartsQuery();
+    const { data, error, refetch } = useListPartsQuery(undefined, {skip: !isLoggedIn});
     const router = useRouter();
 
     useEffect(() => {

@@ -19,7 +19,7 @@ export const useNavBarStyles = createStyles((theme, _params) => {
             alignItems: 'center',
             textDecoration: 'none',
             fontSize: theme.fontSizes.sm,
-            color: theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[7],
+            color: theme.colorScheme === 'dark' ? theme.colors.dark[3] : theme.colors.gray[7],
             padding: 5,
             marginTop: 5,
             marginLeft: 5,

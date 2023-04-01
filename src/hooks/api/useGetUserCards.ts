@@ -10,12 +10,15 @@ import { useAppSelector } from "store/hooks/hooks";
 import { useGetSprint } from "./useGetSprint";
 
 export const useGetUserCards = (variant: "all" | "user") => {
-    const userId = useAppSelector((state) => state.user.auth.userId);
-    const { data: sprint } = useGetSprint();
-    const query = variant === "user" ? {userId: userId!, sprintId: sprint?.id ?? 0} : {sprintId: sprint?.id ?? 0}
-    const { data, error, refetch } = useGetCardsQuery(query, { skip: !sprint?.id });
-
     const router = useRouter();
+    const isLoggedIn = useAppSelector((state) => state.user.isLoggedIn);
+    const userId = useAppSelector((state) => state.user.auth.userId);
+
+    const { data: sprint } = useGetSprint();
+    
+    const query = variant === "user" ? {userId: userId!, sprintId: sprint?.id ?? 0} : {sprintId: sprint?.id ?? 0}
+    
+    const { data, error, refetch } = useGetCardsQuery(query, { skip: !sprint?.id || !isLoggedIn });
 
     useEffect(() => {
         if (error)

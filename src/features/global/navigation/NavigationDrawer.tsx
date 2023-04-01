@@ -33,6 +33,7 @@ const NavigationDrawer: React.FC<Props> = ({ opened, onClose }) => {
                         firstname={user?.firstname}
                         lastname={user?.lastname}
                         email={user?.email}
+                        onClose={onClose}
                     />
                     <div style={{ marginTop: 30 }}>
                         <Navigationtabs active={page} userRole={userRole} onClose={onClose} />

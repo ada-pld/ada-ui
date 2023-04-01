@@ -1,4 +1,4 @@
-import { Button, Container, Group } from "@mantine/core";
+import { Container } from "@mantine/core";
 
 import CustomLoader from "components/loader/CustomLoader";
 import UserProfile from "features/home/user/userProfile";
