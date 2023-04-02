@@ -10,12 +10,6 @@ const nextConfig = {
     },
     images: {
         unoptimized: true,
-        remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: process.env.HOSTNAME,
-            },
-        ],
     },
     trailingSlash: true,
 }

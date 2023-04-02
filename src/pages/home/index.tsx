@@ -57,7 +57,7 @@ const Dashboard = () => {
                     </Grid>
                     <Divider mt={30} />
                     <Grid mt={10}>
-                        <DashboardCards user={user} refetch={refetch} />
+                        <DashboardCards user={user} sprint={sprint} refetch={refetch} />
                     </Grid>
                 </Container>
             }
