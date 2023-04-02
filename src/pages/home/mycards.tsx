@@ -17,6 +17,7 @@ import { useGetSprint } from "hooks/api/useGetSprint";
 import AddCardModal from "features/global/cards/components/modals/AddCardModal";
 
 import CustomLoader from "components/loader/CustomLoader";
+import { Card } from "types/apiTypes";
 
 const MyCards = () => {
     const { data: sprint } = useGetSprint();
@@ -44,9 +45,9 @@ const MyCards = () => {
                             <Tabs.Tab value="Waiting approval" rightSection={<Badge radius={"sm"} variant={activeTab === "Waiting approval" ? "filled" : "light"}  size="sm">{`${data.JHWaitingApproval} J/H`}</Badge>}>Waiting approval</Tabs.Tab>
                             <Tabs.Tab value="Rejected" rightSection={<Badge radius={"sm"} variant={activeTab === "Rejected" ? "filled" : "light"}  size="sm">{`${data.JHRejected} J/H`}</Badge>}>Rejected</Tabs.Tab>
                         </Tabs.List>
-                        <ApprovedCards data={data.cards} refetch={refetch} />
-                        <WaitingCards data={data.cards} refetch={refetch} />
-                        <RejectedCards data={data.cards} refetch={refetch} />
+                        <ApprovedCards data={data.cards.filter((card: Card) => card.sprintId === sprint.id)} refetch={refetch} />
+                        <WaitingCards data={data.cards.filter((card: Card) => card.sprintId === sprint.id)} refetch={refetch} />
+                        <RejectedCards data={data.cards.filter((card: Card) => card.sprintId === sprint.id)} refetch={refetch} />
                     </Tabs>
                 </Container>
             }
