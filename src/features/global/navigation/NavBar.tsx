@@ -29,7 +29,7 @@ const NavBar = () => {
     if (page === "/home/pld/generator" || page === "/home/pld/images" || page === "/home/pld/changes")
         page = "/home/pld";
 
-    return pathname.includes("home") && userRole && width >= 800 ? (
+    return pathname.includes("home") && userRole && width >= 800 && user ? (
         <Navbar p="xs" width={{ base: 275 }} style={{borderWidth: 0}} className={classes.navbar}>
             <Navbar.Section>
                 <UserButton

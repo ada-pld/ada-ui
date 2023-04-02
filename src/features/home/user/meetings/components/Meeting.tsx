@@ -19,6 +19,9 @@ interface Props {
 const Meeting: React.FC<Props> = ({ meeting, refetch }) => {
     const theme = useMantineTheme();
 
+    for (let i = 0; i < meeting.userAttendances.length; i++)
+        console.log(meeting.userAttendances[i])
+
     // Get endtime of the meeting with the duration
     const startTime = moment(meeting.date).utc().format("H:mm");
     const endTime = moment(meeting.date).utc().add(meeting.duration, 'minutes').format("H:mm");
@@ -94,7 +97,7 @@ const Meeting: React.FC<Props> = ({ meeting, refetch }) => {
                         <Group mt={20} position={"center"} align={"center"} spacing={10}>
                             {meeting.userAttendances.map((attendance) => (
                                 <Tooltip key={attendance.id} label={attendance.attendance === "PRESENT" ? "Present" : "ABSENT" ? "Absent" : "Excused"} transitionProps={{duration: 300, transition: "pop", timingFunction: "ease"}} withinPortal withArrow arrowSize={6} arrowRadius={4}>
-                                    <Badge style={{cursor: "pointer"}} radius={"sm"} size={"lg"} variant={"dot"} color={attendance.attendance === "PRESENT" ? "green" : "ABSENT" ? "red" : "orange"}>
+                                    <Badge style={{cursor: "pointer"}} radius={"sm"} size={"lg"} variant={"dot"} color={attendance.attendance === "PRESENT" ? "green" : attendance.attendance === "UNDEFINED" ? "orange" : "red"}>
                                         {attendance.user.firstname} {attendance.user.lastname}
                                     </Badge>
                                 </Tooltip>

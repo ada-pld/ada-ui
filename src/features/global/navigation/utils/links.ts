@@ -10,7 +10,6 @@ export const userTabs = [
     { link: '/home', label: 'Dashboard', icon: AiOutlineDashboard },
     { link: '/home/mycards', label: 'My cards', icon: RxCardStack },
     { link: '/home/meetings', label: 'Meetings', icon: MdOutlineCallToAction },
-    { link: '/home/profile', label: 'Profile', icon: AiOutlineUser },
     { link: '/home/pld', label: 'PLD', icon: HiOutlineDocumentText },
 ];
 

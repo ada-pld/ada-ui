@@ -8,9 +8,10 @@ import { checkError } from "./utils/checkError";
 import { useAppSelector } from "store/hooks/hooks";
 
 export const useListUsers = (permission: boolean) => {
+    const isLoggedIn = useAppSelector((state) => state.user.isLoggedIn);
     const role = useAppSelector((state) => state.user.auth.accessToken?.charAt(0));
 
-    const { data, error, refetch } = useListUsersQuery();
+    const { data, error, refetch } = useListUsersQuery(undefined, {skip: !isLoggedIn});
     const router = useRouter();
 
     useEffect(() => {
