@@ -26,7 +26,7 @@ const NavigationDrawer: React.FC<Props> = ({ opened, onClose }) => {
         page = "/home/pld";
 
     return pathname.includes("home") && userRole ? (
-        <Drawer opened={opened} onClose={onClose} withCloseButton={false} size={"60%"}>
+        <Drawer opened={opened} onClose={onClose} withCloseButton={false} size={"50%"}>
             <Stack style={{height: "95vh"}} justify={"space-between"}>
                 <div>
                     <UserButton

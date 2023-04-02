@@ -28,6 +28,8 @@ const UserButton: React.FC<Props> = ({ firstname, lastname, email, onClose }) =>
     const theme = useMantineTheme();
     const { classes } = useStyles();
 
+    const fullName = firstname + " " + lastname;
+
     const router = useRouter();
 
     return (
@@ -38,11 +40,11 @@ const UserButton: React.FC<Props> = ({ firstname, lastname, email, onClose }) =>
                     { firstname !== undefined &&
                         <>
                             <div>
-                                <Text size="sm" weight={500}>
-                                    {firstname} {lastname}
+                                <Text size="sm" weight={500} style={{ maxWidth: "calc(100%)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap"}}>
+                                    {fullName.length > 18 ? fullName.slice(0, 18) + "..." : fullName}
                                 </Text>
-                                <Text color="dimmed" size="xs">
-                                    {email}
+                                <Text color="dimmed" size="xs" style={{ maxWidth: "calc(100%)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap"}}>
+                                    {email.length > 24 ? email.slice(0, 21) + "..." : email}
                                 </Text>
                             </div>
                             {<MdOutlineChevronRight style={{ marginLeft: 7 }} size={20} color={theme.colors.dark[2]} />}
