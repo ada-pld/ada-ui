@@ -50,7 +50,7 @@ const Changes = () => {
                 <h3 style={{textAlign: "center", color: "dimgrey"}}>Generate Document</h3>
                 <Stack align={"center"} mt={30} style={{width: "100%", minWidth: 100}}>
                     <iframe
-                        src={process.env.BASE_URL + "/pldGenerated/PLD_Preview.pdf"}
+                        src={(process.env.BASE_URL || "") + "/pldGenerated/PLD_Preview.pdf"}
                         height={"700px"}
                         width={"80%"}
                         style={{minWidth: 400}}

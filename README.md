@@ -60,9 +60,7 @@ npm install
 Create a .env files at the root of the repository with the following values
 
 ```
-BASE_API_URL=YOUR_BASE_API_URL
 BASE_URL=YOUR_BASE_URL
-HOSTNAME=YOUR_HOSTNAME
 ```
 ex.
 ```

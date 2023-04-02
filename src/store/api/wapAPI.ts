@@ -6,7 +6,7 @@ export const wapAPI = createApi({
     reducerPath: 'wapAPI',
     keepUnusedDataFor: 1,
     baseQuery: fetchBaseQuery({
-        baseUrl: process.env.BASE_URL + "/api/" || "/api/",
+        baseUrl: (process.env.BASE_URL || "") + "/api/",
         prepareHeaders: (headers, { getState }) => {
             const accessToken = (getState() as RootState).user.auth.accessToken;
 
