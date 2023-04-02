@@ -11,8 +11,9 @@ import { checkError } from "./utils/checkError";
 export const useGetUserInfos = () => {
     const router = useRouter();
     const user = useAppSelector((state) => state.user.auth);
+    const isLoggedIn = useAppSelector((state) => state.user.isLoggedIn);
 
-    const { data, error, refetch } = useUserInfosQuery<any>(user.userId!);
+    const { data, error, refetch } = useUserInfosQuery<any>(user.userId!, { skip: !isLoggedIn });
 
     useEffect(() => {
         if (error)

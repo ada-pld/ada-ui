@@ -18,6 +18,7 @@ interface Props {
 }
 
 const ImagesDropZone: React.FC<Props> = ({ fileName }) => {
+    const url = process.env.BASE_URL || "";
     const [setImage, result] = useSetPLDImagesMutation();
 
     const [imageError, setImageError] = useState(false);
@@ -55,7 +56,7 @@ const ImagesDropZone: React.FC<Props> = ({ fileName }) => {
                     ) : (
                         <>
                             <Image
-                                src={process.env.BASE_URL + "/pldAssets/" + fileName + `?${new Date().getTime()}`}
+                                src={url + "/pldAssets/" + fileName + `?${new Date().getTime()}`}
                                 alt={fileName}
                                 fill
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw,33vw"
