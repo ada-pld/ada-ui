@@ -13,7 +13,7 @@ export const useGetUserInfos = () => {
     const user = useAppSelector((state) => state.user.auth);
     const isLoggedIn = useAppSelector((state) => state.user.isLoggedIn);
 
-    const { data, error, refetch } = useUserInfosQuery<any>(user.userId!, { skip: !isLoggedIn });
+    const { data, error, refetch } = useUserInfosQuery<any>(user.userId!, { skip: !isLoggedIn || !user.userId });
 
     useEffect(() => {
         if (error)
