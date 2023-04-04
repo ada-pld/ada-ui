@@ -41,17 +41,17 @@ const Dashboard = () => {
                     <Grid grow mt={10} pl={15} pr={15}>
                         <Grid.Col md={6} lg={4} span={'auto'}>
                             <Center>
-                                <Stats title={"Finished cards"} color={"green"} user={user} progress={user.JHDones} type={"finished"}/>
+                                <Stats title={"Finished cards"} color={"green"} user={user} progress={user.JHDones} type={"finished"} sprint={sprint} />
                             </Center>
                         </Grid.Col>
                         <Grid.Col md={6} lg={4} span={'auto'}>
                             <Center>
-                                <Stats title={"Cards in progress"} color={"yellow"} user={user} progress={user.JHInProgress} type={"inProgress"}/>
+                                <Stats title={"Cards in progress"} color={"yellow"} user={user} progress={user.JHInProgress} type={"inProgress"} sprint={sprint} />
                             </Center>
                         </Grid.Col>
                         <Grid.Col md={6} lg={4} span={'auto'}>
                             <Center>
-                                <Stats title={"Not started cards"} color={"red"} user={user} progress={user.JHNotStarted} type={"notStarted"}/>
+                                <Stats title={"Not started cards"} color={"red"} user={user} progress={user.JHNotStarted} type={"notStarted"} sprint={sprint} />
                             </Center>
                         </Grid.Col>
                     </Grid>
