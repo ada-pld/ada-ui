@@ -1,6 +1,7 @@
 import { wapAPI } from "./wapAPI";
 
-import { User, UserInfos } from "./types/fetchedData";
+import { User } from "./types/fetchedData";
+
 import { Login } from "./types/queryParams";
 
 const authApi = wapAPI.injectEndpoints({
@@ -15,17 +16,10 @@ const authApi = wapAPI.injectEndpoints({
                 }
             }),
         }),
-        userInfos: build.query<UserInfos, string>({
-            query: (id) => ({
-                url: `users/${id}`,
-                method: 'GET',
-            }),
-        }),
     }),
     overrideExisting: true,
 });
   
 export const {
-    useUserInfosQuery,
     useUserLoginMutation
 } = authApi;

@@ -39,7 +39,7 @@ const App = (props: AppProps & { colorScheme: ColorScheme }) => {
             close();
     }, [width])
 
-    return (
+    return pathname && (
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
                 <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
@@ -49,15 +49,17 @@ const App = (props: AppProps & { colorScheme: ColorScheme }) => {
                         theme={{ colorScheme, primaryColor: "violet" }}
                     >
                         <NextNProgress color='#9775FA' height={3} showOnShallow={true} options={{ easing: 'ease', speed: 400, showSpinner: false }} />
-                        <AppShell
-                            padding="md"
-                            navbar={<NavBar />}
-                            header={width <= 800 && pathname.includes("home") ? <div style={{height: 50}}><Burger p={30} opened={opened} onClick={open} /></div> : <></>}
-                        >
-                            <Notifications position="bottom-left" />
-                            <NavigationDrawer opened={opened} onClose={close} />
-                            <Component {...pageProps} />
-                        </AppShell>
+                        {width &&
+                            <AppShell
+                                padding="md"
+                                navbar={width >= 800 && pathname.includes("home") ? <NavBar /> : <></>}
+                                header={width <= 800 && pathname.includes("home") ? <div style={{height: 50}}><Burger p={30} opened={opened} onClick={open} /></div> : <></>}
+                            >
+                                <Notifications position="bottom-left" />
+                                <NavigationDrawer opened={opened} onClose={close} />
+                                <Component {...pageProps} />
+                            </AppShell>
+                        }
                     </MantineProvider>
                 </ColorSchemeProvider>
             </PersistGate>

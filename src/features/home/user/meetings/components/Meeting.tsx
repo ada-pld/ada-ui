@@ -19,9 +19,6 @@ interface Props {
 const Meeting: React.FC<Props> = ({ meeting, refetch }) => {
     const theme = useMantineTheme();
 
-    for (let i = 0; i < meeting.userAttendances.length; i++)
-        console.log(meeting.userAttendances[i])
-
     // Get endtime of the meeting with the duration
     const startTime = moment(meeting.date).utc().format("H:mm");
     const endTime = moment(meeting.date).utc().add(meeting.duration, 'minutes').format("H:mm");

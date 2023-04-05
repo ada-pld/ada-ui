@@ -17,9 +17,10 @@ import { useNavBarStyles } from './styles/useNavBarStyles';
 
 const NavBar = () => {
     const userRole = useAppSelector((state) => state.user.auth.accessToken?.charAt(0));
+
     const { pathname } = useRouter();
     const router = useRouter();
-    const { width } = useViewportSize();
+
     const { data: user } = useGetUserInfos();
     const { classes } = useNavBarStyles();
     const dispatch = useAppDispatch();
@@ -29,7 +30,7 @@ const NavBar = () => {
     if (page === "/home/pld/generator" || page === "/home/pld/images" || page === "/home/pld/changes")
         page = "/home/pld";
 
-    return pathname.includes("home") && userRole && width >= 800 && user ? (
+    return userRole && user ? (
         <Navbar p="xs" width={{ base: 275 }} style={{borderWidth: 0}} className={classes.navbar}>
             <Navbar.Section>
                 <UserButton

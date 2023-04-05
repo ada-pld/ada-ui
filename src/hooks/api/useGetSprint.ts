@@ -6,11 +6,8 @@ import { useGetSprintQuery } from "store/api/cardAPI";
 
 import { checkError } from "./utils/checkError";
 
-import { useAppSelector } from "store/hooks/hooks";
-
 export const useGetSprint = () => {
-    const isLoggedIn = useAppSelector((state) => state.user.isLoggedIn);
-    const { data, error, refetch } = useGetSprintQuery(undefined, { skip: !isLoggedIn });
+    const { data, error, refetch } = useGetSprintQuery();
     const router = useRouter();
 
     useEffect(() => {
