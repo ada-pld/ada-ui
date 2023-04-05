@@ -10,13 +10,20 @@ export interface CreateUser {
     role: string;
 }
 
-export interface EditUser {
-    id: string;
+export interface CreateDefaultUser {
     firstname: string;
     lastname: string;
     email: string;
-    password: string | null;
-    role: string;
+    password: string;
+}
+
+export interface EditUser {
+    id: string;
+    firstname?: string;
+    lastname?: string;
+    email?: string;
+    password?: string | null;
+    role?: string;
 }
 
 export interface UpdateStatus {

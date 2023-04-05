@@ -22,5 +22,16 @@ export const wapAPI = createApi({
             return headers
         },
     }),
-    endpoints: () => ({})
-})
+    endpoints: (build) => ({
+        checkError: build.query<void, void>({
+            query: () => ({
+                url: "health/",
+                method: 'GET',
+            }),
+        }),
+    }),
+});
+
+export const {
+    useCheckErrorQuery
+} = wapAPI;

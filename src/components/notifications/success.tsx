@@ -13,6 +13,15 @@ export const userCreatedNotification = () => {
     });
 };
 
+export const adminCreatedNotification = () => {
+    notifications.show({
+        title: "Admin created",
+        message: "Your account has been created, please login",
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
+
 export const userModifiedNotification = () => {
     notifications.show({
         title: "User modified",

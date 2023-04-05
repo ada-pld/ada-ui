@@ -1,8 +1,8 @@
 import { wapAPI } from "./wapAPI";
 
-import { UsersList } from "./types/fetchedData";
+import { UserInfos, UsersList } from "./types/fetchedData";
 
-import { CreateUser, EditUser } from "./types/queryParams";
+import { CreateDefaultUser, CreateUser, EditUser } from "./types/queryParams";
 
 const usersApi = wapAPI.injectEndpoints({
     endpoints: (build) => ({
@@ -24,6 +24,18 @@ const usersApi = wapAPI.injectEndpoints({
                 }
             }),
         }),
+        createDefaultUser: build.mutation<null, CreateDefaultUser>({
+            query: ({firstname, lastname, email, password}) => ({
+                url: "users/createDefault",
+                method: 'POST',
+                body: {
+                    firstname: firstname,
+                    lastname: lastname,
+                    email: email,
+                    password: password
+                }
+            }),
+        }),
         editUser: build.mutation<void, EditUser>({
             query: ({id, firstname, lastname, email, password, role}) => ({
                 url: "users/edit",
@@ -34,8 +46,14 @@ const usersApi = wapAPI.injectEndpoints({
                     lastname: lastname,
                     email: email,
                     password: password,
-                    role: role.toUpperCase(),
+                    role: role?.toUpperCase(),
                 }
+            }),
+        }),
+        userInfos: build.query<UserInfos, string>({
+            query: (id) => ({
+                url: `users/${id}`,
+                method: 'GET',
             }),
         }),
         forgotPassword: build.mutation<void, string>({
@@ -55,5 +73,7 @@ export const {
     useListUsersQuery,
     useCreateUserMutation,
     useEditUserMutation,
-    useForgotPasswordMutation
+    useUserInfosQuery,
+    useForgotPasswordMutation,
+    useCreateDefaultUserMutation,
 } = usersApi;
