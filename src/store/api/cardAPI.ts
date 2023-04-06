@@ -1,4 +1,4 @@
-import { Sprint, UserCards } from "types/apiTypes";
+import { UserCards } from "types/apiTypes";
 import { CreateCard, EditCard, GetUserCards, RejectCard, UpdateStatus } from "./types/queryParams";
 
 import { wapAPI } from "./wapAPI";
@@ -14,12 +14,6 @@ const configApi = wapAPI.injectEndpoints({
         getCardList: build.query<any, number>({
             query: (sprintId) => ({
                 url: `/card/list?sprintId=${sprintId.toString()}`,
-                method: 'GET',
-            }),
-        }),
-        getSprint: build.query<Sprint, void>({
-            query: () => ({
-                url: `sprint/active`,
                 method: 'GET',
             }),
         }),
@@ -89,7 +83,6 @@ const configApi = wapAPI.injectEndpoints({
 export const {
     useGetCardsQuery,
     useGetCardListQuery,
-    useGetSprintQuery,
     useUpdateCardStatusMutation,
     useCreateCardMutation,
     useEditCardMutation,

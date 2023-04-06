@@ -18,7 +18,7 @@ export const statusColor: Translate = {
     FINISHED: "green",
 }
 
-export const numberFormater = (val: string) => {
+export const numberFormat = (val: string) => {
     const v = parseFloat(val.replace(/[,.]+$/, ""))
     if (Number.isNaN(v)) {
         return `${val}`;

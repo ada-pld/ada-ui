@@ -52,6 +52,12 @@ export interface Sprint {
     createdAt: string;
     updatedAt: string;
     workDaysNeeded: number;
+    cards: Card[];
+}
+
+export interface CreateSprint {
+    name: string;
+    workDaysNeeded: number;
 }
 
 export interface Part {

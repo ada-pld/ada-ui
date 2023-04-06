@@ -174,3 +174,21 @@ export const PLDGenerationErrorNotification = (message: string) => {
         icon: <AiOutlineExclamation size={24} />,
     });
 };
+
+export const selectSprintErrorNotification = (message: string) => {
+    notifications.show({
+        title: "Select error",
+        message: message,
+        color: "red",
+        icon: <AiOutlineExclamation size={18} />,
+    });
+};
+
+export const sprintCreatedErrorNotification = (message: string) => {
+    notifications.show({
+        title: "Sprint creation error",
+        message: message,
+        color: "red",
+        icon: <AiOutlineExclamation size={18} />,
+    });
+};

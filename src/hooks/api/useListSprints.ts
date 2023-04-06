@@ -2,12 +2,12 @@ import { useEffect } from "react";
 
 import { useRouter } from "next/router";
 
-import { useGetSprintQuery } from "store/api/sprintAPI";
+import { useListSprintsQuery } from "store/api/sprintAPI";
 
 import { checkError } from "./utils/checkError";
 
-export const useGetSprint = () => {
-    const { data, error, refetch } = useGetSprintQuery();
+export const useListSprints = () => {
+    const { data, error, refetch } = useListSprintsQuery();
     const router = useRouter();
 
     useEffect(() => {

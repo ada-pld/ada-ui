@@ -192,3 +192,21 @@ export const PLDGenerationNotification = () => {
         icon: <BsCheck2 size={18} />,
     });
 };
+
+export const selectSprintNotification = () => {
+    notifications.show({
+        title: "Sprint changed",
+        message: `Sprint successfully selected`,
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
+
+export const sprintCreatedNotification = () => {
+    notifications.show({
+        title: "Sprint created",
+        message: `Sprint successfully created`,
+        color: "green",
+        icon: <BsCheck2 size={18} />,
+    });
+};
