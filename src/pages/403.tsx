@@ -11,7 +11,7 @@ const Unauthorized = () => {
 
     return (
         <>
-            <Head><title>WAP | Unauthorized</title></Head>
+            <Head><title>ADA | Unauthorized</title></Head>
             <Center style={{height: "100%", width: "100%"}}>
                 <Container className={classes.root}>
                     <div className={classes.label}>403</div>

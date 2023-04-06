@@ -1,6 +1,6 @@
-import { wapAPI } from "./wapAPI";
+import { adaAPI } from "./adaAPI";
 
-const configApi = wapAPI.injectEndpoints({
+const configApi = adaAPI.injectEndpoints({
     endpoints: (build) => ({
         getConfig: build.query<any, void>({
             query: () => ({

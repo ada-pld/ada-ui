@@ -43,7 +43,7 @@ export const missingIdNotification = () => {
 export const emailErrorNotification = () => {
     notifications.show({
         title: "Unable to send email",
-        message: "Mail sending is not supported on this WAP instance. Please contact your WAP administrator",
+        message: "Mail sending is not supported on this ADA instance. Please contact your ADA administrator",
         color: "red",
         icon: <AiOutlineExclamation size={24} />,
     });

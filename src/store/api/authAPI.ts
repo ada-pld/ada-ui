@@ -1,10 +1,10 @@
-import { wapAPI } from "./wapAPI";
+import { adaAPI } from "./adaAPI";
 
 import { User } from "./types/fetchedData";
 
 import { Login } from "./types/queryParams";
 
-const authApi = wapAPI.injectEndpoints({
+const authApi = adaAPI.injectEndpoints({
     endpoints: (build) => ({
         userLogin: build.mutation<User, Login>({
             query: ({email, password}) => ({

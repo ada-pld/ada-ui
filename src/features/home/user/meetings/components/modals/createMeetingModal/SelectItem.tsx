@@ -17,4 +17,4 @@ export const SelectItem = forwardRef<HTMLDivElement, ItemProps>(
     )
 );
 
-SelectItem.displayName = 'WAP_UI';
+SelectItem.displayName = 'ADA_UI';

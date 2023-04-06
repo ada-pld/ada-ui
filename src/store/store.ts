@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { persistStore, persistReducer } from 'redux-persist';
 
 import userReducer from './reducers/user/userSlice'
-import { wapAPI } from './api/wapAPI'
+import { adaAPI } from './api/adaAPI'
 
 import storage from './utils/storage';
 
@@ -16,12 +16,12 @@ const persistedUserReducer = persistReducer(persistConfig, userReducer);
 export const store = configureStore({
     reducer: {
         user: persistedUserReducer,
-        [wapAPI.reducerPath]: wapAPI.reducer,
+        [adaAPI.reducerPath]: adaAPI.reducer,
     },
 
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         serializableCheck: false
-    }).concat(wapAPI.middleware),
+    }).concat(adaAPI.middleware),
 })
 
 export type AppDispatch = typeof store.dispatch

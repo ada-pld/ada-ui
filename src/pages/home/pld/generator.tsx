@@ -32,7 +32,7 @@ const Generator = () => {
 
     return isLoaded && generator ? (
         <>
-            <Head><title>WAP | Generator</title></Head>
+            <Head><title>ADA | Generator</title></Head>
             <Container m={0} fluid>
                 <h1 style={{textAlign: "center"}}>PLD</h1>
                 <h3 style={{textAlign: "center", color: "dimgrey"}}>Choose the PLD generator</h3>
@@ -50,8 +50,8 @@ const Generator = () => {
                     ?   <></>
                     :   <>
                             <Alert mt={50} icon={<BiErrorCircle size={30} />} title={"Alert"} color={"red"}>
-                                <Text>WAP doesn&apos;t have a generator of PLD</Text>
-                                <Text>Please contact your WAP administrator to upload a PLD generator for the application</Text>
+                                <Text>ADA doesn&apos;t have a generator of PLD</Text>
+                                <Text>Please contact your ADA administrator to upload a PLD generator for the application</Text>
                             </Alert>
                             <Group position="center" style={{width: "100%", minWidth: 300}}>
                                 <Button onClick={() => router.back()} w={"25%"} mt={20} miw={200} leftIcon={<IoIosArrowBack size={20} />} variant="outline">

@@ -30,7 +30,7 @@ const Changes = () => {
 
     return isLoaded && data ? (
         <>
-            <Head><title>WAP | PLD Changes</title></Head>
+            <Head><title>ADA | PLD Changes</title></Head>
             <Container m={0} fluid>
                 <h1 style={{textAlign: "center"}}>PLD</h1>
                 <h3 style={{textAlign: "center", color: "dimgrey"}}>Document changes</h3>

@@ -21,7 +21,7 @@ const Parts = () => {
 
     return data ? (
         <>
-            <Head><title>WAP | Parts</title></Head>
+            <Head><title>ADA | Parts</title></Head>
             <AddPart opened={opened} setOpened={setOpened} refetch={refetch} />
             <Container m={0} p={width <= 800 ? 0 : 20} fluid>
                 <h1 style={{paddingBottom: 20, textAlign: 'center'}}>Parts</h1>

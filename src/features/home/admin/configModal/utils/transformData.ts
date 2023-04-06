@@ -19,5 +19,5 @@ export const inputDescription: InputLabel = {
     "SMTP_PASSWORD": "This is the SMTP server password",
     "DEFAULT_PASSWORD": "This is the default password that is used when creating an account without a mail transporter ('password' when empty)",
     "HOSTNAME": "This is the hostname on wich the server runs, used in links and in emails",
-    "UNDER_MAINTENANCE": "WAP will be put in maintenance mode and nobody will be able to access it appart from the administrators"
+    "UNDER_MAINTENANCE": "ADA will be put in maintenance mode and nobody will be able to access it appart from the administrators"
 }

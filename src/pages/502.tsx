@@ -11,14 +11,14 @@ const BadGateway = () => {
 
     return (
         <>
-            <Head><title>WAP | Bad Gateway</title></Head>
+            <Head><title>ADA | Bad Gateway</title></Head>
             <Center style={{height: "100%", width: "100%"}}>
                 <Container className={classes.root}>
                     <div className={classes.label}>502</div>
                     <Title className={classes.title}>Bad Gateway</Title>
                     <Text color="dimmed" size="lg" align="center" className={classes.description}>
                         The server looks in bas posture <br />
-                        Try to contact your WAP administrator
+                        Try to contact your ADA administrator
                     </Text>
                     <Group position="center">
                         <Button variant="subtle" size="md" component={Link} href="/login">

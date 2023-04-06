@@ -1,8 +1,8 @@
-import { wapAPI } from "./wapAPI";
+import { adaAPI } from "./adaAPI";
 
 import { CreateSprint, Sprint } from "types/apiTypes";
 
-const sprintApi = wapAPI.injectEndpoints({
+const sprintApi = adaAPI.injectEndpoints({
     endpoints: (build) => ({
         getSprint: build.query<Sprint, void>({
             query: () => ({

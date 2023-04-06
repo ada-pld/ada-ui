@@ -1,17 +1,17 @@
-<h1 align="center">Wap UI</h1>
+<h1 align="center">ADA UI</h1>
 
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-![GitHub issues](https://img.shields.io/github/issues/protoxvga/wap_ui?color=emerald)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/protoxvga/wap_ui?color=emerald)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
-![License](https://img.shields.io/github/license/protoxvga/wap_ui?label=License)
+![GitHub issues](https://img.shields.io/github/issues/protoxvga/ada_ui?color=emerald)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/protoxvga/ada_ui?color=emerald)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
+![License](https://img.shields.io/github/license/protoxvga/ada_ui?label=License)
 
 </div>
 
 ---
 
-<p align="center">User Interface of the <a href="https://github.com/theohemmer/wap" target="_BLANK">Wap</a> original API created by <a href="https://github.com/theohemmer" target="_BLANK">Théo Hemmer</a></p>
+<p align="center">User Interface of the <a href="https://github.com/theohemmer/ada" target="_BLANK">Ada</a> original API created by <a href="https://github.com/theohemmer" target="_BLANK">Théo Hemmer</a></p>
 <h3 align="center">⭐️</h3>
 <p align="center">
 If you like this project, do not hesitate to contribute and star it
@@ -31,9 +31,9 @@ If you like this project, do not hesitate to contribute and star it
 
 For our end-of-school project at Epitech Nancy, we are required to regularly submit project log documents detailing our work through diagrams and user stories. We must also organize our team's work to move in a single direction.
 
-Wap aims to simplify this process through the creation of user stories, changing their status (not started/in progress/completed), as well as scheduling appointments and automatically generating PLDs. Many features will be regularly added to WAP to evolve and become a project tracking tool for EIP projects.
+Ada aims to simplify this process through the creation of user stories, changing their status (not started/in progress/completed), as well as scheduling appointments and automatically generating PLDs. Many features will be regularly added to Ada to evolve and become a project tracking tool for EIP projects.
 
-The development of this tool was initiated by [Théo hemmer](https://github.com/theohemmer), and the creation of wap_ui was a natural next step.
+The development of this tool was initiated by [Théo hemmer](https://github.com/theohemmer), and the creation of ada_ui was a natural next step.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -41,23 +41,23 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-First, you need to have a Wap instance running and operational. Please [check](https://github.com/theohemmer/wap) the Wap documentation to install your environment
+First, you need to have a Ada instance running and operational. Please [check](https://github.com/theohemmer/ada) the Ada documentation to install your environment
 
 ### Installing
 
-First thing first, you need to clone wap_ui project
+First thing first, you need to clone ada_ui project
 
 ```
-git clone git@github.com:protoxvga/wap_ui.git
+git clone git@github.com:protoxvga/ada_ui.git
 ```
 
-Install wap_ui dependencies
+Install ada_ui dependencies
 
 ```
 npm install
 ```
 
-If you want to contribute and develop on wap UI you need a .env file
+If you want to contribute and develop on ada UI you need a .env file
 Create a .env file at the root of the repository with the following values
 
 ```
@@ -74,7 +74,7 @@ npm run dev
 ```
 And your application shoul run on [http://localhost:3000](http://localhost:3000)
 
-To build wap in static for deployment:
+To build ada in static for deployment:
 ```
 npm run build
 ```
@@ -89,6 +89,6 @@ npm run build
 ## ✍️ Authors <a name = "authors"></a>
 
 - [Pierre Perrin](https://github.com/protoxvga) - Idea & Initial work
-- [Théo hemmer](https://github.com/theohemmer) - Wap idea and API
+- [Théo hemmer](https://github.com/theohemmer) - Ada idea and API
 
-See also the list of [contributors](https://github.com/protoxvga/wap_ui/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/protoxvga/ada_ui/contributors) who participated in this project.

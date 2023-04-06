@@ -29,11 +29,11 @@ const FirstLogin = () => {
 
     return userId ? (
         <>
-            <Head><title>WAP | First password</title></Head>
+            <Head><title>ADA | First password</title></Head>
             <Center style={{height: "100%", width: "100%", minHeight: 620}}>
                 <Container style={{width: "50%", minWidth: 400, maxWidth: 550}}>
                     <Title align="center" sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}`, fontWeight: 700 })}>
-                        First time on WAP ?
+                        First time on ADA ?
                     </Title>
                     <Title mt={10} align="center" size={20} sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}`, fontWeight: 400})}>
                         Chose your new password

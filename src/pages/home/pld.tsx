@@ -22,7 +22,7 @@ const PLD = () => {
 
     return pldList ? (
         <>
-            <Head><title>WAP | PLD</title></Head>
+            <Head><title>ADA | PLD</title></Head>
             <Container m={0} p={width <= 800 ? 0 : 20} fluid>
                 <h1 style={{textAlign: 'center'}}>PLD</h1>
                 <h3 style={{textAlign: "center", color: "dimgrey"}}>Generate and download PLD&apos;s</h3>

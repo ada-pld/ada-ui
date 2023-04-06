@@ -11,7 +11,7 @@ const Profile = () => {
 
     return user ? (
         <div>
-            <Head><title>WAP | Profile</title></Head>
+            <Head><title>ADA | Profile</title></Head>
             <Container fluid p={0} m={0}>
                 <h1 style={{textAlign: "center"}}>Profile</h1>
                 <UserProfile user={user} refetch={refetch} />

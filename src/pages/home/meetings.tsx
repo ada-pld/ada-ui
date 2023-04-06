@@ -23,7 +23,7 @@ const Meetings = () => {
 
     return meetings ? (
         <div>
-            <Head><title>WAP | Meetings</title></Head>
+            <Head><title>ADA | Meetings</title></Head>
             <CreateMeeting meetings={meetings} opened={opened} close={close} refetch={refetch} />
             <Container fluid p={0} m={0}>
                 <h1 style={{textAlign: "center"}}>Meetings</h1>

@@ -67,7 +67,7 @@ const ConfigModal: React.FC<Props> = ({opened, setOpened, actualConfig, refetch}
             opened={opened}
             onClose={() => (setOpened(false), form.reset())}
             size={"80%"}
-            title={<Text>Wap Config</Text>}
+            title={<Text>Ada Config</Text>}
             overlayProps={{color: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2], opacity: 0.55, blur: 3}}
             radius={10}
             transitionProps={{duration: 0}}

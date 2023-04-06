@@ -21,7 +21,7 @@ const Sprints = () => {
 
     return data ? (
         <>
-            <Head><title>WAP | Sprints</title></Head>
+            <Head><title>ADA | Sprints</title></Head>
             <CreateSprint opened={opened} setOpened={setOpened} refetch={refetch} />
             <Container m={0} p={width <= 800 ? 0 : 20} fluid>
                 <h1 style={{paddingBottom: 20, textAlign: 'center'}}>Sprints</h1>

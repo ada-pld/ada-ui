@@ -11,7 +11,7 @@ const NotFound = () => {
 
     return (
         <>
-            <Head><title>WAP | Not found</title></Head>
+            <Head><title>ADA | Not found</title></Head>
             <Center style={{height: "100%", width: "100%"}}>
                 <Container className={classes.root}>
                     <div className={classes.label}>404</div>
