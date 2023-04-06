@@ -1,10 +1,10 @@
-import { AiOutlineDashboard, AiOutlineUser } from "react-icons/ai";
+import { AiOutlineDashboard } from "react-icons/ai";
 import { RxCardStack, RxComponent2 } from "react-icons/rx";
 import { MdOutlineCallToAction } from "react-icons/md";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { HiOutlineCog6Tooth } from "react-icons/hi2"
 import { FiUsers } from "react-icons/fi";
-import { BsCardChecklist } from "react-icons/bs"
+import { BsCalendar2Week, BsCardChecklist } from "react-icons/bs"
 
 export const userTabs = [
     { link: '/home', label: 'Dashboard', icon: AiOutlineDashboard },
@@ -15,6 +15,7 @@ export const userTabs = [
 
 export const editorTabs = [
     { link: '/home/editor/cards', label: 'Cards', icon: BsCardChecklist },
+    { link: '/home/editor/sprints', label: 'Sprints', icon: BsCalendar2Week },
     { link: '/home/editor/parts', label: 'Parts', icon: RxComponent2 },
     { link: '/home/editor/users', label: 'Users', icon: FiUsers },
 ];

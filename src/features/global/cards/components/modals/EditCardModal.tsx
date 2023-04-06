@@ -8,7 +8,7 @@ import { RxCardStackPlus } from "react-icons/rx";
 import { useListParts } from "hooks/api/useListParts";
 import { useListUsers } from "hooks/api/useListUsers";
 
-import { numberFormater } from "../../utils/dataTranslate";
+import { numberFormat } from "../../utils/dataTranslate";
 import { handleAssignees } from "../../utils/assigneesGesture";
 
 import { useAppSelector } from "store/hooks/hooks";
@@ -77,7 +77,7 @@ const EditCardModal: React.FC<Props> = ({ openEdit, setOpenEdit, card, refetch }
                     <Textarea required autosize minRows={2} maxRows={4} label="Description" placeholder="Cette user story permettra a l'utilisateur..." mt={7} {...form.getInputProps('description', { type: 'input' })} />
                     <Group position="apart" grow spacing={"xl"}>
                         <Select transitionProps={{duration: 250, transition: "pop", timingFunction: "ease"}} searchable clearable required data={parts.map((part) => {return {value: part.id, label: part.name}})} label="Part" radius={"sm"} withAsterisk mt={7} {...form.getInputProps('partId', { type: 'input' })}/>
-                        <NumberInput formatter={(val) => numberFormater(val!)} required precision={1} label="Jour(s)/homme" placeholder="3" mt={7} {...form.getInputProps('workingDays', { type: 'input' })} />
+                        <NumberInput formatter={(val) => numberFormat(val!)} required precision={1} label="Jour(s)/homme" placeholder="3" mt={7} {...form.getInputProps('workingDays', { type: 'input' })} />
                     </Group>
                     <Textarea required autosize minRows={2} maxRows={4} label={"Definitions of done"} description={"Each dod must be on a newline"} placeholder={`Champ Email\nChamp Mot de passe`} mt={7} {...form.getInputProps('dods', { type: 'input' })} />
                     { users.filter((user) => user.id !== userId).map((user) => user.role === "ADMIN" || user.role === "EDITOR")
