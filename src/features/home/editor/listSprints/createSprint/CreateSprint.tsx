@@ -3,12 +3,12 @@ import { useEffect } from "react";
 import { Modal, useMantineTheme, TextInput, Container, Text, Button, Group, NumberInput } from "@mantine/core";
 
 
-import { emailInUseNotification, sprintCreatedErrorNotification } from "components/notifications/errors";
-import { sprintCreatedNotification, userCreatedNotification } from "components/notifications/success";
+import { sprintCreatedErrorNotification } from "components/notifications/errors";
+import { sprintCreatedNotification } from "components/notifications/success";
 
 import { useCreateSprintMutation } from "store/api/sprintAPI";
 
-import { CreateSprintForm } from "./utils/createSprintForm";
+import { CreateSprintForm } from "./utils/CreateSprintForm";
 
 import { numberFormat } from "features/global/cards/utils/dataTranslate";
 

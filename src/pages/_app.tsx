@@ -37,7 +37,8 @@ const App = (props: AppProps & { colorScheme: ColorScheme }) => {
     useEffect(() => {
         if (width >= 800)
             close();
-    }, [width])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [width]);
 
     return pathname && (
         <Provider store={store}>
