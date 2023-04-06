@@ -1,7 +1,7 @@
 import { CreateMeeting, EditMeeting, ValidateMeeting } from "./types/queryParams";
-import { wapAPI } from "./wapAPI";
+import { adaAPI } from "./adaAPI";
 
-const meetingsApi = wapAPI.injectEndpoints({
+const meetingsApi = adaAPI.injectEndpoints({
     endpoints: (build) => ({
         getMeetings: build.query<any, void>({
             query: () => ({

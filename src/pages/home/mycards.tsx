@@ -28,7 +28,7 @@ const MyCards = () => {
     
     return data && sprint ? (
         <div>
-            <Head><title>WAP | MyCards</title></Head>
+            <Head><title>ADA | MyCards</title></Head>
             <AddCardModal openAdd={openAdd} setOpenAdd={setOpenAdd} refetch={refetch} />
             {data &&
                 <Container fluid p={0} m={0}>

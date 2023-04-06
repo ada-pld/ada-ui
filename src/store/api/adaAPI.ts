@@ -2,8 +2,8 @@ import { RootState } from "store/store";
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-export const wapAPI = createApi({
-    reducerPath: 'wapAPI',
+export const adaAPI = createApi({
+    reducerPath: 'adaAPI',
     keepUnusedDataFor: 1,
     baseQuery: fetchBaseQuery({
         baseUrl: (process.env.BASE_URL || "") + "/api/",
@@ -34,4 +34,4 @@ export const wapAPI = createApi({
 
 export const {
     useCheckErrorQuery
-} = wapAPI;
+} = adaAPI;

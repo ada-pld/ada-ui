@@ -24,7 +24,7 @@ const Dashboard = () => {
     
     return sprint ? (
         <div>
-            <Head><title>WAP | Dashboard</title></Head>
+            <Head><title>ADA | Dashboard</title></Head>
             <AddCardModal openAdd={openAdd} setOpenAdd={setOpenAdd} refetch={refetch} />
             {user &&
                 <Container fluid p={0} m={0}>

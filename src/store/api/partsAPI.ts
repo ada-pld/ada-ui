@@ -1,8 +1,8 @@
-import { wapAPI } from "./wapAPI";
+import { adaAPI } from "./adaAPI";
 
 import { PartsList } from "./types/fetchedData";
 
-const partsApi = wapAPI.injectEndpoints({
+const partsApi = adaAPI.injectEndpoints({
     endpoints: (build) => ({
         listParts: build.query<PartsList[], void>({
             query: () => ({

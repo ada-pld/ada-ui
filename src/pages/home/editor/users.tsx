@@ -20,7 +20,7 @@ const Users = () => {
 
     return data ? (
         <div>
-            <Head><title>WAP | Users</title></Head>
+            <Head><title>ADA | Users</title></Head>
             <AddUser opened={opened} setOpened={setOpened} refetch={refetch} />
             <Container m={0} p={width <= 800 ? 0 : 20} fluid>
                 <h1 style={{paddingBottom: 20, textAlign: "center"}}>Users</h1>

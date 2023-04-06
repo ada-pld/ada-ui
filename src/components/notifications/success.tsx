@@ -43,7 +43,7 @@ export const forgotPasswordNotification = () => {
 export const partCreatedNotification = () => {
     notifications.show({
         title: "Part created",
-        message: "A new part has been added to WAP",
+        message: "A new part has been added to ADA",
         color: "green",
         icon: <BsCheck2 size={18} />,
     });

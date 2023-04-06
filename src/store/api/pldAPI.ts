@@ -1,11 +1,11 @@
-import { wapAPI } from "./wapAPI";
+import { adaAPI } from "./adaAPI";
 
 import { GetGenerator, PLD } from "./types/fetchedData";
 import { createFormDataGenerator, createFormDataImages } from "./utils/createFormData";
 
 import { PLDChanges, SetImages } from "./types/queryParams";
 
-const pldApi = wapAPI.injectEndpoints({
+const pldApi = adaAPI.injectEndpoints({
     endpoints: (build) => ({
         listPLD: build.query<PLD[], void>({
             query: () => ({

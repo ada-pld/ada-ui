@@ -17,7 +17,7 @@ const Cards = () => {
 
     return cards && sprint && parts ? (
         <div style={{height: "80%", width: "100%"}}>
-            <Head><title>WAP | Cards</title></Head>
+            <Head><title>ADA | Cards</title></Head>
             {cards &&
                 <Container fluid p={0} m={0} style={{height: "100%", width: "100%"}}>
                     <h1 style={{textAlign: "center"}}>Cards</h1>

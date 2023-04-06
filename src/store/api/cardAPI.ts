@@ -1,9 +1,9 @@
 import { UserCards } from "types/apiTypes";
 import { CreateCard, EditCard, GetUserCards, RejectCard, UpdateStatus } from "./types/queryParams";
 
-import { wapAPI } from "./wapAPI";
+import { adaAPI } from "./adaAPI";
 
-const configApi = wapAPI.injectEndpoints({
+const configApi = adaAPI.injectEndpoints({
     endpoints: (build) => ({
         getCards: build.query<UserCards, GetUserCards>({
             query: ({userId, sprintId}) => ({

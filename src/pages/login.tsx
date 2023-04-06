@@ -6,7 +6,7 @@ import Head from 'next/head'
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-import { useCheckErrorQuery } from "store/api/wapAPI";
+import { useCheckErrorQuery } from "store/api/adaAPI";
 
 export function Login() {
     const router = useRouter();
@@ -23,7 +23,7 @@ export function Login() {
 
     return router.query && isSuccess ? (
         <>
-            <Head><title>WAP | Login</title></Head>
+            <Head><title>ADA | Login</title></Head>
             <LoginForm />
         </>
     ) : <CustomLoader />;

@@ -33,14 +33,14 @@ const AdminSetup = () => {
 
     return (
         <>
-            <Head><title>WAP | Admin Setup</title></Head>
+            <Head><title>ADA | Admin Setup</title></Head>
             <Center style={{height: "100%", width: "100%", minHeight: 620}}>
                 <Container style={{width: "50%", minWidth: 400, maxWidth: 550}}>
                     <Title align="center" sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}`, fontWeight: 700 })}>
-                        Thanks for installing WAP
+                        Thanks for installing ADA
                     </Title>
                     <Title mt={10} align="center" size={20} sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}`, fontWeight: 400})}>
-                        Please configure your WAP admin account
+                        Please configure your ADA admin account
                     </Title>
                     <Paper withBorder shadow="md" p={30} radius="md" mt={40}>
                         <Title size={16} sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}`, fontWeight: 700})}>

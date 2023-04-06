@@ -30,23 +30,23 @@ const Config = () => {
 
     return data ? (
         <>
-            <Head><title>WAP | Config</title></Head>
+            <Head><title>ADA | Config</title></Head>
             <ConfigModal opened={opened} setOpened={setOpened} actualConfig={data.config} refetch={refetch} />
             <Container m={0}>
-                <h1 style={{paddingBottom: 10}}>WAP | Configuration</h1>
+                <h1 style={{paddingBottom: 10}}>ADA | Configuration</h1>
                 <Group mt={10}>
                     <Badge size="lg" radius="sm" variant="outline">Version {data.version}</Badge>
                     <Badge size="lg" color={data.isTransporter ? "green" : "red"} radius="sm" variant="outline" autoCapitalize="false" >Mail transporter {data.isTransporter ? "active" : "innactive"}</Badge>
                 </Group>
                 <Title order={2} mt={40}>Configuration</Title>
-                <Text mt={20}>In this part you can change WAP parameters such as hostname, SMTP or default accounts password. You can also put WAP into maintenance mode to avoid users access to the application.</Text>
+                <Text mt={20}>In this part you can change ADA parameters such as hostname, SMTP or default accounts password. You can also put ADA into maintenance mode to avoid users access to the application.</Text>
                 <Group mt={20}>
                     <Button leftIcon={<BsGear size={20} />} miw={240} variant="outline" onClick={(() => {setOpened(true)})}>
                         Configuration
                     </Button>
                 </Group>
                 <Title order={2} mt={40}>Having troubles ?</Title>
-                <Text mt={20}>Some DB values are cached in the backend of WAP, if you changed values directly in the database and don&apos;t see the change appears on the frontend, it could be coming from this.</Text>
+                <Text mt={20}>Some DB values are cached in the backend of ADA, if you changed values directly in the database and don&apos;t see the change appears on the frontend, it could be coming from this.</Text>
                 <Group mt={20}>
                     <Tooltip multiline label={`This will also restart the connection with the mail transporter`} withArrow radius={"sm"} arrowSize={6} arrowRadius={4} width={300} style={{textAlign: "center"}}>
                         <Button color={"red"} leftIcon={<IoRefresh size={20} />} miw={240} variant="outline" onClick={(() => {refreshCache()})}>

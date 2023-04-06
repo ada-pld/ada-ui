@@ -44,7 +44,7 @@ const Changes = () => {
 
     return isLoaded ? (
         <>
-            <Head><title>WAP | Generate PLD</title></Head>
+            <Head><title>ADA | Generate PLD</title></Head>
             <Container m={0} fluid pb={40}>
                 <h1 style={{textAlign: "center"}}>PLD</h1>
                 <h3 style={{textAlign: "center", color: "dimgrey"}}>Generate Document</h3>

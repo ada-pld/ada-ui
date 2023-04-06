@@ -1,10 +1,10 @@
-import { wapAPI } from "./wapAPI";
+import { adaAPI } from "./adaAPI";
 
 import { UserInfos, UsersList } from "./types/fetchedData";
 
 import { CreateDefaultUser, CreateUser, EditUser } from "./types/queryParams";
 
-const usersApi = wapAPI.injectEndpoints({
+const usersApi = adaAPI.injectEndpoints({
     endpoints: (build) => ({
         listUsers: build.query<UsersList[], void>({
             query: () => ({
