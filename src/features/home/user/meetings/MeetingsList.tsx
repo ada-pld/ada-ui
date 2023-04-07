@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Tabs, Title } from "@mantine/core";
+import { Center, Container, Tabs, Title } from "@mantine/core";
 import { Meeting as MeetingType } from "store/api/types/fetchedData";
 import moment from "moment";
 
@@ -30,18 +30,23 @@ const UpcomingMeetings: React.FC<Props> = ({ meetings, refetch, variant }) => {
     return (
         <Tabs.Panel value={variant}>
             <Container p={20} mt={20}>
-                {sortedDates.map((date, index) => (
-                    <React.Fragment key={date}>
-                        <Title size={26} weight={"normal"} mt={index !== 0 ? 50 : 0}>
-                            {moment(date).format("LL")}
-                        </Title>
-                        {meetingsDates[date].map((meeting) => (
-                            <React.Fragment key={meeting.id}>
-                                <Meeting meeting={meeting} refetch={refetch} />
-                            </React.Fragment>
-                        ))}
-                    </React.Fragment>
-                ))}
+                {sortedDates.length > 0
+                    ?   <>
+                            {sortedDates.map((date, index) => (
+                                <React.Fragment key={date}>
+                                    <Title size={26} weight={"normal"} mt={index !== 0 ? 50 : 0}>
+                                        {moment(date).format("LL")}
+                                    </Title>
+                                    {meetingsDates[date].map((meeting) => (
+                                        <React.Fragment key={meeting.id}>
+                                            <Meeting meeting={meeting} refetch={refetch} />
+                                        </React.Fragment>
+                                    ))}
+                                </React.Fragment>
+                            ))}
+                        </>
+                    :   <Center mt={40}><Title weight={600}>No {variant.toLowerCase()} meeting</Title></Center>
+                }
             </Container>
         </Tabs.Panel>
     );
