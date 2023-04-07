@@ -6,7 +6,7 @@ import ColorScheme from 'components/colorScheme/ColorScheme';
 const LoginForm = () => {
     return (
         <Center style={{height: "100%", width: "100%", minHeight: 620}}>
-            <Container style={{width: "50%", minWidth: 400, maxWidth: 550}}>
+            <Container style={{width: "40%", minWidth: 400, maxWidth: 500}}>
                 <Title align="center" sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}`, fontWeight: 700 })}>
                     Welcome back !
                 </Title>

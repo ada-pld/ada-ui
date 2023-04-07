@@ -1,4 +1,4 @@
-import { Tabs, Grid, Center, Title } from "@mantine/core";
+import { Tabs, Grid, Center, Title, SimpleGrid } from "@mantine/core";
 
 import { Card } from "types/apiTypes";
 
@@ -14,15 +14,22 @@ const RejectedCardsEditable: React.FC<Props> = ({ data, refetch }) => {
         <Tabs.Panel value="Rejected">
             {data.length === 0
                 ?   <Center mt={100}><Title size={"h3"}>No waiting card(s)</Title></Center>
-                :   <Grid mt={20}>
+                :   <SimpleGrid
+                        mt={20}
+                        breakpoints={[
+                            { minWidth: 'xs', cols: 1 },
+                            { minWidth: 900, cols: 2 },
+                            { minWidth: 1200, cols: 3 },
+                            { minWidth: 1700, cols: 4 },
+                            { minWidth: 2200, cols: 5 },
+                        ]}
+                    >
                         {data.map((card: Card, index: number) =>
-                           <Grid.Col key={index} md={6} lg={4} p={20} span={'auto'}>
-                                <Center>
-                                    <UserCard card={card} refetch={refetch} edition={false} mode={"none"} />
-                                </Center>
-                            </Grid.Col>
+                            <Center key={index}>
+                                <UserCard card={card} refetch={refetch} edition={false} mode={"none"} />
+                            </Center>
                         )}
-                    </Grid>
+                    </SimpleGrid>
             }
         </Tabs.Panel>
     );

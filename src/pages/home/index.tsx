@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Head from "next/head";
 
-import { Center, Container, Divider, Grid } from "@mantine/core";
+import { Center, Container, Divider, Grid, SimpleGrid } from "@mantine/core";
 
 import { useGetSprint } from "hooks/api/useGetSprint";
 
@@ -56,9 +56,18 @@ const Dashboard = () => {
                         </Grid.Col>
                     </Grid>
                     <Divider mt={30} />
-                    <Grid mt={10}>
+                    <SimpleGrid
+                        mt={20}
+                        breakpoints={[
+                            { minWidth: 'xs', cols: 1 },
+                            { minWidth: 900, cols: 2 },
+                            { minWidth: 1200, cols: 3 },
+                            { minWidth: 1700, cols: 4 },
+                            { minWidth: 2200, cols: 5 },
+                        ]}
+                    >
                         <DashboardCards user={user} sprint={sprint} refetch={refetch} />
-                    </Grid>
+                    </SimpleGrid>
                 </Container>
             }
         </div>
