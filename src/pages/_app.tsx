@@ -16,10 +16,14 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { Notifications } from '@mantine/notifications';
 
 import { MantineProvider, ColorSchemeProvider, ColorScheme, AppShell, Burger } from '@mantine/core';
+
 import NavBar from "features/global/navigation/NavBar";
-import { useDisclosure, useViewportSize } from "@mantine/hooks";
 import NavigationDrawer from "features/global/navigation/NavigationDrawer";
+
+import { useDisclosure, useViewportSize } from "@mantine/hooks";
 import { useRouter } from "next/router";
+
+import { theme } from "utils/mantineTheme";
 
 const App = (props: AppProps & { colorScheme: ColorScheme }) => {
     const { Component, pageProps } = props;
@@ -47,7 +51,7 @@ const App = (props: AppProps & { colorScheme: ColorScheme }) => {
                     <MantineProvider
                         withGlobalStyles
                         withNormalizeCSS
-                        theme={{ colorScheme, primaryColor: "violet" }}
+                        theme={{ colorScheme, ...theme }}
                     >
                         <NextNProgress color='#9775FA' height={3} showOnShallow={true} options={{ easing: 'ease', speed: 400, showSpinner: false }} />
                         {width &&
