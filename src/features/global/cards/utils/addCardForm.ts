@@ -8,12 +8,12 @@ export const AddCardForm = () => {
             task: '',
             description: '',
             partId: 0,
-            workingDays: null,
+            workingDays: '',
             dods: '',
             assignees: [],
         },
         validate: {
-            workingDays: (value) => (value === null || value <= 0 ? 'You must work at least 0.5 days' : null),
+            workingDays: (value) => (value === null || value === '' || parseFloat(value) <= 0 ? 'You must work at least 0.5 days' : null),
         }
     });
 };
