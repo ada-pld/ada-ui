@@ -37,7 +37,7 @@ export interface CreateCard {
         asWho: string,
         task: string,
         description: string,
-        workingDays: number | null,
+        workingDays: number | string,
         dods: string,
         partId: number,
         assignees: string[];
