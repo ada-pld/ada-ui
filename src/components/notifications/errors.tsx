@@ -22,9 +22,9 @@ export const unauthorizedNotification = () => {
     });
 };
 
-export const emailInUseNotification = () => {
+export const createUserErrorNotification = (message: string) => {
     notifications.show({
-        title: "Email already in use",
+        title: message,
         message: "The email you provide is already allocated to an active account",
         color: "red",
         icon: <AiOutlineExclamation size={24} />,

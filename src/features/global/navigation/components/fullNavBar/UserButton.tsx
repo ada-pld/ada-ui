@@ -27,10 +27,9 @@ const useStyles = createStyles((theme) => ({
 const UserButton: React.FC<Props> = ({ firstname, lastname, email, onClose }) => {
     const theme = useMantineTheme();
     const { classes } = useStyles();
+    const router = useRouter();
 
     const fullName = firstname + " " + lastname;
-
-    const router = useRouter();
 
     return (
         <Group className={style.container}>
@@ -44,7 +43,7 @@ const UserButton: React.FC<Props> = ({ firstname, lastname, email, onClose }) =>
                                     {fullName.length > 18 ? fullName.slice(0, 18) + "..." : fullName}
                                 </Text>
                                 <Text color="dimmed" size="xs" style={{ maxWidth: "calc(100%)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap"}}>
-                                    {email.length > 24 ? email.slice(0, 21) + "..." : email}
+                                    {email.length >= 22 ? email.slice(0, 19) + "..." : email}
                                 </Text>
                             </div>
                             {<MdOutlineChevronRight style={{ marginLeft: 7 }} size={20} color={theme.colors.dark[2]} />}
