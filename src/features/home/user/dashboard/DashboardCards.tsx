@@ -19,7 +19,7 @@ const DashboardCards: React.FC<Props> = ({user, sprint, refetch}) => {
     );
 
     return (
-        <>
+        <div>
             <h1 style={{textAlign: "center"}}>Welcome back !</h1>
             <h3 style={{textAlign: "center", color: "dimgrey"}}>{sprint.name}</h3>
             <div style={{marginTop: 20, paddingLeft: 15, paddingRight: 15}}>
@@ -48,31 +48,29 @@ const DashboardCards: React.FC<Props> = ({user, sprint, refetch}) => {
                 </Grid.Col>
             </Grid>
             <Divider mt={30} />
-            <SimpleGrid
-                mt={20}
-                breakpoints={[
-                    { minWidth: 'xs', cols: 1 },
-                    { minWidth: 900, cols: 2 },
-                    { minWidth: 1200, cols: 3 },
-                    { minWidth: 1700, cols: 4 },
-                    { minWidth: 2200, cols: 5 },
-                ]}
-            >
-                <DashboardCards user={user} sprint={sprint} refetch={refetch} />
-            </SimpleGrid>
-            <React.Fragment key={user.id}>
-                {cards.length === 0
-                    ?   <Center style={{width: "100%"}} mt={100}><Title size={"h3"}>No approved card(s)</Title></Center>
-                    :   <React.Fragment key={user.id}>
+            {cards.length === 0
+                ?   <Center mt={100}><Title size={"h3"}>No approved card(s)</Title></Center>
+                :   <React.Fragment key={user.id}>
+                        <SimpleGrid
+                            mt={20}
+                            w={"100%"}
+                            breakpoints={[
+                                { minWidth: 'xs', cols: 1 },
+                                { minWidth: 900, cols: 2 },
+                                { minWidth: 1200, cols: 3 },
+                                { minWidth: 1700, cols: 4 },
+                                { minWidth: 2200, cols: 5 },
+                            ]}
+                        >
                             {cards.map((card: Card, index: number) => (
                                 <Center key={index}>
                                     <UserCard card={card} refetch={refetch} edition={false} mode={"status"} />
                                 </Center>
                             ))}
-                        </React.Fragment>
-                }
-            </React.Fragment>
-        </>
+                        </SimpleGrid>
+                    </React.Fragment>
+            }
+        </div>
     );
 }
 

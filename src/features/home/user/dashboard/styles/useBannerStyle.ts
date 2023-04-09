@@ -5,16 +5,14 @@ export const useBannerStyle = createStyles((theme) => ({
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-evenly",
+        paddingBottom: 20,
     },
 
     title: {
         fontWeight: 800,
-        marginTop: 50,
         fontSize: rem(40),
         letterSpacing: rem(-1),
         color: theme.colorScheme === "dark" ? theme.colors.gray[4] : "black",
-        paddingLeft: theme.spacing.md,
-        paddingRight: theme.spacing.md,
         marginBottom: theme.spacing.xs,
         fontFamily: `Greycliff CF, ${theme.fontFamily}`,
 
@@ -22,14 +20,16 @@ export const useBannerStyle = createStyles((theme) => ({
             fontSize: rem(28),
             textAlign: 'left',
         },
+
+        [theme.fn.largerThan('lg')]: {
+            marginTop: 50
+        },
     },
 
     githubButton: {
         backgroundColor: '#333',
         border: 0,
         height: rem(42),
-        paddingLeft: rem(20),
-        paddingRight: rem(20),
         '&:not([data-disabled])': theme.fn.hover({
             backgroundColor: theme.fn.darken('#333', 0.05),
         }),
@@ -39,25 +39,16 @@ export const useBannerStyle = createStyles((theme) => ({
         backgroundColor: '#5865F2',
         border: 0,
         height: rem(42),
-        paddingLeft: rem(20),
-        paddingRight: rem(20),
         '&:not([data-disabled])': theme.fn.hover({
             backgroundColor: theme.fn.darken('#5865F2', 0.05),
         }),
     },
 
-    text: {
-        paddingLeft: theme.spacing.md,
-        paddingRight: theme.spacing.md,
-    },
-
     span: {
-        color: theme.colorScheme === "dark" ? theme.colors.violet[4] : theme.colors.violet[6],
+        color: theme.colorScheme === "dark" ? theme.colors.violet[8] : theme.colors.violet[4],
     },
 
     image: {
-        width: "80%",
-        minWidth: 450,
         [theme.fn.smallerThan('lg')]: {
             display: 'none',
         },
