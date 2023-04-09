@@ -30,7 +30,7 @@ const Stats: React.FC<Props> = ({ title, color, user, progress, type, sprint }) 
     let totalCards = user.cards.filter(card => card.status !== "REJECTED" && card.status !== "WAITING_APPROVAL" && sprint.id === card.sprint.id).length;
     let totalDays = user.JHIntended + user.JHMissing;
     
-    let nbrOfCards = user.cards.filter(card => type === "notStarted" ? card.status === "NOT_STARTED" : type === "inProgress" ? card.status === "STARTED" : card.status === "FINISHED").length;
+    let nbrOfCards = user.cards.filter(card => (type === "notStarted" ? card.status === "NOT_STARTED" : type === "inProgress" ? card.status === "STARTED" : card.status === "FINISHED") && sprint.id === card.sprint.id).length;
 
     let percent = progress / totalDays * 100;
 

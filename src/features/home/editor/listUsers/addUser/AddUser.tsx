@@ -8,7 +8,7 @@ import { AddUserForm } from "./utils/addUserForm";
 
 import { useCreateUserMutation } from "store/api/usersAPI";
 
-import { emailInUseNotification } from "components/notifications/errors";
+import { createUserErrorNotification } from "components/notifications/errors";
 import { userCreatedNotification } from "components/notifications/success";
 
 interface Props {
@@ -25,7 +25,7 @@ const AddUser: React.FC<Props> = ({opened, setOpened, refetch}) => {
     useEffect(() => {
         if (result.isError) {
             if (result.error.status === 400)
-                emailInUseNotification();
+                createUserErrorNotification(result.error.data.message);
             setOpened(false);
         } else if (result.isSuccess) {
             userCreatedNotification();
