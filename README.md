@@ -24,10 +24,11 @@ If you like this project, do not hesitate to contribute and star it
 - [🏁 Getting Started ](#-getting-started-)
   - [Prerequisites](#prerequisites)
   - [Installing](#installing)
+- [📝 Contribute](#-contribute-)
 - [⛏️ Built Using ](#️-built-using-)
 - [✍️ Authors ](#️-authors-)
 
-## 🧐 About <a name = "about"></a>
+## 🧐 About <a name="about"></a>
 
 For our end-of-school project at Epitech Nancy, we are required to regularly submit project log documents detailing our work through diagrams and user stories. We must also organize our team's work to move in a single direction.
 
@@ -35,7 +36,7 @@ Ada aims to simplify this process through the creation of user stories, changing
 
 The development of this tool was initiated by [Théo hemmer](https://github.com/theohemmer), and the creation of ada_ui was a natural next step.
 
-## 🏁 Getting Started <a name = "getting_started"></a>
+## 🏁 Getting Started <a name="getting_started"></a>
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
 
@@ -79,14 +80,18 @@ To build ada in static for deployment:
 npm run build
 ```
 
-## ⛏️ Built Using <a name = "built_using"></a>
+## 👨🏻‍💻 Contribute <a name="contribute"></a>
+
+You can follow the contribution guidelines <a name = "contribute">here</a>
+
+## ⛏️ Built Using <a name="built_using" href="https://github.com/protoxvga/ada_ui/CONTRIBUTE.md" ></a>
 
 - [Mantine](https://mantine.dev/) - React component library
 - [Redux toolkit](https://redux-toolkit.js.org/) - State manager
 - [NextJS](https://nextjs.org/) - Web Framework
 - [TypeScript](https://www.typescriptlang.org/) - Language
 
-## ✍️ Authors <a name = "authors"></a>
+## ✍️ Authors <a name="authors"></a>
 
 - [Pierre Perrin](https://github.com/protoxvga) - Idea & Initial work
 - [Théo hemmer](https://github.com/theohemmer) - Ada idea and API
