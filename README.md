@@ -19,7 +19,6 @@ If you like this project, do not hesitate to contribute and star it
 
 ## 📝 Table of Contents
 
-- [📝 Table of Contents](#-table-of-contents)
 - [🧐 About ](#-about-)
 - [🏁 Getting Started ](#-getting-started-)
   - [Prerequisites](#prerequisites)
@@ -82,9 +81,9 @@ npm run build
 
 ## 👨🏻‍💻 Contribute <a name="contribute"></a>
 
-You can follow the contribution guidelines <a name = "contribute">here</a>
+You can follow the contribution guidelines <a href="https://github.com/protoxvga/ada_ui/CONTRIBUTE.md">here</a>
 
-## ⛏️ Built Using <a name="built_using" href="https://github.com/protoxvga/ada_ui/CONTRIBUTE.md" ></a>
+## ⛏️ Built Using <a name="built_using" ></a>
 
 - [Mantine](https://mantine.dev/) - React component library
 - [Redux toolkit](https://redux-toolkit.js.org/) - State manager
