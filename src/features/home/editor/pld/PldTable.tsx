@@ -26,7 +26,7 @@ const PldTable: React.FC<Props> = ({ pldList }) => {
                         <td>{pld.sprint.name}</td>
                         <td>{pld.versionInSprint}</td>
                         <td>
-                            <Anchor href={url + pld.downloadPath}>
+                            <Anchor target="_blank" href={url + pld.downloadPath}>
                                 {pld.downloadPath}
                             </Anchor>
                         </td>
