@@ -81,7 +81,7 @@ npm run build
 
 ## 👨🏻‍💻 Contribute <a name="contribute"></a>
 
-You can follow the contribution guidelines <a href="https://github.com/protoxvga/ada_ui/CONTRIBUTE.md">here</a>
+You can follow the contribution guidelines <a href="https://github.com/protoxvga/ada_ui/blob/production/CONTRIBUTE.md">here</a>
 
 ## ⛏️ Built Using <a name="built_using" ></a>
 
