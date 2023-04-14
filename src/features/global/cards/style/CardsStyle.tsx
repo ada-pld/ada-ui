@@ -3,7 +3,8 @@ import { createStyles } from "@mantine/core";
 export const CardsStyle = createStyles((theme) => ({
     card: {
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
-        width: 300
+        width: 300,
+        whiteSpace: "normal",
     },
 
     label: {

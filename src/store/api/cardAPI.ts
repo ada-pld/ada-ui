@@ -1,11 +1,10 @@
-import { UserCards } from "types/apiTypes";
 import { CreateCard, EditCard, GetUserCards, RejectCard, UpdateStatus } from "./types/queryParams";
 
 import { adaAPI } from "./adaAPI";
 
 const configApi = adaAPI.injectEndpoints({
     endpoints: (build) => ({
-        getCards: build.query<UserCards, GetUserCards>({
+        getCards: build.query<any, GetUserCards>({
             query: ({userId, sprintId}) => ({
                 url: `/users/cardsStats?sprintId=${sprintId.toString()}${userId ? `&userId=${userId}` : ''}`,
                 method: 'GET',

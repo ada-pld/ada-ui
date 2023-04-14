@@ -25,7 +25,7 @@ const RejectedCardsEditable: React.FC<Props> = ({ data, refetch }) => {
                         ]}
                     >
                         {data.map((card: Card, index: number) =>
-                            <Center key={index}>
+                            <Center key={index} pt={30}>
                                 <UserCard card={card} refetch={refetch} edition={false} mode={"none"} />
                             </Center>
                         )}

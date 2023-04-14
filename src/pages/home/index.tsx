@@ -16,18 +16,24 @@ import { useListSprints } from "hooks/api/useListSprints";
 
 import AdminWelcome from "features/home/user/dashboard/AdminWelcome";
 
+import { useAppSelector } from "store/hooks/hooks";
+
 const Dashboard = () => {
     const { data: user, refetch } = useGetUserCards("user");
     const { data: sprint } = useGetSprint();
-    const { data: listSprints } = useListSprints();
+
+    const userRole = useAppSelector((state) => state.user.auth.accessToken?.charAt(0));
+
     const [openAdd, setOpenAdd] = useState<boolean>(false);
     
-    return sprint !== undefined && listSprints ? (
+    console.log(sprint)
+
+    return sprint !== undefined ? (
         <div>
             <Head><title>ADA | Dashboard</title></Head>
             <AddCardModal openAdd={openAdd} setOpenAdd={setOpenAdd} refetch={refetch} />
             <Container fluid p={0} m={0}>
-                {listSprints.length === 0
+                {userRole === "3" && sprint === null
                     ?   <AdminWelcome />
                     :   <>{user && <DashboardCards user={user} sprint={sprint} refetch={refetch} />}</>
                 }

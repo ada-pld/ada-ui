@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Center, ColProps, Divider, Grid, SimpleGrid, Title, useMantineTheme } from "@mantine/core";
+import { Center, Divider, Grid, SimpleGrid, Title } from "@mantine/core";
 import UserCard from "features/global/cards/UserCard";
 
 import { Card, Sprint, UserCards } from "types/apiTypes";
@@ -63,7 +63,7 @@ const DashboardCards: React.FC<Props> = ({user, sprint, refetch}) => {
                             ]}
                         >
                             {cards.map((card: Card, index: number) => (
-                                <Center key={index}>
+                                <Center key={index} pt={30}>
                                     <UserCard card={card} refetch={refetch} edition={false} mode={"status"} />
                                 </Center>
                             ))}

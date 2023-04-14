@@ -1,4 +1,4 @@
-import { Card, Group, Spoiler, Text } from "@mantine/core";
+import { Card, Spoiler, Text } from "@mantine/core";
 
 import { Card as CardType } from "types/apiTypes";
 import { CardsStyle } from "../../style/CardsStyle";
