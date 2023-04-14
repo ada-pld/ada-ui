@@ -5,7 +5,6 @@
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
 ![GitHub issues](https://img.shields.io/github/issues/protoxvga/ada_ui?color=emerald)
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/protoxvga/ada_ui?color=emerald)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
-![License](https://img.shields.io/github/license/protoxvga/ada_ui?label=License)
 
 </div>
 
