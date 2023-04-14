@@ -76,19 +76,10 @@ export const statusError2Notification = () => {
     });
 };
 
-export const deleteErrorNotification = () => {
+export const deleteErrorNotification = (message: string) => {
     notifications.show({
         title: "Unable to delete",
-        message: "You don't have the permission to delete this card",
-        color: "red",
-        icon: <AiOutlineExclamation size={24} />,
-    });
-};
-
-export const deleteError2Notification = () => {
-    notifications.show({
-        title: "Unable to delete",
-        message: "This card as already been approved",
+        message: message,
         color: "red",
         icon: <AiOutlineExclamation size={24} />,
     });

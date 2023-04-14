@@ -12,7 +12,7 @@ import { Card } from "types/apiTypes";
 
 import EditModal from "./modals/EditCardModal";
 import { useDeleteCardMutation } from "store/api/cardAPI";
-import { deleteError2Notification, deleteErrorNotification } from "components/notifications/errors";
+import { deleteErrorNotification } from "components/notifications/errors";
 import { deleteCardNotification } from "components/notifications/success";
 
 interface Props {
@@ -30,10 +30,7 @@ const CardMenu: React.FC<Props> = ({ card, refetch, edition }) => {
 
     useEffect(() => {
         if (resultDelete.isError) {
-            if (resultDelete.error.status === 403)
-                deleteErrorNotification();
-            if (resultDelete.error.status === 400)
-                deleteError2Notification();
+            deleteErrorNotification(resultDelete.error.data.message);
         } else if (resultDelete.isSuccess) {
             deleteCardNotification();
             refetch();

@@ -1,0 +1,21 @@
+.title {
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+.subtitle {
+    font-size: 14px;
+    margin-top: 5px;
+    color: dimgray;
+}
+
+.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+    padding: 20px;
+}
+
+.scrollmenu .cardsPart {
+    display: inline-flex;
+    padding: 10px;
+}

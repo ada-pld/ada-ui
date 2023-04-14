@@ -5,10 +5,12 @@ import { HiOutlineDocumentText } from "react-icons/hi";
 import { HiOutlineCog6Tooth } from "react-icons/hi2"
 import { FiUsers } from "react-icons/fi";
 import { BsCalendar2Week, BsCardChecklist } from "react-icons/bs"
+import { SlLayers } from "react-icons/sl";
 
 export const userTabs = [
     { link: '/home', label: 'Dashboard', icon: AiOutlineDashboard },
     { link: '/home/mycards', label: 'My cards', icon: RxCardStack },
+    { link: '/home/sprint-board', label: 'Sprint board', icon: SlLayers },
     { link: '/home/meetings', label: 'Meetings', icon: MdOutlineCallToAction },
     { link: '/home/pld', label: 'PLD', icon: HiOutlineDocumentText },
 ];

@@ -16,7 +16,7 @@ export const useGetUserCards = (variant: "all" | "user") => {
 
     const { data: sprint } = useGetSprint();
     
-    const query = variant === "user" ? {userId: userId!, sprintId: sprint?.id ?? 0} : {sprintId: sprint?.id ?? 0}
+    const query = variant === "user" ? {userId: userId!, sprintId: sprint?.id ?? 0} : {sprintId: sprint?.id ?? 0};
     
     const { data, error, refetch } = useGetCardsQuery(query, { skip: !sprint?.id });
 

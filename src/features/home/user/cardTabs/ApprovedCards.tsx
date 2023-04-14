@@ -27,7 +27,7 @@ const ApprovedCards: React.FC<Props> = ({ data, refetch }) => {
                         ]}
                     >
                         {filteredCards.map((card: Card, index: number) =>
-                            <Center key={index}>
+                            <Center key={index} pt={30}>
                                 <UserCard card={card} refetch={refetch} edition={false} mode={"status"} />
                             </Center>
                         )}
