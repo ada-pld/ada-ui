@@ -11,10 +11,11 @@ import CardsGrid from "./components/CardsGrid";
 
 import { RiSearchLine } from "react-icons/ri";
 
-import { TbCircleDotted, TbCircleCheck, TbClock, TbCircleX } from "react-icons/tb";
+import { TbCircleCheck, TbClock, TbCircleX } from "react-icons/tb";
 
 import StatusSelectItem from "./components/StatusSelectItem";
-import { StatusIcon } from "./utils/statusIcon";
+
+import { StatusIcon } from "./utils/StatusIcon";
 
 interface Props {
     user: UserCards;
