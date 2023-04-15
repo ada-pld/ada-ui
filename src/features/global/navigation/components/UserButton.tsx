@@ -1,6 +1,6 @@
 import { Group, Text, UnstyledButton, createStyles, useMantineTheme } from '@mantine/core';
 
-import style from "../../styles/userButton.module.css";
+import style from "../styles/userButton.module.css";
 
 import LittleColorScheme from 'components/littleColorScheme/LittleColorScheme';
 import { MdOutlineChevronRight } from 'react-icons/md';

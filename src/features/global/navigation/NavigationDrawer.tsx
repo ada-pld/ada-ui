@@ -1,12 +1,18 @@
-import { Container, Drawer, Group, Stack, Text, UnstyledButton } from "@mantine/core";
+import { Drawer, Group, Stack, UnstyledButton } from "@mantine/core";
+
 import { useGetUserInfos } from "hooks/api/useGetUserInfos";
+
 import { useRouter } from "next/router";
+
 import { SlLogout } from "react-icons/sl";
+
 import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
-import Navigationtabs from "./components/fullNavBar/NavigationTabs";
-import UserButton from "./components/fullNavBar/UserButton";
-import { useNavBarStyles } from "./styles/useNavBarStyles";
+
+import Navigationtabs from "./components/NavigationTabs";
+import UserButton from "./components/UserButton";
 import { logoutHandling } from "./utils/logoutHandling";
+
+import { useNavBarStyles } from "./styles/useNavBarStyles";
 
 interface Props {
     opened: boolean;
@@ -15,11 +21,14 @@ interface Props {
 
 const NavigationDrawer: React.FC<Props> = ({ opened, onClose }) => {
     const { data: user } = useGetUserInfos();
-    const { classes } = useNavBarStyles();
     const router = useRouter();
+
+    const { classes } = useNavBarStyles();
     const dispatch = useAppDispatch();
     const userRole = useAppSelector((state) => state.user.auth.accessToken?.charAt(0));
+    
     const { pathname } = useRouter();
+
     let page = pathname;
 
     if (page === "/home/pld/generator" || page === "/home/pld/images" || page === "/home/pld/changes")

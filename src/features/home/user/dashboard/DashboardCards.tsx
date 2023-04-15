@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import { Center, Divider, Grid, SimpleGrid, Title } from "@mantine/core";
-import UserCard from "features/global/cards/UserCard";
+import { Center, Divider, Grid, Group, Select, TextInput } from "@mantine/core";
+import { useViewportSize } from "@mantine/hooks";
 
 import { Card, Sprint, UserCards } from "types/apiTypes";
+
 import JoursAlert from "./components/JoursAlert";
 import Stats from "./components/Stats";
+import CardsGrid from "./components/CardsGrid";
+
+import { RiSearchLine } from "react-icons/ri";
+
+import { TbCircleDotted, TbCircleCheck, TbClock, TbCircleX } from "react-icons/tb";
+
+import StatusSelectItem from "./components/StatusSelectItem";
+import { StatusIcon } from "./utils/statusIcon";
 
 interface Props {
     user: UserCards;
@@ -13,10 +22,39 @@ interface Props {
     refetch: any;
 }
 
+const data = [
+    { value: 'FINISHED', label: 'Finished', icon: TbCircleCheck },
+    { value: 'STARTED', label: 'In progress', icon: TbClock },
+    { value: 'NOT_STARTED', label: 'Not started', icon: TbCircleX }
+]
+
 const DashboardCards: React.FC<Props> = ({user, sprint, refetch}) => {
+    const { width } = useViewportSize();
+    const [search, setSearch] = useState<string>("");
+    const [status, setStatus] = useState<string | null>(null);
+
     const cards = user.cards.filter((card: Card) =>
         (card.status !== "REJECTED"&& card.status !== "WAITING_APPROVAL") && card.sprintId === sprint.id
     );
+
+    const [filteredCards, setFilteredCards] = useState(cards);
+
+    useEffect(() => {
+        let newCards = user.cards.filter((card: Card) =>
+            (card.status !== "REJECTED"&& card.status !== "WAITING_APPROVAL") && card.sprintId === sprint.id
+        );
+
+        if (status !== null) {
+            newCards = newCards.filter((card: Card) => card.status === status);
+        }
+
+        if (search !== "") {
+            newCards = newCards.filter((card: Card) => card.name.toLowerCase().includes(search.toLowerCase()));
+        }
+
+        setFilteredCards(newCards);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [search, status]);
 
     return (
         <div>
@@ -48,28 +86,21 @@ const DashboardCards: React.FC<Props> = ({user, sprint, refetch}) => {
                 </Grid.Col>
             </Grid>
             <Divider mt={30} />
-            {cards.length === 0
-                ?   <Center mt={100}><Title size={"h3"}>No approved card(s)</Title></Center>
-                :   <React.Fragment key={user.id}>
-                        <SimpleGrid
-                            mt={20}
-                            w={"100%"}
-                            breakpoints={[
-                                { minWidth: 'xs', cols: 1 },
-                                { minWidth: 900, cols: 2 },
-                                { minWidth: 1200, cols: 3 },
-                                { minWidth: 1700, cols: 4 },
-                                { minWidth: 2200, cols: 5 },
-                            ]}
-                        >
-                            {cards.map((card: Card, index: number) => (
-                                <Center key={index} pt={30}>
-                                    <UserCard card={card} refetch={refetch} edition={false} mode={"status"} />
-                                </Center>
-                            ))}
-                        </SimpleGrid>
-                    </React.Fragment>
-            }
+            <Group mt={30} pl={"2%"} pr={"2%"} position={width <= 899 ? "center" : "apart"} spacing={"lg"}>
+                <Select
+                    clearable
+                    icon={StatusIcon(status)}
+                    variant="filled"
+                    placeholder="Status..."
+                    transitionProps={{ transition: "scale-y", duration: 100, timingFunction: 'ease' }}
+                    itemComponent={StatusSelectItem}
+                    onChange={(value) => setStatus(value)}
+                    value={status}
+                    data={data}
+                />
+                <TextInput variant="filled" style={{width: 300}} icon={<RiSearchLine />} placeholder="Search..." value={search} onChange={(event) => setSearch(event.currentTarget.value)} />
+            </Group>
+            <CardsGrid cards={filteredCards} refetch={refetch} />
         </div>
     );
 }

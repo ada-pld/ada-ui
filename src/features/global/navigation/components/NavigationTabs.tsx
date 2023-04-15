@@ -2,10 +2,9 @@ import Link from "next/link";
 
 import { Divider, Group } from "@mantine/core";
 
-import { useNavBarStyles } from "../../styles/useNavBarStyles";
+import { useNavBarStyles } from "../styles/useNavBarStyles";
 
 import { userTabs, editorTabs, adminTabs } from "features/global/navigation/utils/links";
-import CustomLoader from "components/loader/CustomLoader";
 
 interface Props {
     active: string;
