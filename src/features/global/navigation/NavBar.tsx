@@ -6,12 +6,12 @@ import { Navbar, UnstyledButton, ScrollArea, Group } from '@mantine/core';
 import { useAppSelector, useAppDispatch } from 'store/hooks/hooks';
 import { useGetUserInfos } from 'hooks/api/useGetUserInfos';
 
-import UserButton from './components/fullNavBar/UserButton';
+import UserButton from './components/UserButton';
 
 import { logoutHandling } from './utils/logoutHandling';
 import { SlLogout } from "react-icons/sl";
 
-import Navigationtabs from './components/fullNavBar/NavigationTabs';
+import Navigationtabs from './components/NavigationTabs';
 import { useNavBarStyles } from './styles/useNavBarStyles';
 
 

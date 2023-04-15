@@ -12,7 +12,6 @@ import CustomLoader from "components/loader/CustomLoader";
 import DashboardCards from "features/home/user/dashboard/DashboardCards";
 
 import { useGetUserCards } from "hooks/api/useGetUserCards";
-import { useListSprints } from "hooks/api/useListSprints";
 
 import AdminWelcome from "features/home/user/dashboard/AdminWelcome";
 
@@ -25,8 +24,6 @@ const Dashboard = () => {
     const userRole = useAppSelector((state) => state.user.auth.accessToken?.charAt(0));
 
     const [openAdd, setOpenAdd] = useState<boolean>(false);
-    
-    console.log(sprint)
 
     return sprint !== undefined ? (
         <div>

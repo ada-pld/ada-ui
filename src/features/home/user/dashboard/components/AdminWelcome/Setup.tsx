@@ -5,7 +5,6 @@ import { useSetupStyle } from "../../styles/useSetupStyle";
 import { HiOutlineCog6Tooth } from "react-icons/hi2"
 import { FiUsers, FiCheckSquare } from "react-icons/fi";
 import { BsCalendar2Week } from "react-icons/bs"
-import { useState } from "react";
 
 interface Props {
     configSetup: boolean;
@@ -18,8 +17,6 @@ const Setup: React.FC<Props> = ({ configSetup, userSetup, partSetup, sprintsSetu
     const { classes } = useSetupStyle();
     
     const active = (sprintsSetup ? 4 : partSetup ? 3 : userSetup ? 2 : configSetup ? 1 : 0);
-
-    console.log(userSetup)
 
     return (
         <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>

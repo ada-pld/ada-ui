@@ -17,9 +17,9 @@ const Filters: React.FC<Props> = ({parts, partFilter, setPartFilter, search, set
 
     return (
         <Group mt={40} ml={30} mr={30} position={width <= 800 ? "center" : "apart"} align={"center"}>
-            <TextInput style={{width: 300}} icon={<RiSearchLine />} placeholder="Search..." value={search} onChange={(event) => setSearch(event.currentTarget.value)} />
+            <TextInput variant="filled" style={{width: 300}} icon={<RiSearchLine />} placeholder="Search..." value={search} onChange={(event) => setSearch(event.currentTarget.value)} />
             <Group>
-                <Select style={{width: 300}} clearable placeholder={"Part"} size={"sm"} value={partFilter} onChange={setPartFilter} data={parts.map(part => part.name)} />
+                <Select variant="filled" style={{width: 300}} clearable placeholder={"Part"} size={"sm"} value={partFilter} onChange={setPartFilter} data={parts.map(part => part.name)} />
             </Group>
         </Group>
     );
