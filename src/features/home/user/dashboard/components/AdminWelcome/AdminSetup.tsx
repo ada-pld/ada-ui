@@ -26,7 +26,7 @@ const AdminSetup: React.FC<Props> = ({ configSetup, userSetup, partSetup, sprint
                     state="stepCompleted"
                     icon={<HiOutlineCog6Tooth size="1.6rem" />}
                     label={<Text size={"md"} weight={"bold"}>Config</Text>}
-                    description={<Text size={"sm"}><Anchor href="/home/admin/config">Configure</Anchor>your instance</Text>}
+                    description={<Text size={"sm"}><Anchor href="/home/admin/config">Configure </Anchor>your instance</Text>}
                 />
                 <Stepper.Step
                     state="stepCompleted"

@@ -21,18 +21,18 @@ const FirstLogin = () => {
     const form = useForm({ initialValues: {password: ''}, validate: {password: (value) => (value.length < 6 ? 'Part name must have at least 6 characters' : null)} });
 
     useEffect(() => {
+        if (!isFetching && error === undefined)
+            router.replace('/home')
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isFetching]);
+
+    useEffect(() => {
         if (result.isSuccess) {
             userModifiedNotification();
             router.replace('/home');
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result.isSuccess]);
-
-    useEffect(() => {
-        if (!isFetching && error === undefined)
-            router.replace('/home')
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [error]);
 
     return userId && !isFetching ? (
         <>
