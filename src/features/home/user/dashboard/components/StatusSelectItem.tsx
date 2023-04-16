@@ -1,5 +1,5 @@
 import { Group, Text } from "@mantine/core";
-import { ReactNode, forwardRef } from "react";
+import { forwardRef } from "react";
 
 import { IconType } from "react-icons";
 
@@ -21,5 +21,7 @@ const StatusSelectItem = forwardRef<HTMLDivElement, ItemProps>(
         </div>
     )
 );
+
+StatusSelectItem.displayName = "StatusSelectItem";
 
 export default StatusSelectItem;
