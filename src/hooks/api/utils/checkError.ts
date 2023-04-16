@@ -7,7 +7,7 @@ export const checkError = (error: any, router: NextRouter) => {
         router.replace("/login");
         sessionExpiredNotification();
     } else if (error.status === 400) {
-        router.back();
+        router.replace("/400");
     } else if (error.status === 403) {
         router.replace("/403");
     } else if (error.status === 424 && error.data.message === "defaultPassword") {

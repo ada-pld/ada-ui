@@ -1,10 +1,10 @@
 import { Divider } from '@mantine/core';
 
 import Banner from './components/AdminWelcome/Banner';
-import Setup from './components/AdminWelcome/Setup';
+import Setup from './components/AdminWelcome/AdminSetup';
 
 import { useListUsers } from 'hooks/api/useListUsers';
-import CustomLoader from 'components/loader/CustomLoader';
+
 import { useListParts } from 'hooks/api/useListParts';
 import { useGetConfig } from 'hooks/api/useGetConfig';
 import { useListSprints } from 'hooks/api/useListSprints';

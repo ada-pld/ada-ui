@@ -21,6 +21,7 @@ interface Props {
     user: UserCards;
     sprint: Sprint;
     refetch: any;
+    cards: Card[];
 }
 
 const data = [
@@ -29,21 +30,15 @@ const data = [
     { value: 'NOT_STARTED', label: 'Not started', icon: TbCircleX }
 ]
 
-const DashboardCards: React.FC<Props> = ({user, sprint, refetch}) => {
+const DashboardCards: React.FC<Props> = ({user, sprint, refetch, cards}) => {
     const { width } = useViewportSize();
     const [search, setSearch] = useState<string>("");
     const [status, setStatus] = useState<string | null>(null);
 
-    const cards = user.cards.filter((card: Card) =>
-        (card.status !== "REJECTED"&& card.status !== "WAITING_APPROVAL") && card.sprintId === sprint.id
-    );
-
     const [filteredCards, setFilteredCards] = useState(cards);
 
     useEffect(() => {
-        let newCards = user.cards.filter((card: Card) =>
-            (card.status !== "REJECTED"&& card.status !== "WAITING_APPROVAL") && card.sprintId === sprint.id
-        );
+        let newCards = user.cards.filter((card: Card) => (card.status !== "REJECTED"&& card.status !== "WAITING_APPROVAL") && card.sprintId === sprint.id);
 
         if (status !== null) {
             newCards = newCards.filter((card: Card) => card.status === status);
@@ -57,7 +52,7 @@ const DashboardCards: React.FC<Props> = ({user, sprint, refetch}) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [search, status]);
 
-    return (
+    return width && cards ? (
         <div>
             <h1 style={{textAlign: "center"}}>Welcome back !</h1>
             <h3 style={{textAlign: "center", color: "dimgrey"}}>{sprint.name}</h3>
@@ -103,7 +98,7 @@ const DashboardCards: React.FC<Props> = ({user, sprint, refetch}) => {
             </Group>
             <CardsGrid cards={filteredCards} refetch={refetch} />
         </div>
-    );
+    ) : <></>;
 }
 
 export default DashboardCards;
