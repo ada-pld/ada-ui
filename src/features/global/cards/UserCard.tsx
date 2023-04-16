@@ -43,8 +43,6 @@ const UserCard: React.FC<Props> = ({ card, refetch, edition, mode }) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [statusResult])
 
-    console.log(card.status)
-
     return (
         <Card withBorder radius="sm" className={classes.card} shadow={"md"} mih={300}>
             <Card.Section className={classes.header}>

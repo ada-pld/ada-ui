@@ -1,33 +1,40 @@
 import Head from 'next/head'
+import { useEffect, useState } from 'react';
 
 import { useForm } from '@mantine/form';
 import { useEditUserMutation } from 'store/api/usersAPI';
 import { Button, Center, Container, Group, Paper, PasswordInput, Title } from '@mantine/core';
 import { useAppSelector } from 'store/hooks/hooks';
 import CustomLoader from 'components/loader/CustomLoader';
-import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { userModifiedNotification } from 'components/notifications/success';
+import { useCheckErrorQuery } from 'store/api/adaAPI';
 
 const FirstLogin = () => {
     const router = useRouter();
+
     const userId = useAppSelector(state => state.user.auth.userId);
+
+    const { data, error, isFetching } = useCheckErrorQuery<any>();
     const [editUser, result] = useEditUserMutation<any>();
 
-    const form = useForm({
-        initialValues: {password: ''},
-        validate: {password: (value) => (value.length < 6 ? 'Part name must have at least 6 characters' : null)},
-    });
+    const form = useForm({ initialValues: {password: ''}, validate: {password: (value) => (value.length < 6 ? 'Part name must have at least 6 characters' : null)} });
 
     useEffect(() => {
         if (result.isSuccess) {
             userModifiedNotification();
-            router.replace("/home");
+            router.replace('/home');
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [result])
+    }, [result.isSuccess]);
 
-    return userId ? (
+    useEffect(() => {
+        if (!isFetching && error === undefined)
+            router.replace('/home')
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [error]);
+
+    return userId && !isFetching ? (
         <>
             <Head><title>ADA | First password</title></Head>
             <Center style={{height: "100%", width: "100%", minHeight: 620}}>
