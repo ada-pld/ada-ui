@@ -25,7 +25,7 @@ jobs:
         run: |
           npm run build
           npm start &
-          sleep 5  # Adjust as per your server's startup time
+          sleep 30  # Adjust as per your server's startup time
       - name: Run Playwright tests
         run: npx playwright test
       - uses: actions/upload-artifact@v3
