@@ -1,10 +1,6 @@
 name: Build ADA_UI
 
 on:
-  push:
-    branches: 
-      - 'features/*'
-      - 'fix/*'
   pull_request:
     branches: [ production ]
 
@@ -14,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: 18
 
     steps:
     - uses: actions/checkout@v2
