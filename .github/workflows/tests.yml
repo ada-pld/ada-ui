@@ -21,8 +21,11 @@ jobs:
         run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-      - name: Start server
-        run: npm start & sleep 5
+      - name: Build and start the Next.js application
+        run: |
+          npm run build
+          npm start &
+          sleep 5  # Adjust as per your server's startup time
       - name: Run Playwright tests
         run: npx playwright test
       - uses: actions/upload-artifact@v3
