@@ -38,7 +38,7 @@ const DashboardCards: React.FC<Props> = ({user, sprint, refetch, cards}) => {
     const [filteredCards, setFilteredCards] = useState(cards);
 
     useEffect(() => {
-        let newCards = user.cards.filter((card: Card) => (card.status !== "REJECTED"&& card.status !== "WAITING_APPROVAL") && card.sprintId === sprint.id);
+        let newCards = cards.filter((card: Card) => (card.status !== "REJECTED"&& card.status !== "WAITING_APPROVAL") && card.sprintId === sprint.id);
 
         if (status !== null) {
             newCards = newCards.filter((card: Card) => card.status === status);
@@ -50,7 +50,7 @@ const DashboardCards: React.FC<Props> = ({user, sprint, refetch, cards}) => {
 
         setFilteredCards(newCards);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [search, status]);
+    }, [search, status, cards]);
 
     return width && cards ? (
         <div>
