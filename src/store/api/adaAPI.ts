@@ -33,5 +33,5 @@ export const adaAPI = createApi({
 });
 
 export const {
-    useCheckErrorQuery
+    useCheckErrorQuery,
 } = adaAPI;
