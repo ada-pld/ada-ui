@@ -16,10 +16,17 @@ const authApi = adaAPI.injectEndpoints({
                 }
             }),
         }),
+        checkToken: build.query<void, string>({
+            query: (token) => ({
+                url: `auth/checkToken?token=${token}`,
+                method: 'GET',
+            }),
+        }),
     }),
     overrideExisting: true,
 });
   
 export const {
-    useUserLoginMutation
+    useUserLoginMutation,
+    useCheckTokenQuery
 } = authApi;
