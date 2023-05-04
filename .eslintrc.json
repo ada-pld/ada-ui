@@ -8,6 +8,6 @@
     "cypress/no-unnecessary-waiting": "error",
     "cypress/assertion-before-screenshot": "error",
     "cypress/no-force": "error",
-    "cypress/no-async-describe": "error"
+    "cypress/no-async-describe": "off"
   }
 }
