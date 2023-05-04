@@ -23,6 +23,8 @@ jobs:
           build: npm run build
           start: npm start
           wait-on: "http://localhost:3000"
+        env:
+          BASE_URL: ${{secrets.BASE_URL}}
 
       - name: Archive Cypress videos
         if: always()
