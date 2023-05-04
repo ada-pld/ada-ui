@@ -1,10 +1,24 @@
-name: Tests
+name: build & tests
 
 on:
   pull_request:
     branches: [ production ]
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 16
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16
+    - name: Install dependencies
+      run: npm ci
+    - name: Build the app
+      run: npm run build
+
   cypress-tests:
     runs-on: ubuntu-latest
 
