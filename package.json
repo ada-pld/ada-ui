@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "npm run build && next start",
+    "start": "next start --listen 3000",
     "lint": "next lint",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "test:start": "next build && next start"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
