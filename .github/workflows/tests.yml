@@ -19,6 +19,13 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: npx playwright test
+      - name: Debugging - Check running processes
+        if: failure()
+        run: |
+          echo "Running processes:"
+          ps aux
+          echo "Check server availability:"
+          curl -v http://localhost:3000
       - uses: actions/upload-artifact@v3
         if: always()
         with:
