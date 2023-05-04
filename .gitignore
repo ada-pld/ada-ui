@@ -6,8 +6,8 @@
 .pnp.js
 
 # testing
-/coverage
-/playwright-report
+cypress/videos
+cypress/screenshots
 
 # next.js
 /.next/
