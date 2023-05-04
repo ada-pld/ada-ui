@@ -1,3 +1,13 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "plugin:cypress/recommended"],
+  "plugins": ["cypress"],
+  "env": {
+    "cypress/globals": true
+  },
+  "rules": {
+    "cypress/no-unnecessary-waiting": "error",
+    "cypress/assertion-before-screenshot": "error",
+    "cypress/no-force": "error",
+    "cypress/no-async-describe": "off"
+  }
 }

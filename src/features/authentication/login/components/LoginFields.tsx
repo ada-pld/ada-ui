@@ -43,8 +43,8 @@ const LoginFields: React.FC = () => {
 
     return (
         <form onSubmit={form.onSubmit((values) => loginQuery({email: values.email, password: values.password}))}>
-            <TextInput required label="Email" placeholder="Your email" mt={10} {...form.getInputProps('email')} />
-            <PasswordInput required label="Password" placeholder="Your password" mt="md" {...form.getInputProps('password')} />
+            <TextInput id="email-input" required label="Email" placeholder="Your email" mt={10} {...form.getInputProps('email')} />
+            <PasswordInput id='password-input' required label="Password" placeholder="Your password" mt="md" {...form.getInputProps('password')} />
             <Group position="apart" mt="lg">
                 <Checkbox
                     label="Remember me"
@@ -59,6 +59,7 @@ const LoginFields: React.FC = () => {
                 fullWidth
                 mt="xl"
                 type="submit"
+                id="login-button"
             >
                 Sign in
             </Button>
