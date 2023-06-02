@@ -48,13 +48,13 @@ const AdminSetup = () => {
                         </Title>
                         <form onSubmit={form.onSubmit((values) => (createUser(values)))}>
                             <Group position="apart" grow>
-                                <TextInput required label="First name" mt={20} {...form.getInputProps('firstname', { type: 'input' })} />
-                                <TextInput required label="Last name" mt={20} {...form.getInputProps('lastname', { type: 'input' })} />
+                                <TextInput required label="First name" id="first-name" mt={20} {...form.getInputProps('firstname', { type: 'input' })} />
+                                <TextInput required label="Last name" id="last-name" mt={20} {...form.getInputProps('lastname', { type: 'input' })} />
                             </Group>
-                            <TextInput required label="Email" mt={20} {...form.getInputProps('email', { type: 'input' })} />
-                            <PasswordInput label="Password" mt={20} {...form.getInputProps('password', { type: 'input' })} />
+                            <TextInput required label="Email" id="email" mt={20} {...form.getInputProps('email', { type: 'input' })} />
+                            <PasswordInput label="Password" id="password" mt={20} {...form.getInputProps('password', { type: 'input' })} />
                             <Group position="center" mt={30} grow>
-                                <Button color={"violet"} leftIcon={<IoSaveOutline size={20} />} miw={240} variant="outline" type="submit">
+                                <Button id="save-button" color={"violet"} leftIcon={<IoSaveOutline size={20} />} miw={240} variant="outline" type="submit">
                                     Save
                                 </Button>
                             </Group>

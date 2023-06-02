@@ -20,7 +20,7 @@ export function Banner() {
     return (
         <div className={classes.container}>
             <div>
-                <Title className={classes.title}>Welcome on <span className={classes.span}>ADA</span></Title>
+                <Title id='welcome-message' className={classes.title}>Welcome on <span className={classes.span}>ADA</span></Title>
                 <div>
                     <Text color="dimmed" mt="md">
                         Ada aims to simplify this process through the creation of sprints, parts, and user stories. <br /> You can also schedule appointments and automatically generate PLDs.

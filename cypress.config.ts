@@ -5,8 +5,8 @@ export default defineConfig({
         baseUrl: 'http://localhost:3000',
         supportFile: false,
         specPattern: 'cypress/integration/*.cy.{js,jsx,ts,tsx}',
-    },
-    env: {
-        BASE_URL: 'https://ada-dev.hemmer.dev',
+        env: {
+            BASE_URL: 'https://ada-test.hemmer.dev/',
+        },
     },
 })
