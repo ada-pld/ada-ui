@@ -26,25 +26,25 @@ const AdminSetup: React.FC<Props> = ({ configSetup, userSetup, partSetup, sprint
                     state="stepCompleted"
                     icon={<HiOutlineCog6Tooth size="1.6rem" />}
                     label={<Text size={"md"} weight={"bold"}>Config</Text>}
-                    description={<Text size={"sm"}><Anchor href="/home/admin/config">Configure </Anchor>your instance</Text>}
+                    description={<Text size={"sm"}><Anchor id={"stepper-config-shortcut"} href="/home/admin/config">Configure </Anchor>your instance</Text>}
                 />
                 <Stepper.Step
                     state="stepCompleted"
                     icon={<FiUsers size="1.4rem" />}
                     label={<Text size={"md"} weight={"bold"}>Users</Text>}
-                    description={<Text size={"sm"}>Create your team <Anchor href="/home/editor/users">users</Anchor></Text>}
+                    description={<Text size={"sm"}>Create your team <Anchor id={"stepper-users-shortcut"} href="/home/editor/users">users</Anchor></Text>}
                 />
                 <Stepper.Step
                     state="stepInactive"
                     icon={<FiUsers size="1.4rem" />}
                     label={<Text size={"md"} weight={"bold"}>Parts</Text>}
-                    description={<Text size={"sm"}>Create your project <Anchor href="/home/editor/parts">parts</Anchor></Text>   }
+                    description={<Text size={"sm"}>Create your project <Anchor id={"stepper-parts-shortcut"} href="/home/editor/parts">parts</Anchor></Text>   }
                 />
                 <Stepper.Step
                     state="stepInactive"
                     icon={<BsCalendar2Week size="1.4rem" />}
                     label={<Text size={"md"} weight={"bold"}>Sprint</Text>}
-                    description={<Text size={"sm"}>Create your first <Anchor href="/home/editor/sprints">sprint</Anchor></Text>}
+                    description={<Text size={"sm"}>Create your first <Anchor id={"stepper-sprints-shortcut"} href="/home/editor/sprints">sprint</Anchor></Text>}
                 />
             </Stepper>
         </div>

@@ -7,7 +7,7 @@ const LoginForm = () => {
     return (
         <Center style={{height: "100%", width: "100%", minHeight: 620}}>
             <Container style={{width: "40%", minWidth: 400, maxWidth: 500}}>
-                <Title align="center" sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}`, fontWeight: 700 })}>
+                <Title id="login-screen-title" align="center" sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}`, fontWeight: 700 })}>
                     Welcome back !
                 </Title>
                 <ColorScheme position={"center"} style={{marginTop: 30}} />

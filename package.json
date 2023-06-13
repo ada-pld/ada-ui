@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "cy": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run --browser chrome"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",

@@ -41,7 +41,7 @@ const Config = () => {
                 <Title order={2} mt={40}>Configuration</Title>
                 <Text mt={20}>In this part you can change ADA parameters such as hostname, SMTP or default accounts password. You can also put ADA into maintenance mode to avoid users access to the application.</Text>
                 <Group mt={20}>
-                    <Button leftIcon={<BsGear size={20} />} miw={240} variant="outline" onClick={(() => {setOpened(true)})}>
+                    <Button id={"edit-config-button"} leftIcon={<BsGear size={20} />} miw={240} variant="outline" onClick={(() => {setOpened(true)})}>
                         Configuration
                     </Button>
                 </Group>

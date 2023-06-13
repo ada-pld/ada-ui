@@ -39,10 +39,10 @@ const UserButton: React.FC<Props> = ({ firstname, lastname, email, onClose }) =>
                     { firstname !== undefined &&
                         <>
                             <div>
-                                <Text size="sm" weight={500} style={{ maxWidth: "calc(100%)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap"}}>
+                                <Text id="nav-user-name" size="sm" weight={500} style={{ maxWidth: "calc(100%)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap"}}>
                                     {fullName.length > 18 ? fullName.slice(0, 18) + "..." : fullName}
                                 </Text>
-                                <Text color="dimmed" size="xs" style={{ maxWidth: "calc(100%)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap"}}>
+                                <Text id="nav-user-email" color="dimmed" size="xs" style={{ maxWidth: "calc(100%)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap"}}>
                                     {email.length >= 22 ? email.slice(0, 19) + "..." : email}
                                 </Text>
                             </div>

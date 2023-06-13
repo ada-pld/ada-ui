@@ -21,6 +21,7 @@ const Navigationtabs: React.FC<Props> = ({active, userRole, onClose}) => {
             href={item.link}
             onClick={onClose && (() => onClose())}
             key={item.label}
+            id={item.id}
         >
             <Group className={cx(classes.iconGroup, { [classes.iconGroupActive]: item.link === active })}>
                 <item.icon size={18} className={classes.linkIcon} />
@@ -35,6 +36,7 @@ const Navigationtabs: React.FC<Props> = ({active, userRole, onClose}) => {
             href={item.link}
             onClick={onClose && (() => onClose())}
             key={item.label}
+            id={item.id}
         >
             <Group className={cx(classes.iconGroup, { [classes.iconGroupActive]: item.link === active })}>
                 <item.icon size={18} className={classes.linkIcon} />
@@ -49,6 +51,7 @@ const Navigationtabs: React.FC<Props> = ({active, userRole, onClose}) => {
             href={item.link}
             onClick={onClose && (() => onClose())}
             key={item.label}
+            id={item.id}
         >
             <Group className={cx(classes.iconGroup, { [classes.iconGroupActive]: item.link === active })}>
                 <item.icon size={18} className={classes.linkIcon} />

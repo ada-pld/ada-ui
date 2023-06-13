@@ -78,18 +78,18 @@ const ConfigModal: React.FC<Props> = ({opened, setOpened, actualConfig, refetch}
                         return (
                             <div key={config.id}>
                                 {config.name === "SMTP_PASSWORD" || config.name === "DEFAULT_PASSWORD"
-                                    ? <PasswordInput description={inputDescription[config.name]} label={inputLabel[config.name]} mt={10} {...form.getInputProps(config.name, { type: 'input' })} />
+                                    ? <PasswordInput id={config.name} description={inputDescription[config.name]} label={inputLabel[config.name]} mt={10} {...form.getInputProps(config.name, { type: 'input' })} />
                                     : config.name === "USING_CUSTOM_GENERATOR"
                                     ? <></>
                                     : config.name === "UNDER_MAINTENANCE"
-                                    ? <Switch checked={checked} color="red" description={inputDescription[config.name]} label={inputLabel[config.name]} mt={30} size={"md"} onLabel="ON" offLabel="OFF" onChange={(event) => setChecked(event.currentTarget.checked)} />
-                                    : <TextInput required description={inputDescription[config.name]} label={inputLabel[config.name]} mt={10} {...form.getInputProps(config.name, { type: 'input' })} />
+                                    ? <Switch id={config.name} checked={checked} color="red" description={inputDescription[config.name]} label={inputLabel[config.name]} mt={30} size={"md"} onLabel="ON" offLabel="OFF" onChange={(event) => setChecked(event.currentTarget.checked)} />
+                                    : <TextInput id={config.name} required description={inputDescription[config.name]} label={inputLabel[config.name]} mt={10} {...form.getInputProps(config.name, { type: 'input' })} />
                                 }
                             </div>
                         );
                     })}
                     <Group position="center" mt={30} grow>
-                        <Button color={"violet"} leftIcon={<IoSaveOutline size={20} />} miw={240} maw={400} variant="outline" type="submit">
+                        <Button id={'edit-config-save-button'} color={"violet"} leftIcon={<IoSaveOutline size={20} />} miw={240} maw={400} variant="outline" type="submit">
                             Save
                         </Button>
                     </Group>

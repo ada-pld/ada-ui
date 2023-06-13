@@ -28,7 +28,7 @@ const Users = () => {
                     <UsersTable users={data} refetch={refetch} />
                 </div>
                 <Group position="center" mt={50} style={{width: "100%", minWidth: 250}}>
-                    <Button w={"30%"} miw={250} leftIcon={<AiOutlineUserAdd size={20} />} variant="outline" onClick={() => setOpened(true)}>
+                    <Button id="add-user-button" w={"30%"} miw={250} leftIcon={<AiOutlineUserAdd size={20} />} variant="outline" onClick={() => setOpened(true)}>
                         Add a user
                     </Button>
                 </Group>
