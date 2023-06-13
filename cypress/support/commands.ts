@@ -4,4 +4,3 @@ Cypress.Commands.add('adminLogin', () => {
     cy.get('#password-input').type('admin.147');
     cy.get('#login-button').click();
 });
-  

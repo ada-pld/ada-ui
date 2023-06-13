@@ -1,5 +1,3 @@
-import '../support/admin-login';
-
 describe('Rendering', () => {
     it('Page rendering', () => {
         cy.adminLogin();
@@ -42,12 +40,12 @@ describe('Change ADA config', () => {
 
     it('ADA config input error', () => {
         cy.get('#edit-config-button').click();
-        cy.get('#SMTP_HOST').type('error');
-        cy.get('#SMTP_USER').type('error');
-        cy.get('#SMTP_PORT').type('error');
-        cy.get('#SMTP_PASSWORD').type('error');
-        cy.get('#DEFAULT_PASSWORD').type('error');
-        cy.get('#HOSTNAME').type('error');
+        cy.get('#SMTP_HOST').clear().type('error');
+        cy.get('#SMTP_USER').clear().type('error');
+        cy.get('#SMTP_PORT').clear().type('error');
+        cy.get('#SMTP_PASSWORD').clear().type('error');
+        cy.get('#DEFAULT_PASSWORD').clear().type('error');
+        cy.get('#HOSTNAME').clear().type('error');
         cy.get('#edit-config-save-button').click();
         cy.contains('SMTP Port must be a number').should('be.visible');
         cy.contains('Hostname is not valid').should('be.visible');
@@ -55,12 +53,12 @@ describe('Change ADA config', () => {
 
     it('Edit ADA config successfully & check dashboard success', () => {
         cy.get('#edit-config-button').click();
-        cy.get('#SMTP_HOST').type('test.ada.smtp');
-        cy.get('#SMTP_USER').type('admin');
-        cy.get('#SMTP_PORT').type('587');
-        cy.get('#SMTP_PASSWORD').type('adminSmtpPassword');
-        cy.get('#DEFAULT_PASSWORD').type('password');
-        cy.get('#HOSTNAME').type('http://testing-ada.fr');
+        cy.get('#SMTP_HOST').clear().type('test.ada.smtp');
+        cy.get('#SMTP_USER').clear().type('admin');
+        cy.get('#SMTP_PORT').clear().type('587');
+        cy.get('#SMTP_PASSWORD').clear().type('adminSmtpPassword');
+        cy.get('#DEFAULT_PASSWORD').clear().type('password');
+        cy.get('#HOSTNAME').clear().type('http://testing-ada.fr');
         cy.get('#edit-config-save-button').click();
         cy.contains('ADA | Configuration').should('be.visible');
         cy.contains('New config has been saved !').should('be.visible');

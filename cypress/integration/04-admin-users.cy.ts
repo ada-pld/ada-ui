@@ -1,32 +1,30 @@
-import '../support/admin-login';
+describe('Rendering', () => {
+    it('Page rendering', () => {
+        cy.adminLogin();
+        cy.get('#nav-user-name').should('contain.text', 'admin admin');
+        cy.get('#nav-user-email').should('contain.text', 'admin@domestia.fr');
+        cy.get('#welcome-message').should('contain.text', 'Welcome on ADA');
+    });
+});
 
-// describe('Rendering', () => {
-//     it('Page rendering', () => {
-//         cy.adminLogin();
-//         cy.get('#nav-user-name').should('contain.text', 'admin admin');
-//         cy.get('#nav-user-email').should('contain.text', 'admin@domestia.fr');
-//         cy.get('#welcome-message').should('contain.text', 'Welcome on ADA');
-//     });
-// });
+describe('Access users page', () => {
+    beforeEach(() => {
+        cy.visit('/');
+        cy.adminLogin();
+    });
 
-// describe('Access users page', () => {
-//     beforeEach(() => {
-//         cy.visit('/');
-//         cy.adminLogin();
-//     });
+    it('Access users page from navbar', () => {
+        cy.get('#navbar-users-link').click();
 
-//     it('Access users page from navbar', () => {
-//         cy.get('#navbar-users-link').click();
+        cy.url().should('include', '/home/editor/users');
+    });
 
-//         cy.url().should('include', '/home/editor/users');
-//     });
+    it('Access users page from stepper shortcut', () => {
+        cy.get('#stepper-users-shortcut').click();
 
-//     it('Access users page from stepper shortcut', () => {
-//         cy.get('#stepper-users-shortcut').click();
-
-//         cy.url().should('include', '/home/editor/users');
-//     });
-// });
+        cy.url().should('include', '/home/editor/users');
+    });
+});
 
 describe('Create users', () => {
     beforeEach(() => {
