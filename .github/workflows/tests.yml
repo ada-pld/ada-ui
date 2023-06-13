@@ -39,7 +39,7 @@ jobs:
           start: npm start
           wait-on: "http://localhost:3000"
         env:
-          BASE_URL: 'https://ada-dev.hemmer.dev'
+          BASE_URL: 'https://ada-test.hemmer.dev'
 
       - name: Archive Cypress videos
         if: always()
