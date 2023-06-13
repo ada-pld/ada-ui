@@ -8,5 +8,7 @@ export default defineConfig({
         env: {
             BASE_URL: 'https://ada-test.hemmer.dev/',
         },
+        viewportWidth: 1600,
+        viewportHeight: 900,
     },
 })

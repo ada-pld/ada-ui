@@ -48,14 +48,15 @@ const AddUser: React.FC<Props> = ({opened, setOpened, refetch}) => {
             <Container style={{width: "90%"}} mt={-20} p={20}>
                 <form onSubmit={form.onSubmit((values) => createUser(values))}>
                     <Group position="apart" grow>
-                        <TextInput required label="First name" placeholder="Paul" mt={20} {...form.getInputProps('firstname', { type: 'input' })} />
-                        <TextInput required label="Last name" placeholder="Dubois" mt={20} {...form.getInputProps('lastname', { type: 'input' })} />
+                        <TextInput required id="add-user-firstname" label="First name" placeholder="Paul" mt={20} {...form.getInputProps('firstname', { type: 'input' })} />
+                        <TextInput required id="add-user-lastname" label="Last name" placeholder="Dubois" mt={20} {...form.getInputProps('lastname', { type: 'input' })} />
                     </Group>
-                    <TextInput required label="Email" placeholder="example@example.fr" mt={20} {...form.getInputProps('email', { type: 'input' })} />
+                    <TextInput required id="add-user-email" label="Email" placeholder="example@example.fr" mt={20} {...form.getInputProps('email', { type: 'input' })} />
                     <Select
                         searchable
                         clearable
                         required
+                        id="add-user-role"
                         data={['User', 'Maintener', 'Editor', 'Admin']}
                         label="Role"
                         radius={"sm"}
@@ -65,7 +66,7 @@ const AddUser: React.FC<Props> = ({opened, setOpened, refetch}) => {
                     />
                     <Group position="center" mt={30}>
                         <Text size={14} fs="italic" mt={5}>A mail will be sent to the user with his credentials</Text>
-                        <Button fullWidth maw={400} color={"violet"} leftIcon={<AiOutlineUserAdd size={20} />} variant="outline" type="submit">
+                        <Button id="create-user-button" fullWidth maw={400} color={"violet"} leftIcon={<AiOutlineUserAdd size={20} />} variant="outline" type="submit">
                             Add user
                         </Button>
                     </Group>

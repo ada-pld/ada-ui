@@ -1,7 +1,3 @@
-before(() => {
-    cy.request('GET', 'https://ada-test.hemmer.dev/start_tests');
-});
-
 describe('Rendering', () => {
     it('Page rendering', () => {
         cy.visit('/');

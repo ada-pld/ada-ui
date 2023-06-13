@@ -5,7 +5,7 @@ describe('Rendering', () => {
     });
 });
 
-describe('Login errors', () => {
+describe('Admin login errors', () => {
     beforeEach(() => {
         cy.visit('/');
     });
@@ -47,7 +47,7 @@ describe('Login errors', () => {
     });
 });
 
-describe('Valid admin login', () => {
+describe('Admin login', () => {
     it('Login with admin account', () => {
         cy.visit('/');
         cy.get('#email-input').type('admin@domestia.fr');
