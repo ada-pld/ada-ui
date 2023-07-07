@@ -9,6 +9,7 @@ import ListWaitingCards from "features/home/editor/CardsApprovalAndEdition";
 import { useListParts } from "hooks/api/useListParts";
 
 import { useGetCardList } from "hooks/api/useGetCardList";
+import UserWelcome from "features/home/user/dashboard/UserWelcome";
 
 const Cards = () => {
     const { data: cards, refetch } = useGetCardList();
@@ -26,7 +27,7 @@ const Cards = () => {
                 </Container>
             }
         </div>
-    ) : <CustomLoader />;
+    ) : sprint === null ? <UserWelcome type="sprint" /> : <CustomLoader />;
 }
 
 export default Cards;

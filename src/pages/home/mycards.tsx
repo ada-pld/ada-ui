@@ -18,6 +18,7 @@ import AddCardModal from "features/global/cards/components/modals/AddCardModal";
 
 import CustomLoader from "components/loader/CustomLoader";
 import { Card } from "types/apiTypes";
+import UserWelcome from "features/home/user/dashboard/UserWelcome";
 
 const MyCards = () => {
     const { data: sprint } = useGetSprint();
@@ -52,7 +53,7 @@ const MyCards = () => {
                 </Container>
             }
         </div>
-    ) : <CustomLoader />;
+    ) : sprint === null ? <UserWelcome type="sprint" /> : <CustomLoader />;
 }
 
 export default MyCards;
