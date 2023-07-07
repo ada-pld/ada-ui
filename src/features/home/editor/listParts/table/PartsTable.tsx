@@ -11,8 +11,8 @@ const PartsTable: React.FC<Props> = ({ parts }) => {
         <tr key={index}>
             <td>{part.id}</td>
             <td>{part.name}</td>
-            <td>{part.cards.length}</td>
-            <td>{part.cards.filter(item => item.sprint.active).length}</td>
+            <td>{part.cards?.length || "No sprint selected"}</td>
+            <td>{part.cards?.filter(item => item.sprint.active).length || "No sprint selected"}</td>
         </tr>
     ));
 
