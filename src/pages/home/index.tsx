@@ -42,7 +42,7 @@ const Dashboard = () => {
             <Container fluid p={0} m={0}>
                 {userRole === "3" && sprint === null
                     ?   <AdminWelcome />
-                    :   isWaiting && isWaiting.length === 0
+                    :   (sprint === null) || (isWaiting && isWaiting.length === 0)
                     ?   <UserWelcome setOpenAdd={setOpenAdd} />
                     :   <>{user && <DashboardCards user={user} sprint={sprint} refetch={refetch} cards={cards} />}</>
                 }
