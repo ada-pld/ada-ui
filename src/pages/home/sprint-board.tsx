@@ -1,6 +1,7 @@
 import { Container } from "@mantine/core";
 
 import CustomLoader from "components/loader/CustomLoader";
+import UserWelcome from "features/home/user/dashboard/UserWelcome";
 import SprintBoardPart from "features/home/user/sprintBoard/SprintBoardPart";
 import { useGetSprint } from "hooks/api/useGetSprint";
 
@@ -34,7 +35,7 @@ const SprintBoard = () => {
                 </div>
             </Container>
         </div>
-    ) : <CustomLoader />;
+    ) : sprint === null ? <UserWelcome type="sprint" /> : <CustomLoader />;
 }
 
 export default SprintBoard;
