@@ -21,7 +21,7 @@ jobs:
         run: |
           REPO_PATH=`pwd`
           git pull
-          git checkout main
+          git checkout production
           git clone https://$PAT_USERNAME:$PAT_TOKEN@github.com/ada-pld/$REPOSITORY ../$REPOSITORY
           cd ../$REPOSITORY
 
@@ -32,7 +32,7 @@ jobs:
           git checkout -b update-to-$GITHUB_SHA
 
           git remote add public file://$REPO_PATH
-          git pull public main
+          git pull public production
 
           git push --set-upstream origin update-to-$GITHUB_SHA
 
@@ -40,4 +40,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
           REPOSITORY: ${{ secrets.REPOSITORY }}
-        run: gh pr create -R "ada-pld/$REPOSITORY" -B main -H "update-to-$GITHUB_SHA" -b "[Automated] Update to commit $GITHUB_SHA" -t "Automated pull request to update repository to $GITHUB_SHA"
+        run: gh pr create -R "ada-pld/$REPOSITORY" -B production -H "update-to-$GITHUB_SHA" -b "[Automated] Update to commit $GITHUB_SHA" -t "Automated pull request to update repository to $GITHUB_SHA"
