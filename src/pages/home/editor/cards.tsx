@@ -20,7 +20,7 @@ const Cards = () => {
         <div style={{height: "80%", width: "100%"}}>
             <Head><title>ADA | Cards</title></Head>
             {cards &&
-                <Container fluid p={0} m={0} style={{height: "100%", width: "100%"}}>
+                <Container fluid p={20} m={0} style={{height: "100%", width: "100%"}}>
                     <h1 style={{textAlign: "center"}}>Cards</h1>
                     <h3 style={{textAlign: "center", color: "dimgrey"}}>{sprint.name}</h3>
                     <ListWaitingCards cards={cards} refetch={refetch} parts={parts} />

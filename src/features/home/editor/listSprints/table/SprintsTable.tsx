@@ -36,7 +36,7 @@ const SprintsTable: React.FC<Props> = ({ sprints, refetch }) => {
     ));
 
     return (
-        <div style={{overflow: "auto"}}>
+        <div style={{overflow: "auto", marginTop: 20}}>
             <Table highlightOnHover striped verticalSpacing="xs">
                 <thead>
                     <tr>

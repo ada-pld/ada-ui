@@ -15,18 +15,16 @@ const SprintBoard = () => {
     const { data: sprint } = useGetSprint();
 
     return users && sprint ? (
-        <div>
+        <>
             <Head><title>ADA | Sprint board</title></Head>
             <Container fluid p={0} m={0}>
-                <h1 style={{textAlign: "center"}}>Sprint board</h1>
+                <h1 style={{textAlign: "center", marginTop: 20}}>Sprint board</h1>
                 <h3 style={{textAlign: "center", color: "dimgrey"}}>{sprint.name}</h3>
                 <div style={{marginTop: 60}}>
                     {users.map((user: UserCards) => (
                         <div key={user.id} style={{marginTop: 30}}>
                             <SprintBoardPart
-                                fullname={user.firstname + " " + user.lastname}
-                                email={user.email}
-                                cards={user.cards}
+                                user={user}
                                 sprintId={sprint.id}
                                 refetch={refetch}
                             />
@@ -34,7 +32,7 @@ const SprintBoard = () => {
                     ))}
                 </div>
             </Container>
-        </div>
+        </>
     ) : sprint === null ? <UserWelcome type="sprint" /> : <CustomLoader />;
 }
 

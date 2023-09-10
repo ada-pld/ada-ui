@@ -32,7 +32,7 @@ const MyCards = () => {
             <Head><title>ADA | MyCards</title></Head>
             <AddCardModal openAdd={openAdd} setOpenAdd={setOpenAdd} refetch={refetch} />
             {data &&
-                <Container fluid p={0} m={0}>
+                <Container fluid p={20} m={0}>
                     <h1 style={{textAlign: "center"}}>My Cards</h1>
                     <h3 style={{textAlign: "center", color: "dimgrey"}}>{sprint.name}</h3>
                     <Group position="center" mt={40} style={{width: "100%", minWidth: 250}}>

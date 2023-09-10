@@ -13,7 +13,7 @@ const Profile = () => {
         <div>
             <Head><title>ADA | Profile</title></Head>
             <Container fluid p={0} m={0}>
-                <h1 style={{textAlign: "center"}}>Profile</h1>
+                <h1 style={{textAlign: "center", marginTop: 20}}>Profile</h1>
                 <UserProfile user={user} refetch={refetch} />
             </Container>
         </div>

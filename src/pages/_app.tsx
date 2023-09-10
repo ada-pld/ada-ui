@@ -56,7 +56,7 @@ const App = (props: AppProps & { colorScheme: ColorScheme }) => {
                         <NextNProgress color='#9775FA' height={3} showOnShallow={true} options={{ easing: 'ease', speed: 400, showSpinner: false }} />
                         {width &&
                             <AppShell
-                                padding="md"
+                                padding={0}
                                 navbar={width >= 800 && pathname.includes("home") ? <NavBar /> : <></>}
                                 header={width <= 800 && pathname.includes("home") ? <div style={{height: 50}}><Burger p={30} opened={opened} onClick={open} /></div> : <></>}
                             >

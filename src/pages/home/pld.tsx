@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 import { useGetPLDs } from "hooks/api/useGetPLD";
 
 import CustomLoader from "components/loader/CustomLoader";
+import JoursAlert from "features/home/user/dashboard/components/JoursAlert";
 
 const PLD = () => {
     const { data: pldList } = useGetPLDs();
@@ -33,9 +34,9 @@ const PLD = () => {
                         </Button>
                     </Group>
                 }
-                {pldList.length >= 0
+                {pldList.length > 0
                     ? <div style={{overflow: 'auto'}}><PldTable pldList={pldList} /></div>
-                    : <Text mt={20} size={22} weight={"bold"} align={"center"}>No PLD Please generate one with the upper button</Text>
+                    : <JoursAlert mt={40} withCloseButton={false} message={"No Document - Please Generate a PLD with the upper button"} variant={"alert"} />
                 }
             </Container>
         </>
