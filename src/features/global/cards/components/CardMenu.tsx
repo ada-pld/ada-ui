@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useMantineTheme, ActionIcon, Menu } from "@mantine/core";
 
 import { HiOutlineDotsHorizontal, HiOutlineTrash } from "react-icons/hi";
-import { BsList } from "react-icons/bs";
 
 import { RiEditLine } from "react-icons/ri";
 import { TbCheckbox } from "react-icons/tb";
@@ -16,6 +15,7 @@ import EditModal from "./modals/EditCardModal";
 import { useDeleteCardMutation } from "store/api/cardAPI";
 import { deleteErrorNotification } from "components/notifications/errors";
 import { deleteCardNotification } from "components/notifications/success";
+import DodsButton from "./menu/DodsButton";
 
 interface Props {
     card: Card;
@@ -64,9 +64,7 @@ const CardMenu: React.FC<Props> = ({ card, refetch, edition }) => {
                             <Menu.Item color="red" icon={<HiOutlineTrash size={18} />} onClick={() => deleteCard(card.id)}>Delete card</Menu.Item>
                         </Menu.Dropdown>
                     </Menu>
-                :   <ActionIcon size={"lg"} color={"violet"} onClick={() => setOpenDods(true)}>
-                        <BsList size={25} color={theme.colors.violet[5]} />  
-                    </ActionIcon>
+                :   <DodsButton setOpenDods={setOpenDods} />
             }
         </>
     );
