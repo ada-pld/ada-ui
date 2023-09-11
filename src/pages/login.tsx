@@ -14,7 +14,7 @@ import { useAppSelector } from "store/hooks/hooks";
 export function Login() {
     const router = useRouter();
     const token = useAppSelector(state => state.user.auth.accessToken);
-    const { data: checkToken, error: checkTokenError, isSuccess: checkTokenSuccess } = useCheckTokenQuery(token!);
+    const { data: checkToken, isSuccess: checkTokenSuccess } = useCheckTokenQuery(token!);
     const { data, error, isSuccess } = useCheckErrorQuery<any>();
 
     useEffect(() => {
@@ -29,6 +29,7 @@ export function Login() {
     useEffect(() => {
         if (checkTokenSuccess === true)
             router.replace("/home");
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [checkToken])
 
     return router.query && isSuccess ? (

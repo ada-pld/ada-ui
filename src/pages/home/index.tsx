@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import Head from "next/head";
 
@@ -39,7 +39,7 @@ const Dashboard = () => {
         <div>
             <Head><title>ADA | Dashboard</title></Head>
             <AddCardModal openAdd={openAdd} setOpenAdd={setOpenAdd} refetch={refetch} />
-            <Container fluid p={0} m={0}>
+            <Container fluid p={20} m={0}>
                 {userRole === "3" && sprint === null
                     ?   <AdminWelcome />
                     :   sprint === null

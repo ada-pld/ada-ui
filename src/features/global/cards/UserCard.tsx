@@ -14,10 +14,10 @@ import CardMenu from './components/CardMenu';
 
 import { statusError2Notification, statusErrorNotification } from 'components/notifications/errors';
 
-import CardBody from './components/CardParts/CardBody';
-import CardTitle from './components/CardParts/CardTitle';
-import CardStatusControl from './components/CardParts/CardStatusControl';
-import CardManagement from './components/CardParts/CardManagement';
+import CardBody from './components/cardParts/CardBody';
+import CardTitle from './components/cardParts/CardTitle';
+import CardStatusControl from './components/cardParts/CardStatusControl';
+import CardManagement from './components/cardParts/CardManagement';
 
 interface Props {
     card: CardType;

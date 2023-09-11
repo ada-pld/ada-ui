@@ -32,7 +32,7 @@ const Config = () => {
         <>
             <Head><title>ADA | Config</title></Head>
             <ConfigModal opened={opened} setOpened={setOpened} actualConfig={data.config} refetch={refetch} />
-            <Container m={0}>
+            <Container m={0} p={20}>
                 <h1 style={{paddingBottom: 10}}>ADA | Configuration</h1>
                 <Group mt={10}>
                     <Badge size="lg" radius="sm" variant="outline">Version {data.version}</Badge>

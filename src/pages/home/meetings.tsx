@@ -25,7 +25,7 @@ const Meetings = () => {
         <div>
             <Head><title>ADA | Meetings</title></Head>
             <CreateMeeting meetings={meetings} opened={opened} close={close} refetch={refetch} />
-            <Container fluid p={0} m={0}>
+            <Container fluid p={20} m={0}>
                 <h1 style={{textAlign: "center"}}>Meetings</h1>
                 <Group position="center" mt={40} style={{width: "100%", minWidth: 250}}>
                     {role === "2" || role === "3" ?

@@ -11,11 +11,10 @@ import { useGetPLDChanges } from "hooks/api/useGetPLDChanges";
 
 import CustomLoader from "components/loader/CustomLoader";
 import PldChanges from "features/home/editor/pld/PldChanges";
-import { useDisclosure } from "@mantine/hooks";
 
 const Changes = () => {
     const [isLoaded, setIsLoaded] = useState(false);
-    const { data, refetch } = useGetPLDChanges();
+    const { data } = useGetPLDChanges();
 
     const router = useRouter();
     const role = useAppSelector((state) => state.user.auth.accessToken?.charAt(0));
