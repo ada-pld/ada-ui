@@ -3,7 +3,7 @@ import { Card, UserCards } from "types/apiTypes";
 import style from "./styles/sprintBoard.module.css";
 import UserCard from "features/global/cards/UserCard";
 
-import { Center, Divider } from "@mantine/core";
+import { Badge, Center, Divider, Group } from "@mantine/core";
 
 interface Props {
     user: UserCards;
@@ -19,6 +19,11 @@ const SprintBoardPart: React.FC<Props> = ({ user, sprintId, refetch }) => {
             <div style={{paddingRight: 20, paddingLeft: 20}}>
                 <h2 className={style.title}>{user.firstname} {user.lastname}</h2>
                 <h2 className={style.subtitle}>{user.email}</h2>
+                <Group mt={10}>
+                    <Badge variant="light" size="md" radius={"sm"} color={"green"}>{user.JHDones} Finished</Badge>
+                    <Badge variant="light" size="md" radius={"sm"} color={"orange"}>{user.JHInProgress} in progress</Badge>
+                    <Badge variant="light" size="md" radius={"sm"} color={"red"}>{user.JHNotStarted} Not started</Badge>
+                </Group>
                 <Divider mt={20} />
             </div>
             <div className={style.scrollmenu}>
