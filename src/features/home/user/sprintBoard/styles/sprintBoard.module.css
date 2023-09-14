@@ -13,12 +13,6 @@
     overflow: auto;
     white-space: nowrap;
     padding: 20px;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-.scrollmenu::-webkit-scrollbar {
-    display: none;
 }
 
 .scrollmenu .cardsPart {
